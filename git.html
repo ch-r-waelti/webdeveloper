@@ -36,7 +36,7 @@
       <p>Initialisiert Git und erstellt den 'master'</p>
       <li>Files editieren mit 'atom .'</li>
       <p>Sollen Files in Unterordnern erstellt werden, in der Shell Direktory erstellen und darin mit 'atom .' weitere Files erstellen</p>
-      <li>Bearbeitete Files in die 'Staging Area' schreiben: git add <file | .></li>
+      <li>Bearbeitete Files in die 'Staging Area' schreiben: git add &lt;file | .&gt;</li>
       <p>'.' lädt alle Files in die 'Staging Area'<p>
       <li>Files versionieren: git commit -m "<sinnvoller aenderungsgrund>"<li>
       <li>Testen (mit Browser Sync) im Projektordner: browser-sync start --server</li>
@@ -45,8 +45,18 @@
     </ol>
     <h2>Wichtige Kommandos</h2>
     <ul>
-      <li>git status</li>
+      <li><a href="#gitStatus">git status</a></li>
       <p>Listet den Status der Files und Directories</p>
+      <li>git log</li>
+      <p>Listet auf, was gemacht wurde</p>
+      <p><p><u>Parameter</u></p>
+        <ul>
+          <li>&lt;ganzzahl&gt;: Listet erste Einträge auf</li>
+          <li>&lt;negative ganzzahl&gt;: Listet letzte Einträge auf</li>
+        </ul>
+      </p>
+
+    <h2 id="gitStatus">git status<h2>
       <p>C:\Users\public\documents\webprofessional\projects\webdeveloper [master +4 ~0 -0 ~]> git status</p>
       <p>Nachstehendes Beispiel neu editierter Files (nicht in Staging Area)</p>
       <table><tr><td>
@@ -85,7 +95,6 @@ Changes to be committed:<br>
       </td><tr></table>
     <h2>Lifecycle Project</h2>
 
-    <p>Dies ist meine erste HTML Seite.</p>
   </main>
 </body>
 </html>
