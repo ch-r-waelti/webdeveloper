@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <title>Git</title>	<!- Wird im Fenster/Lasche als Titel angezeigt -->
+</head>
+<!-
+	Kommentar
+-->
+<body>
+    <h1>HGit</h1>
+    <p>Ist ein Versionierungstool. Aktuell verwenden wir es mit der git shell, ein Unix-angelehntes Kommandofenster.</p>
+    <p>Wir verwenden in der Schule zusätzlich die Tools
+      <ul>
+        <li><a href="http://flight-manual.atom.io/">atom</a>: als Editor</li>
+        <li><a href="https://www.browsersync.io/">Browser-Sync</a>: Test Web-Server</li>
+      </ul>
+    </p>
+    <h2>Projekt aufsetzen</h2>
+    <ol>
+      <li>Projektordner erstellen: mkdir</li>
+      <li>im Projektordner Kommando 'git init'</li>
+      <p>Initialisiert Git und erstellt den 'master'</p>
+      <li>Files editieren mit 'atom .'</li>
+      <p>Sollen Files in Unterordnern erstellt werden, in der Shell Direktory erstellen und darin mit 'atom .' weitere Files erstellen</p>
+      <li>Bearbeitete Files in die 'Staging Area' schreiben: git add <file | .></li>
+      <p>'.' lädt alle Files in die 'Staging Area'<p>
+      <li>Files versionieren: git commit -m "<sinnvoller aenderungsgrund>"<li>
+      <li>Testen (mit Browser Sync) im Projektordner: browser-sync start --server</li>
+      <p>Tipp: Um den Browser Sync nicht immer nochmals starten zu müssen, am besten eine zweite Shell öffnen, im Projektordner positionieren und das Kmmando dort aufrufen; dann muss nur noch refreshed werden</p>
+    </ol>
+    <h2>Lifecycle Project</h2>
+
+    <p>Dies ist meine erste HTML Seite.</p>
+</body>
+</html>

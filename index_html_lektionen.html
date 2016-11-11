@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html>
+<head lang="de_ch">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <title>html / css</title>
+</head>
+<body>
+    <!-Das wird im Browser nicht angezeigt (Kommentar) -->
+    <header id="kopf">Kopf</header>
+    <nav id="navigation">
+        <table id="tNavi" rules="all">
+            <tr>
+                <td class="tNavi_c1"><a href="#html">HTML</a></td>
+                <td class="tNavi_c2"><a href="#css">CSS</a></td>
+                <td class="tNavi_c3"><a href="#stichwortverzeichnis">Stichwortverzeichnis</a></td>
+                <td class="tNavi_c4"></td>
+            </tr>
+        </table>
+    </nav>
+<!- MAIN -------------------------------------------------------------------------------------- -->
+    <main id="hauptteil">
+    <!- html ---------------------------------------------------------------------------------- -->
+    <h1 id="html">html</h1>
+    <h2 id="htmlreferenzen">Dateireferenzen</h2>
+        <p>
+            Referenzen k&ouml;nnen verschieden angegeben werden: Grunds&auml;tzlich unterscheiden wir zwischen
+            &apos;relativ&apos; und &apos;absolut&apos;. Basis f&uuml;r &apos;relativ&apos; ist das
+            Startverzeichnis der ganzen HTML-Geschichte, also dort, wo das Startfile
+            (&uuml;blicherweise &apos;index.html&apos;) liegt.
+        </p>
+        <ul>
+            <li id="absolut">Absolute
+                <ul>
+                    <li>c:\temp\irgendeinbild.jpg</li>
+                    <li>http://www.chr&uuml;si.ch</li>
+                </ul>
+            </li>
+            <li id="relativ">Relative
+                <ul>
+                    <li>bilder\irgendeinbild.jpg</li>
+                    <li>css\layout.css</li>
+                    <li>css\..\wiederimBasisverzeichnisdummesBeispiel</li>
+                </ul>
+            </li>
+        </ul>
+    <!- Sonderzeichen ------------------------------------------------------------------------- -->
+    <h2 id="htmlsonderzeichen">Sonderzeichen</h2>
+        <table class="i1" id="tSonderzeichen" rules="all">
+            <tr><td class="tSonderzeichen_c1">&amp;</td>
+                <td class="tSonderzeichen_c2">&amp;amp; </td></tr>
+            <tr><td class="tSonderzeichen_c1">&apos;</td>
+                <td class="tSonderzeichen_c2">&amp;apos; </td></tr>
+            <tr><td class="tSonderzeichen_c1">&quot;</td>
+                <td class="tSonderzeichen_c2">&amp;quot; </td></tr>
+            <tr><td class="tSonderzeichen_c1">&lt;</td>
+                <td class="tSonderzeichen_c2">&amp;lt; </td></tr>
+            <tr><td class="tSonderzeichen_c1">&gt;</td>
+                <td class="tSonderzeichen_c2">&amp;gt; </td></tr>
+            <tr><td class="tSonderzeichen_c1">&uml;</td>
+                <td class="tSonderzeichen_c2">&amp;uml; </td></tr>
+            <tr><td class="tSonderzeichen_c1">&Auml;</td>
+                <td class="tSonderzeichen_c2">&amp;Auml; </td></tr>
+            <tr><td class="tSonderzeichen_c1">&auml;</td>
+                <td class="tSonderzeichen_c2">&amp;auml; </td></tr>
+            <tr><td class="tSonderzeichen_c1">&Ouml;</td>
+                <td class="tSonderzeichen_c2">&amp;Ouml; </td></tr>
+            <tr><td class="tSonderzeichen_c1">&ouml;</td>
+                <td class="tSonderzeichen_c2">&amp;ouml; </td></tr>
+            <tr><td class="tSonderzeichen_c1">&Uuml;</td>
+                <td class="tSonderzeichen_c2">&amp;Uuml; </td></tr>
+            <tr><td class="tSonderzeichen_c1">&uuml;</td><td class="tSonderzeichen_c2">&amp;uuml; </td></tr>
+        </table>
+        <!- Seite: Grundaufbau ----------------------------------------------------------------- -->
+        <h2 id="SeiteGrundaufbau">Seite: Grundaufbau</h2>
+        <div class="code">
+            <p class="cd0">&lt;!DOCTYPE html&gt;</p>
+            <p class="cd0">&lt;html&gt;</p>
+            <p class="cd1">&lt;head lang="de"&gt;</p>
+            <p class="cd1">&lt;!- Fuer Schweiz kann auch &quot;de-ch&quot; sein --&gt;</p>
+            <p class="cd1">&lt;meta charset="UTF-8"&gt;</p>
+            <p class="cd1">&lt;title&gt;&lt;/title&gt; &lt;!- Erscheint als Name auf dem Browserfenster /-Reiter --&gt;</p>
+            <p class="cd0">&lt;/head&gt;</p>
+            <p class="cd0">&lt;body&gt;</p>
+            <p class="cd1">... Inhalt ...</p>
+            <p class="cd0">&lt;/body&gt;</p>
+            <p class="cd0">&lt;/html&gt;</p>
+        </div>
+        <!- kommentar -------------------------------------------------------------------------- -->
+        <h2 id="htmlkommentar">Kommentar</h2>
+            <p>
+                Beispiel:
+            </p>
+            <div class="code">
+                <p class="cd0">&lt;!- hier der Kommentar (... besser pro Zeile) --&gt;</p>
+            </div>
+            <ul>
+                <li>Kommentar reagiert komisch, wenn &uuml;ber mehrere Zeilen; besser pro Zeile...</li>
+            </ul>
+        <h2>Blockelemente</h2>
+            <p>
+                Diese erzwingen einen Umbruch.
+            </p>
+            <!- a / href ----------------------------------------------------------------------- -->
+            <h3 id="htmlbr">&lt;br&gt;</h3>
+                <p>
+                    Zeilenumbruch erzwingen (einziges Blockelement ohne &apos;Blockende&apos;)
+                </p>
+                <div class="code">
+                    <p class="cd0">
+                        Text...&lt;br&gt;<br>
+                        ...Text
+                    </p>
+                </div>
+            <!- form Formular -------------------------------------------------------------------- -->
+            <h3 id="htmlform">&lt;form&gt;&lt;/ol&gt;</h3>
+                <p>
+                    Der (empfohlene) Rahmen f&uml;r Eingabeelemente:
+                    <ul>
+                        <li>&lt;button&gt; Knopf (siehe <a href="#htmlbutton"><u>hier</u></a>)</li>
+                        <li>&lt;input&gt; Eingabe (siehe <a href="#htmlinput"><u>hier</u></a>)</li>
+                        <li>&lt;select&gt; Dropdown (siehe <a href="#htmlselect"><u>hier</u></a>)</li>
+                    </ul>
+                </p>
+                <p>
+                    <u>Beispiel:</u>
+                </p>
+                <div class="code">
+                    <p class="cd0">&lt;form class="cform"&gt;</p>
+                    <p class="cd1">&lt;p&gt;</p>
+                    <p class="cd2">&lt;label for="lb_testeingabe"&gt;Testeingabe&lt;/label&gt;</p>
+                    <p class="cd2">&lt;input id="lb_testeingabe" name="testeingabe" size="40"</p>
+                    <p class="cd3">tabindex="2"&gt;</p>
+                    <p class="cd2">&lt;!-- readonly="readonly" disabled="disabled"&gt; --&gt;</p>
+                    <p class="cd1">&lt;/p&gt;</p>
+                    <p class="cd1">&lt;p&gt;</p>
+                    <p class="cd2">&lt;label for="lb_dropdown"&gt;Dropdown&lt;/label&gt;</p>
+                    <p class="cd2">&lt;select id="lb_dropdown" name="dropdown" tabindex="1"&gt;</p>
+                    <p class="cd3">&lt;option value="Eintrag 1"&gt;Eintrag 1&lt;/option&gt;</p>
+                    <p class="cd3">&lt;option value="Eintrag 2"&gt;Eintrag 2&lt;/option&gt;</p>
+                    <p class="cd3">&lt;option value="Eintrag 3"&gt;Eintrag 3&lt;/option&gt;</p>
+                    <p class="cd2">&lt;/select&gt;</p>
+                    <p class="cd1">&lt;/p&gt;</p>
+                    <p class="cd1">&lt;p&gt;</p>
+                    <p class="cd2">&lt;button value="Knopf" tabindex="3"&gt;Knopf&lt;/button&gt;</p>
+                    <p class="cd1">&lt;/p&gt;</p>
+                    <p class="cd0">&lt;/form&gt;</p>
+                </div>
+                <p><u>Aufl&ouml;sung:</u></p>
+                <p>(ohne gross CSS (ausser, es w&auml;re in diesem, eigenen CSS formatiert ...))</p>
+                <div class="resultat">
+                    <form class="cform">
+                        <p>
+                            <label for="lb_testeingabe">Testeingabe</label>
+                            <input id="lb_testeingabe" name="testeingabe" size="40"
+                                   tabindex="2">
+                            <!-- readonly="readonly" disabled="disabled"> -->
+                        </p>
+                        <p>
+                            <label for="lb_dropdown">Dropdown</label>
+                            <select id="lb_dropdown" name="dropdown" tabindex="1">
+                                <option value="Eintrag 1">Eintrag 1</option>
+                                <option value="Eintrag 2">Eintrag 2</option>
+                                <option value="Eintrag 3">Eintrag 3</option>
+                            </select>
+                        </p>
+                        <p>
+                            <button value="Knopf" tabindex="3">Knopf</button>
+                        </p>
+                    </form>
+                </div>
+                <ul>
+                    <li>&Uuml;ber &apos;tabindex&apos; kann die Reihenfolge der Felder bei
+                        Bet&auml;tigen der [tab]-Taste festgelegt werden</li>
+                    <li>Beachten: Die Verkn&uuml;pfung von &lt;label&gt; und &lt;input&gt;
+                        bzw. &lt;select&gt; via Parameter &apos;for&apos; erfolgt <u>nicht</u>
+                        &uuml;ber&apos;name&apos;, sondern &apos;id&apos;</li>
+                </ul>
+            <!- h1 - h6: Ueberschriften --------------------------------------------------------- -->
+            <h3 id="h_ueberschrift">&lt;h[n]&gt; &lt;/h[n]&gt;</h3>
+            <p>
+                &Uuml;berschriftenhierarchie von 1 bis 6, 1 ist die oberste, 6 die unterste Stufe.
+                Die Formatierung erfolgt vorzugsweise in &apos;CSS&apos;
+            </p>
+            <div class="code">
+                <p class="cd0">&lt;h1&gt;Hauptesttitel&lt;/h1&gt;</p>
+                <p class="cd1">&lt;p&gt;...Text...&lt;p&gt;</p>
+                <p class="cd1">&lt;h2&gt;Untertitel Stufe 1&gt;</p>
+                <p class="cd2">&lt;p&gt;...nochmals Text ...&lt;/p&gt;</p>
+                <p class="cd2">...etc...</p>
+            </div>
+            <ul>
+                <li>Die Hierarchie soll sinnvollerweise in der Reihenfolge aufsteigend stimmen</li>
+                <li>M&ouml;glicherweise mag Google das ...</li>
+            </ul>
+            <!- li - Listenelement ------------------------------------------------------------- -->
+            <h3 id="li_element">&lt;li&gt; &lt;/li&gt;</h3>
+            <p>
+                Element einer un/-geordneten Liste (&lt;ul&gt; siehe <a href="#u_liste"><u>hier</u></a>,
+                &lt;ol&gt; siehe <a href="#o_liste"><u>hier</u></a>)
+            </p>
+            <div class="code">
+                <p class="cd0">&lt;li&gt;...Text...&lt;/li&gt;</p>
+            </div>
+            <ul>
+                <li>&lt;li&gt;&lt;/li&gt; nur mit un-/geordneten (&lt;ul&gt; und &lt;ol&gt; verwenden!</li>
+            </ul>
+            <!- ordered list ------------------------------------------------------------------- -->
+            <h3 id="o_liste">&lt;ol&gt;&lt;/ol&gt;</h3>
+            <p>
+                Geordnete Liste (im Gegensatz zu &lt;ul&gt;&lt;/ul&gt;, &apos;unordered list&apos;,
+                ungeordnete Liste (siehe <a href="#u_liste"><u>hier</u></a>. Die Punkte m&uuml;ssen mit
+                &lt;li&gt;&lt;/li&gt; &apos;aufgez&auml;hlt&apos; werden.
+                Im Gegensatz zur ungeordneten Liste weist die geordnete Liste Zahlen (oder ähnliches) auf).
+            </p>
+            <p>
+                Die Formatierung der Liste erfolgt vorzugsweise in &apos;CSS&apos;
+                (z.B. &apos;list-style-type &apos;).
+            </p>
+            <p>
+                <u>Beispiel:</u>
+            </p>
+            <div class="code">
+                <p class="cd0">&lt;ol&gt; &lt;!- Listen-Beginn --&gt;</p>
+                <p class="cd1">&lt;li&gt;erster Listenpunkt&lt;/ul&gt;</p>
+                <p class="cd1">&lt;li&gt;zweiter Listenpunkt&lt;/ul&gt;</p>
+                <p class="cd1">&lt;li&gt;dritter Listenpunkt&lt;/ul&gt;</p>
+                <p class="cd0">&lt;/ol&gt; &lt;!- Listen-Ende --&gt;</p>
+            </div>
+            <p><u>Aufl&ouml;sung:</u></p>
+            <p>(ohne gross CSS (ausser, es w&auml;re in diesem, eigenen CSS formatiert ...))</p>
+            <div class="resultat">
+                <ol>
+                    <li>erster Listenpunkt</li>
+                    <li>zweiter Listenpunkt</li>
+                    <li>dritter Listenpunkt</li>
+                </ol>
+            </div>
+            <!- p - Absatz --------------------------------------------------------------------- -->
+            <h3 id="Absatz">&lt;p&gt; &lt;/p&gt;</h3>
+            <p>
+                Wichtiges graphisches Instrument. Damit k&ouml;nnen (&auml;hnlich MS-Word) Abs&auml;tze
+                gebildet werden.
+            </p>
+            <div class="code">
+                <p class="cd0">&lt;p&gt;...Text...&lt;/p&gt;</p>
+            </div>
+            <!- table -------------------------------------------------------------------------- -->
+            <h3 id="table">&lt;table&gt;&lt;/table&gt;</h3>
+                <p>
+                    Beispiel:
+                </p>
+                <div class="code">
+                    <p class="cd0">&lt;table rules=&quot;all&quot;&gt; &lt;!- Tabelle Beginn --&gt;</p>
+                    <p class="cd0">&lt;caption&gt;Ein Beispiel&lt;/caption&gt;</p>
+                    <p class="cd1">&lt;tr&gt; &lt;!- Zeile Beginn --&gt;</p>
+                    <p class="cd2">&lt;!- Ueberschrift --&gt;</p>
+                    <p class="cd2">&lt;th&gt;Spalte 1&lt;/th&gt;</p>
+                    <p class="cd2">&lt;th&gt;Spalte 2 &lt;/th&gt;</p>
+                    <p class="cd2">&lt;th&gt;Spalte 3 &lt;/th&gt;</p>
+                    <p class="cd1">&lt;/tr&gt; &lt;!- Zeile end --&gt;</p>
+                    <p class="cd1">&lt;tr&gt; &lt;!- Zeile Beginn --&gt;</p>
+                    <p class="cd2">&lt;!- Datenzeile 1 --&gt;</p>
+                    <p class="cd2">&lt;td&gt;Daten 1/1&lt;/td&gt;</p>
+                    <p class="cd2">&lt;td&gt;Daten 1/2 &lt;/td&gt;</p>
+                    <p class="cd2">&lt;td&gt;Daten 1/3 &lt;/td&gt;</p>
+                    <p class="cd1">&lt;/tr&gt; &lt;!- Zeile end --&gt;</p>
+                    <p class="cd2">&lt;!- Datenzeile 2 --&gt;</p>
+                    <p class="cd2">&lt;td&gt;Daten 2/1&lt;/td&gt;</p>
+                    <p class="cd2">&lt;td&gt;Daten 2/2 &lt;/td&gt;</p>
+                    <p class="cd2">&lt;td&gt;Daten 2/3 &lt;/td&gt;</p>
+                    <p class="cd1">&lt;/tr&gt; &lt;!- Zeile end --&gt;</p>
+                    <p class="cd2">&lt;!- Fusszeile (colspan &apos;spannt&apos; Spalten zusammen)--&gt;</p>
+                    <p class="cd2">&lt;td colspan=3&gt;Fusszeile&lt;/td&gt;</p>
+                    <p class="cd1">&lt;/tr&gt; &lt;!- Zeile end --&gt;</p>
+                    <p class="cd0">&lt;/table&gt; &lt;!- Tabelle Ende --&gt;</p>
+                </div>
+                <p><u>Aufl&ouml;sung:</u></p>
+                <p>(ohne gross CSS (ausser, es w&auml;re in diesem, eigenen CSS formatiert ...))</p>
+                <div class="resultat">
+                    <table rules="all">
+                        <caption>Ein Beispiel</caption>
+                        <tr>
+                            <th>Spalte 1</th><th>Spalte 2</th><th>Spalte 3</th>
+                        </tr>
+                        <tr>
+                            <td>Daten 1/1</td><td>Daten 1/2</td><td>Daten 1/3</td>
+                        </tr>
+                        <tr>
+                            <td>Daten 2/1</td><td>Daten 2/2</td><td>Daten 2/3</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Fusszeile</td>
+                        </tr>
+                    </table>
+                </div>
+                <table class="tHtml" rules="all">
+                    <tr>
+                        <th class="tHtml_c1">Parameter</th>
+                        <th class="tHtml_c2">Beschreibung</th>
+                        <th class="tHtml_c3">Werte</th>
+                    </tr>
+                    <tr>
+                        <td class="tHtml_c1">rules (nur &lt;table&gt;)</td>
+                        <td class="tHtml_c2">Art zu Rahmen (wenn nicht im CSS)</td>
+                        <td class="tHtml_c3">none, groups, rows, cols, all, <br>
+                            #ziel (eine CSS-ID als Sprungmarke)</td>
+                    </tr>
+                    <tr>
+                        <td class="tHtml_c1">colspan (nur &lt;td&gt;)</td>
+                        <td class="tHtml_c2">Mehrere Zellen verbinden</td>
+                        <td class="tHtml_c3">Zahl, kleiner oder gleich Anzahl Spalten</td>
+                    </tr>
+                    <tr>
+                        <td class="tHtml_c1">rowspan (nur &lt;td&gt;)</td>
+                        <td class="tHtml_c2">Zusammenfassen zweier &uuml;bereinanderliegender Zellen</td>
+                        <td class="tHtml_c3"></td>
+                    </tr>
+                </table>
+                <ul>
+                    <li>Die Anzahl Spalten sollte f&uuml;r alle Zeilen identisch sein!</li>
+                    <li><code>rules</code> nur f&uuml;r &lt;table&gt;</li>
+                    <li><code>colspan</code> und <code>rowspan</code> nur f&uuml;r &lt;td&gt;</li>
+                    <li>&lt;caption&gt; ist optional</li>
+                </ul>
+            <!- unordered list ------------------------------------------------------------------- -->
+            <h3 id="u_liste">&lt;u&gt;&lt;/ul&gt;</h3>
+            <p>
+                Ungeordnete Liste (im Gegensatz zu &lt;ol&gt;&lt;/ol&gt;, &apos;ordered list&apos;,
+                geordnete Liste (siehe <a href="#o_liste"><u>hier</u></a>. Die Punkte m&uuml;ssen mit
+                &lt;li&gt;&lt;/li&gt; &apos;aufgez&auml;hlt&apos; werden.
+                Im Gegensatz zur geordneten Liste weist die ungeordnete Liste Punkte (oder dergleichen
+                (wo zu definieren?) auf).
+            </p>
+            <p>
+                Die Formatierung der Liste erfolgt vorzugsweise in &apos;CSS&apos;
+                (z.B. &apos;list-style-type &apos;).
+            </p>
+            <p>
+                <u>Beispiel:</u>
+            </p>
+            <div class="code">
+                <p class="cd0">&lt;ul&gt; &lt;!- Listen-Beginn --&gt;</p>
+                <p class="cd1">&lt;li&gt;erster Listenpunkt&lt;/ul&gt;</p>
+                <p class="cd1">&lt;li&gt;zweiter Listenpunkt&lt;/ul&gt;</p>
+                <p class="cd1">&lt;li&gt;dritter Listenpunkt&lt;/ul&gt;</p>
+                <p class="cd0">&lt;/ul&gt; &lt;!- Listen-Ende --&gt;</p>
+            </div>
+            <p><u>Aufl&ouml;sung:</u></p>
+            <p>(ohne gross CSS (ausser, es w&auml;re in diesem, eigenen CSS formatiert ...))</p>
+            <div class="resultat">
+                <ul>
+                    <li>erster Listenpunkt</li>
+                    <li>zweiter Listenpunkt</li>
+                    <li>dritter Listenpunkt</li>
+                </ul>
+            </div>
+        <h2>Inline-Elemente</h2>
+            <p>
+                Diese erzwingen keinen Umbruch
+            </p>
+            <!- a / href ----------------------------------------------------------------------- -->
+            <h3 id="a">&lt;a&gt;&lt;/a&gt;</h3>
+                <p>
+                    Ein Verweis (&apos;a&apos; f&uuml;r anchor = Anker)
+                </p>
+                <div class="code">
+                    <p class="cd0">
+                        &lt;a href=&quot;pfad/datei.html&quot; target=&quot;_blank&quot; title=&quot;Ein Link&quot;&gt;Sichtbarer Text&lt;/a&gt;
+                    </p>
+                </div>
+                <table class="tHtml" rules="all">
+                    <tr>
+                        <th class="tHtml_c1">Parameter</th>
+                        <th class="tHtml_c2">Beschreibung</th>
+                        <th class="tHtml_c3">Werte</th>
+                    </tr>
+                    <tr>
+                        <td class="tHtml_c1">href</td>
+                        <td class="tHtml_c2">Verweis-Pfad</td>
+                        <td class="tHtml_c3">Datei, Pfad, absolut, relativ<br>
+                            #ziel (eine CSS-ID als Sprungmarke)</td>
+                    </tr>
+                    <tr>
+                        <td class="tHtml_c1">target</td>
+                        <td class="tHtml_c2">Ziel (siehe Werte)</td>
+                        <td class="tHtml_c3">&quot;_blank&quot; &ouml;ffnen in neuem Fenster/Register<br>
+                            &quot;_self&quot; im selben Fenster/Register</td>
+                    </tr>
+                    <tr>
+                        <td class="tHtml_c1">title</td>
+                        <td class="tHtml_c2">Beschreibung (Google possibly loves it)</td>
+                        <td class="tHtml_c3">Freitext</td>
+                    </tr>
+                </table>
+                <ul>
+                    <li>Wird eine CSS-ID als &apos;href=&apos; angegeben, wird bei Klick darauf gesprungen</li>
+                    <li>Für den Verweistext kann z.Bsp. auch ein Bild stehen (&lt;img...&gt;)</li>
+                </ul>
+            <!- img --------------------------------------------------------------------------------- -->
+            <h3 id="htmlimg">&lt;img /&gt;</h3>
+                <p>
+                    Einbinden eines Bildes (image).
+                </p>
+                <div class="code">
+                    <p class="cd0">
+                        &lt;img src=&quot;quelle&quot; alt=&quot;Beschreibung&quot; title=&quot;one for google might like&quot; /&gt;
+                    </p>
+                </div>
+                <table class="tHtml" rules="all">
+                    <tr>
+                        <th class="tHtml_c1">Parameter</th>
+                        <th class="tHtml_c2">Beschreibung</th>
+                        <th class="tHtml_c3">Werte</th>
+                    </tr>
+                    <tr>
+                        <td class="tHtml_c1">src</td>
+                        <td class="tHtml_c2">Quelle der Datei</td>
+                        <td class="tHtml_c3">Datei, Pfad, absolut, relativ<br>
+                                             siehe auch <a href="#htmlreferenzen"><u>klick hier</u></a></td>
+                    </tr>
+                    <tr>
+                        <td class="tHtml_c1">alt</td>
+                        <td class="tHtml_c2">Beschreibung des Bildes - wenn Bilder nicht geladen werden (k&ouml;nnen)</td>
+                        <td class="tHtml_c3">Freitext</td>
+                    </tr>
+                    <tr>
+                        <td class="tHtml_c1">title</td>
+                        <td class="tHtml_c2">Beschreibung (Google possibly loves it)</td>
+                        <td class="tHtml_c3">Freitext</td>
+                    </tr>
+                </table>
+                <ul>
+                    <li>Unterst&uuml;tzte Formate: jpg, gif, png</li>
+                    <li>Aufl&ouml;sung: 72dpi, 96dpi (speziell: Retina (... wie speziell?!?)</li>
+                </ul>
+            <!- select - Eingabefeld --------------------------------------------------------------- -->
+            <h3 id="htmlbutton">&lt;button&gt;</h3>
+                <p>
+                    Knopf - nur mit &lt;form&gt; siehe <a href="#htmlform"><u>hier</u></a> - kann mit
+                    einer Aktion (Script) verbunden werden
+                </p>
+                <p>
+                    <u>Beispiel:</u>
+                </p>
+                <div class="code">
+                    <p class="cd0">&lt;button value=&quot;Knopf&quot;&gt;Knopf&lt;/button&gt;</p>
+                </div>
+                <table class="tHtml" rules="all">
+                    <tr>
+                        <th class="tHtml_c1">Parameter</th>
+                        <th class="tHtml_c2">Beschreibung</th>
+                        <th class="tHtml_c3">Werte</th>
+                    </tr>
+                    <tr>
+                        <td class="tHtml_c1">tabindex</td>
+                        <td class="tHtml_c2">Reihenfolge, wenn Tabulator bet&auml;tigt<br><br>
+                            Selbstverst&auml;ndlich: Die Reihenfolge sollte nat&uml;rlich stimmen!</td>
+                        <td class="tHtml_c3">Zahl</td>
+                    </tr>
+                    <tr>
+                        <td class="tHtml_c1">value</td>
+                        <td class="tHtml_c2">Zwecks identifikaton (mittels Script)</td>
+                        <td class="tHtml_c3">Zahl</td>
+                    </tr>
+                </table>
+                <ul>
+                    <li>&apos;tabindex&apos; arbeitet mit allf&auml;lligen &lt;input&gt; und
+                        &lt;select&gt; zusammen</li>
+                </ul>
+            <!- input - Eingabefeld --------------------------------------------------------------- -->
+            <h3 id="htmlinput">&lt;input&gt;</h3>
+            <p>
+                Eingabeelement - nur mit &lt;form&gt; siehe <a href="#htmlform"><u>hier</u></a>
+            </p>
+            <div class="code">
+                <p class="cd0">&lt;input name="eingabefeld" type="text" size="30" maxlength="40"</p>
+            </div>
+            <table class="tHtml" rules="all">
+                <tr>
+                    <th class="tHtml_c1">Parameter</th>
+                    <th class="tHtml_c2">Beschreibung</th>
+                    <th class="tHtml_c3">Werte</th>
+                </tr>
+                <tr>
+                    <td class="tHtml_c1">accept</td>
+                    <td class="tHtml_c2">akzeptierte Filetypen<br><br>
+                        Nur wenn type=&quot;file&quot;</td>
+                    <td class="tHtml_c3">Typen, getrennt mit &apos;,&apos;</td>
+                </tr>
+                <tr>
+                    <td class="tHtml_c1">alt</td>
+                    <td class="tHtml_c2">alternativer Bildertext<br><br>
+                                         Nur wenn type=&quot;image&quot;</td>
+                    <td class="tHtml_c3">Zahl</td>
+                </tr>
+                <tr>
+                    <td class="tHtml_c1">checked</td>
+                    <td class="tHtml_c2">Vorgabetext<br><br>
+                                         Nur wenn type=&quot;text&quot;</td>
+                    <td class="tHtml_c3">checked</td>
+                </tr>
+                <tr>
+                    <td class="tHtml_c1">disabled</td>
+                    <td class="tHtml_c2">Keine Eingabe m&ouml;glich, ausgegraut)
+                    <td class="tHtml_c3">disabled</td>
+                </tr>
+                <tr>
+                    <td class="tHtml_c1">maxlength</td>
+                    <td class="tHtml_c2">Maximale Anzahl erfassbare Zeichen<br><br>
+                        Nur wenn type=&quot;text&quot;</td>
+                    <td class="tHtml_c3">Zahl (Einheit: Zeichen)</td>
+                </tr>
+                <tr>
+                    <td class="tHtml_c1">name</td>
+                    <td class="tHtml_c2">Identifikation (analog &apos;id=&quot;&quot;&apos;)</td>
+                    <td class="tHtml_c3">Freitext</td>
+                </tr>
+                <tr>
+                    <td class="tHtml_c1">readonly</td>
+                    <td class="tHtml_c2">Nur lesen (keine Eingabe m&ouml;glich)
+                    <td class="tHtml_c3">readonly</td>
+                </tr>
+                <tr>
+                    <td class="tHtml_c1">size</td>
+                    <td class="tHtml_c2">Angezeigte Gr&ouml;sse (Einheit unbekannt?!?)<br><br>
+                                         Nur wenn type=&quot;text&quot;</td>
+                    <td class="tHtml_c3">Zahl</td>
+                </tr>
+                <tr>
+                    <td class="tHtml_c1">src</td>
+                    <td class="tHtml_c2">Bild zu laden<br><br>
+                        Nur wenn type=&quot;image&quot;</td>
+                    <td class="tHtml_c3">Zahl</td>
+                </tr>
+                <tr>
+                    <td class="tHtml_c1">tabindex</td>
+                    <td class="tHtml_c2">Reihenfolge, wenn Tabulator bet&auml;tigt<br><br>
+                        Selbstverst&auml;ndlich: Die Reihenfolge sollte nat&uml;rlich stimmen!</td>
+                    <td class="tHtml_c3">Zahl</td>
+                </tr>
+                <tr>
+                    <td class="tHtml_c1">type</td>
+                    <td class="tHtml_c2">Art der Eingabe</td>
+                    <td class="tHtml_c3">
+                        <p>radio, text</p>
+                        <table id="thtml_tabIntab_2c">
+                            <tr>
+                                <td class="thtml_tabIntab_2c_c1">button</td>
+                                <td class="thtml_tabIntab_2c_c2">Knopf</td>
+                                <td class="thtml_tabIntab_2c_c1">checkbox</td>
+                                <td class="thtml_tabIntab_2c_c2">Auswahl</td>
+                                <td class="thtml_tabIntab_2c_c1">hidden</td>
+                                <td class="thtml_tabIntab_2c_c2">Versteckt (? - f&uuml;r Scripte?)</td>
+                                <td class="thtml_tabIntab_2c_c1">image</td>
+                                <td class="thtml_tabIntab_2c_c2">Bild als Knopf</td>
+                                <td class="thtml_tabIntab_2c_c1">password</td>
+                                <td class="thtml_tabIntab_2c_c2">Passwortabfrage</td>
+                                <td class="thtml_tabIntab_2c_c1">radio</td>
+                                <td class="thtml_tabIntab_2c_c2">Exklusive Auswahl</td>
+                                <td class="thtml_tabIntab_2c_c1">reset</td>
+                                <td class="thtml_tabIntab_2c_c2">Knopf f&uuml;r Formular zur&uuml;setzen</td>
+                                <td class="thtml_tabIntab_2c_c1">submit</td>
+                                <td class="thtml_tabIntab_2c_c2">Knopf f&uuml;r Formular absenden</td>
+                                <td class="thtml_tabIntab_2c_c1">text</td>
+                                <td class="thtml_tabIntab_2c_c2">Freitext</td>
+                                <td class="thtml_tabIntab_2c_c1">file</td>
+                                <td class="thtml_tabIntab_2c_c2">Dateiauswahl</td>
+                            </tr>
+                        </table>
+                </tr>
+                <tr>
+                    <td class="tHtml_c1">value</td>
+                    <td class="tHtml_c2">Vorgabetext<br>
+                                         (bei Radiobuttons der Wert, der ausgelesen werden kann)</td>
+                    <td class="tHtml_c3">Freitext</td>
+                </tr>
+            </table>
+            <ul>
+                <li>Mindestens Parameter &apos;name&apos; verwenden, dass es Sinn macht ... </li>
+                <li>Wenn type=&quot;button&quot;
+                    <ul>
+                        <li>&apos;value&apos; definiert die Beschriftung des Knopfes</li>
+                        <li>Mindestens Parameter &apos;name&apos; und &apos;value&apos; f&uuml;r die
+                            Identifikation in einem Script verwenden</li>
+                    </ul>
+                </li>
+                <li>Wenn type=&quot;file&quot; folgende &lt;form&gt;-Parameter setzen:
+                    <ul>
+                        <li>&apos;method=&quot;post&quot;&apos;</li>
+                        <li>&apos;enctype=&quot;multipart/formdata&quot;&apos;</li>
+                    </ul>
+                </li>
+                <li>Wenn type=&quot;image&quot;, mit &apos;src=&apos; die Quelle des Bildes festlegen
+                    (und mit &apos;alt&apos; den Beschrieb dazu, der angezeigt wird, wenn das Bild nicht
+                    angezeigt wird).
+                </li>
+                <li>Wenn type=&quot;reset&quot; oder &quot;reset&quot; die Kn&ouml;pfe (trotzdem) mit
+                    &quot;value=&quot; bezeichnen.
+                </li>
+                <li>&apos;tabindex&apos; arbeitet mit allf&auml;lligen &lt;button&gt; und
+                    &lt;select&gt; zusammen</li>
+            </ul>
+            <!- label - Eingabefeld --------------------------------------------------------------- -->
+            <h3 id="htmllabel">&lt;label&gt;</h3>
+            <p>
+                Label zu Eingabefeld (&lt;input&gt; und &lt;select&gt;)- siehe auch &lt;form&gt; <a href="#htmlform"><u>hier</u></a>
+            </p>
+            <div class="code">
+                <p class="cd0">&lt;label for=&quot;nameEingabefeld&quot;&gt;</p>
+            </div>
+            <table class="tHtml" rules="all">
+                <tr>
+                    <th class="tHtml_c1">Parameter</th>
+                    <th class="tHtml_c2">Beschreibung</th>
+                    <th class="tHtml_c3">Werte</th>
+                </tr>
+                <tr>
+                    <td class="tHtml_c1">for</td>
+                    <td class="tHtml_c2">Verbindung zum Eingabfeld (via &apos;id&apos;)</td>
+                    <td class="tHtml_c3">&apos;name&apos; des Eingabefeldes</td>
+                </tr>
+            </table>
+            <!- select - Eingabefeld --------------------------------------------------------------- -->
+            <h3 id="htmlselect">&lt;select&gt;</h3>
+                <p>
+                    Dropdown-Auswahl  - nur mit &lt;form&gt; siehe <a href="#htmlform"><u>hier</u></a>
+                </p>
+                <p>
+                    Achtung: Keine Auswahl muss auscodiert werden
+                </p>
+                <p>
+                    <u>Beispiel:</u>
+                </p>
+                <div class="code">
+                    <p class="cd0">&lt;select name=&quot;dropdown&quot;&gt;</p>
+                    <p class="cd1">&lt;option value=&quot;Eintrag 1&quot;&gt;Eintrag 1&lt;/option&gt;</p>
+                    <p class="cd1">&lt;option value=&quot;Eintrag 2&quot;&gt;Eintrag 2&lt;/option&gt;</p>
+                    <p class="cd1">&lt;option value=&quot;Eintrag 3&quot;&gt;Eintrag 3&lt;/option&gt;</p>
+                    <p class="cd0">&lt;/select&gt;</p>
+                </div>
+                <p><u>Aufl&ouml;sung:</u></p>
+                <p>(ohne gross CSS (ausser, es w&auml;re in diesem, eigenen CSS formatiert ...))</p>
+                <div class="resultat">
+                    <select name="dropdown">
+                        <option value="Eintrag 1">Eintrag 1</option>
+                        <option value="Eintrag 2">Eintrag 2</option>
+                        <option value="Eintrag 3">Eintrag 3</option>
+                    </select>
+                </div>
+                <table class="tHtml" rules="all">
+                    <tr>
+                        <th class="tHtml_c1">Parameter</th>
+                        <th class="tHtml_c2">Beschreibung</th>
+                        <th class="tHtml_c3">Werte</th>
+                    </tr>
+                    <tr>
+                        <td class="tHtml_c1">name (nur &lt;select&gt;)</td>
+                        <td class="tHtml_c2">Zwecks Identifikation (mittels Script)</td>
+                        <td class="tHtml_c3">Freitext</td>
+                    </tr>
+                    <tr>
+                        <td class="tHtml_c1">tabindex</td>
+                        <td class="tHtml_c2">Reihenfolge, wenn Tabulator bet&auml;tigt<br><br>
+                            Selbstverst&auml;ndlich: Die Reihenfolge sollte nat&uml;rlich stimmen!</td>
+                        <td class="tHtml_c3">Zahl</td>
+                    </tr>
+                    <tr>
+                        <td class="tHtml_c1">value</td>
+                        <td class="tHtml_c2">Zwecks identifikaton (mittels Script)</td>
+                        <td class="tHtml_c3">Zahl</td>
+                    </tr>
+                </table>
+                <ul>
+                    <li>&apos;tabindex&apos; arbeitet mit allf&auml;lligen &lt;button&gt; und
+                        &lt;input&gt; zusammen</li>
+                </ul>
+            <!- textauszeichnungen --------------------------------------------------------------- -->
+            <h3 id="textauszeichnungen">Textauszeichnungen (inline)</h3>
+                <div class="code">
+                    <p class="cd0">&lt;b&gt;<b>fett (bold)</b>&lt;/b&gt;</p>
+                    <p class="cd0">&lt;big&gt;<big>gr&ouml;sser (big)</big>&lt;/big&gt;</p>
+                    <p class="cd0">&lt;sup&gt;<sup>hochgestellt</sup>&lt;/sup&gt;</p>
+                    <p class="cd0">&lt;small&gt;<small>kleiner (small)</small>&lt;/small&gt;</p>
+                    <p class="cd0">&lt;i&gt;<i>kursiv (italic)</i>&lt;/i&gt;</p>
+                    <p class="cd0">&lt;u&gt;<u>unterstrichen (underline)</u>&lt;/u&gt;</p>
+                </div>
+    <!- CSS ---------------------------------------------------------------------------------------- -->
+    <h1 id="css">css</h1>
+        <!- kommentar ------------------------------------------------------------------------------ -->
+        <h2 id="csskommentar">Kommentar</h2>
+        <p>
+            Beispiel:
+        </p>
+        <div class="code">
+            <p class="cd0">/* hier der Kommentar (auch &uumlber mehrere Zeilen) */</p>
+        </div>
+        <ul>
+            <li>Kommentar kann auch ueber mehrere Zeilen gehen und kann somit gut helfen, css-Definitionen
+                tempor&auml;r auszublenden</li>
+        </ul>
+        <h2 id="border">Rahmen</h2>
+            <table class="i1" id="tBorder" rules="all">
+                <tr class="tBorder_c">
+                    <td class="tBorder_c1">border</td>
+                    <td class="tBorder_c2">&apos;shortcut&apos;</td>
+                    <td class="tBorder_c3">border-width,<br>
+                                        border-style,<br>border-color</td>
+                </tr>
+                <tr class="tBorder_c">
+                    <td>border-color</td>
+                    <td>Farbe des Rahmens</td>
+                    <td>rgb(,,,) oder #000000</td>
+                </tr>
+                <tr class="tBorder_c">
+                    <td>border-style</td>
+                    <td>Art des Rahmens</td>
+                    <td>dashed, dotted, none, solid</td>
+                </tr>
+                <tr class="tBorder_c">
+                    <td>border-width</td><td>Dicke des Rahmens</td><td>px</td>
+                </tr>
+
+            </table>
+            <div class="box">
+                Blatt
+                <table class="i1", id="tOuterSpacing", rules="all">
+                    <tr class="tBorder_c">
+                        <td class="tBorder_c1">margin</td>
+                        <td class="tBorder_c2">Abstand des Rahmens zur Grösse<br>
+                                                  _top, _right, _bottom, _left</td>
+                        <td class="tBorder_c3">px, %</td>
+                    </tr>
+                </table>
+                <div class="box">
+                    Rahmen
+                    <table class="i1", id="tInnerSpacing", rules="all">
+                        <tr class="tBorder_c">
+                            <td class="tBorder_c1">padding</td>
+                            <td class="tBorder_c2">Abstand des Inhalts zum Rahmen<br>
+                                                      _top, _right, _bottom, _left</td>
+                            <td class="tBorder_c3">px, %</td>
+                        </tr>
+                    </table>
+                    <div class="div_inhalt">
+                        Inhalt
+                    </div>
+                </div>
+                <ul>
+                    <li>Die Breite der Box entspricht (bei den meisten Browsern (IE macht manchmal
+                        bzw. bei früheren Versionen Probleme)) dem &auml;ussersten Rahmen</li>
+                </ul>
+            </div>
+    </main>
+    <!- Seitennavigation ----------------------------------------------------------------------------- -->
+    <aside id="seite">
+        <p class="seiteTitel">
+            Stichwortverzeichnis
+        </p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsA">A</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsB">B</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsC">C</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsD">D</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsE">E</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsF">F</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsG">G</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsH">H</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsI">I</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsJ">J</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsK">K</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsL">L</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsM">M</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsN">N</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsO">O</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsP">P</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsQ">Q</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsR">R</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsS">S</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsT">T</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsU">U</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsV">V</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsW">W</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsX">X</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsY">Y</a></p>
+        <p class="seitePosition"><a href="#StwrtVrzchnsZ">Z</a></p>
+    </aside>
+    <!- Stichwortverzeichnis ------------------------------------------------------------------------- -->
+    <section id="stichwortverzeichnis">
+    <h1 >Stichwortverzeichnis</h1>
+        <!- a ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsA" class="StichwortverzeichnisLetter">
+            a<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#a">&lt;a&gt; Verweis</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#Absatz">Absatz</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#absolut">absolut (Pfad)</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#a">anchor</a>
+        </p>
+        <!- b ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsB" class="StichwortverzeichnisLetter">
+            b<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmllabel">Bezeichnung f&uuml;r Eingabefeld, HTML: &lt;label&gt;</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlimg">Bild einbinden</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#border">Border</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#border">Boxen/Rahmen</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlbutton">&lt;button&gt; Knopf (HTML:)</a>
+        </p>
+        <!- c ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsC" class="StichwortverzeichnisLetter">
+            c<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#border">CSS: Border</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#border">CSS: Margin</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#csskommentar">CSS: Kommentar</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#border">CSS: Padding</a>
+        </p>
+        <!- d ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsD" class="StichwortverzeichnisLetter">
+            d<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlreferenzen">Datei/Pfad-Verweise</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlselect">Dropdown-Auswahl (HTML: &lt;option&gt;)</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmllabel">Dropdown-Auswahl Bezeichnung/Label, HTML: &lt;label&gt;</a>
+        </p>
+        <!- e ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsE" class="StichwortverzeichnisLetter">
+            e<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlinput">Eingabefeld &lt;input&gt; (HTML, mit &lt;form&gt;)</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmllabel">Eingabefeld Bezeichnung/Label, HTML: &lt;label&gt;</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlbutton">Eingabefeld Knopf, HTML: &lt;button&gt;</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlform">Eingabeformular HTML: &lt;form&gt;</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#dummy">dummy</a>
+        </p>
+        <!- f ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsF" class="StichwortverzeichnisLetter">
+            f<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#textauszeichnungen">&lt;b&gt;<b>fett</b>&lt;/b&gt; (HTML)</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlform">&lt;form&gt; HTML: Formular</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlform">Formular HTML: &lt;form&gt;</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#dummy">dummy</a>
+        </p>
+        <!- g ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsG" class="StichwortverzeichnisLetter">
+            g<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#dummy">dummy</a>
+        </p>
+        <!- h ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsH" class="StichwortverzeichnisLetter">
+            h<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#a">href</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#a">HTML: &lt;a&gt; Verweis</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#textauszeichnungen">HTML: &lt;b&gt;<b>fett</b>&lt;/b&gt;</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlbr">HTML: &lt;br&gt; Zeilenumbruch</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlbutton">HTML: &lt;button&gt; Knopf</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlform">HTML: &lt;form&gt; Formular</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#h_ueberschrift">HTML: &lt;h[n]&gt; &Uuml;berschrift(en) (n = 1 bis 6)</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#textauszeichnungen">HTML: &lt;i&gt;<i>kursiv</i>&lt;/i&gt;</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlimg">HTML: &lt;img&gt; Bild einbinden</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlinput">HTML: &lt;input&gt; Eingabefeld</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmllabel">HTML: &lt;label&gt; Bezeichnung f&uuml;r Eingabefeld</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#li_element">HTML: &lt;li&gt; Listenelement/-eintrag</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlkommentar">HTML: Kommentar</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#o_liste">HTML: &lt;ol&gt;geordnete Liste</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlselect">HTML: &lt;option&gt;Auswahl (in &lt;select&gt;)</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#Absatz">HTML: &lt;p&gt; Absatz</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#table">HTML: &lt;table&gt; Tabellen-Tag</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#table">HTML: &lt;td&gt Tabellenzelle;</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#textauszeichnungen">HTML: Textauszeichnungen</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#table">HTML: &lt;th&gt; Tabellen&uuml;berschrift-Zelle</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#table">HTML: &lt;tr&gt; Tabellenzeile</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#textauszeichnungen">HTML: &lt;u&gt;<u>unterstrichen</u>&lt;/u&gt;</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#u_liste">HTML: &lt;ul&gt;ungeordnete Liste&lt;/ul&gt;</a>
+        </p>
+        <!- i ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsI" class="StichwortverzeichnisLetter">
+            i<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlimg">&lt;img&gt;  HTML: Bild einbinden</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlinput">&lt;input&gt; HTML: Eingabefeld (mit &lt;form&gt;)</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#dummy">dummy</a>
+        </p>
+        <!- j ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsJ" class="StichwortverzeichnisLetter">
+            j<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#dummy">dummy</a>
+        </p>
+        <!- k ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsK" class="StichwortverzeichnisLetter">
+            k<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#csskommentar">Kommentar in CSS</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlkommentar">Kommentar in HTML</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#textauszeichnungen">&lt;i&gt;<i>kursiv</i>&lt;/i&gt; (HTML)</a>
+        </p>
+        <!- l ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsL" class="StichwortverzeichnisLetter">
+            l<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmllabel">&lt;label&gt; / Label f&uuml;r Eingabefeld, HTML: &lt;label&gt;</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#o_liste">Liste: geordnet &lt;ol&gt;&lt;/ol&gt;</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#li_element">&lt;li&gt;&lt;/li&gt; Listenelement/-eintrag</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#li_element">Liste: Element/Eintrag &lt;li&gt;&lt;/li&gt;</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#u_liste">Liste: ungeordnete &lt;ul&gt;&lt;/ul&gt;</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#dummy">dummy</a>
+        </p>
+        <!- m ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsM" class="StichwortverzeichnisLetter">
+            m<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#border">Marging/Padding</a>
+        </p>
+        <!- n ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsN" class="StichwortverzeichnisLetter">
+            n<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#dummy">dummy</a>
+        </p>
+        <!- o ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsO" class="StichwortverzeichnisLetter">
+            o<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#o_liste">&lt;ol&gt HTML: geordnete Liste;</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlselect">&lt;option&gt; HTML: Auswahl (in &lt;select&gt;)</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#dummy">dummy</a>
+        </p>
+        <!- p ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsP" class="StichwortverzeichnisLetter">
+            p<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#Absatz">&lt;p&gt; Absatz</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#border">Padding/Marging</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlreferenzen">Pfad/Datei-Verweise</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#absolut">Pfadangabe absolut (Pfad)</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#relativ">Pfadangabe relativ (Pfad)</a>
+        </p>
+        <!- q ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsQ" class="StichwortverzeichnisLetter">
+            q<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlreferenzen">Quellen</a>
+        </p>
+        <!- r ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsR" class="StichwortverzeichnisLetter">
+            r<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#border">Rahmen/Boxen</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#relativ">relativ (Pfad)</a>
+        </p>
+        <!- s ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsS" class="StichwortverzeichnisLetter">
+            s<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlselect">&lt;select&gt; HTML: Dropdown-Auswahl (in &lt;form&gt;)</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlsonderzeichen">Sonderzeichen (HTML)</a>
+        </p>
+        <!- t ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsT" class="StichwortverzeichnisLetter">
+            t<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#table">&lt;table&gt;</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#table">Tabelle</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#textauszeichnungen">Textauszeichnungen (HTML)</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#h_ueberschrift">Titel</a>
+        </p>
+        <!- u ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsU" class="StichwortverzeichnisLetter">
+            u<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#h_ueberschrift">&Uuml;berschrift(en) (1 bis 6)</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#textauszeichnungen">&lt;u&gt;<u>unterstrichen</u>&lt;/u&gt; (HTML)</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#u_liste">&lt;ul&gt;&lt;/ul&gt; ungeordnete Liste</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#dummy">dummy</a>
+        </p>
+        <!- v ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsV" class="StichwortverzeichnisLetter">
+            v<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#a">Verweis</a>
+        </p>
+        <!- w ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsW" class="StichwortverzeichnisLetter">
+            w<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#dummy">dummy</a>
+        </p>
+        <!- x ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsX" class="StichwortverzeichnisLetter">
+            x<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#dummy">dummy</a>
+        </p>
+        <!- y ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsY" class="StichwortverzeichnisLetter">
+            y<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#dummy">dummy</a>
+        </p>
+        <!- z ---------------------------------------------------------------------------------------- -->
+        <p id="StwrtVrzchnsZ" class="StichwortverzeichnisLetter">
+            z<br>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#htmlbr">Zeilenumbruch</a>
+        </p>
+        <p class="StichwortverzeichnisPosition">
+            <a href="#dummy">dummy</a>
+        </p>
+    </section>
+    <footer id="fuss">Fuss</footer>
+</body>
+</html>
