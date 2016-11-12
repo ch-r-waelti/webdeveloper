@@ -21,7 +21,7 @@
       </table>
   </nav>
   <main id="hauptteil">
-    <h1>HGit</h1>
+    <h1><a href="https://github.com/">Git<a></h1>
     <p>Ist ein Versionierungstool. Aktuell verwenden wir es mit der git shell, ein Unix-angelehntes Kommandofenster.</p>
     <p>Wir verwenden in der Schule zusätzlich die Tools
       <ul>
@@ -29,6 +29,14 @@
         <li><a href="https://www.browsersync.io/">Browser-Sync</a>: Test Web-Server</li>
       </ul>
     </p>
+    <h2>Git aufsetzen</h2>
+    <p>Nach dem Laden und installieren sind in der Git Shell zwei, drei Dinge bzw. Kommandos abzuarbeiten:</p>
+    <ol>
+      <li>git config --global user.name &lt;"DEIN NAME"&gt;</li>
+      <li>git config --global user.email &lt;"DEINE EMAIL ADDRESSE"&gt;</li>
+      <li>ssh-keygen -t rsa -b 4096 -C &lt;"DEINE EMAIL ADDRESSE"&gt;</li>
+    </ol>
+    <p>Der so generierte ssh-Key ist in Git <a href="https://github.com/"><u>https://github.com/</u></a> einzutragen.</p>
     <h2>Projekt aufsetzen</h2>
     <ol>
       <li>Projektordner erstellen: mkdir</li>
@@ -45,7 +53,7 @@
     </ol>
     <h2>Wichtige Kommandos</h2>
     <ul>
-      <li><a href="#gitStatus">git status</a></li>
+      <li id="gitStatusBack"><a href="#gitStatus">git status</a></li>
       <p>Listet den Status der Files und Directories</p>
       <li>git log</li>
       <p>Listet auf, was gemacht wurde</p>
@@ -55,8 +63,19 @@
           <li>&lt;negative ganzzahl&gt;: Listet letzte Einträge auf</li>
         </ul>
       </p>
+      <li>git tag</li>
+      <p>Einen Committed 'Release' 'etikettieren'; d.h. man kann einen Commit, der einen komischen Schlüssel generiert benennen und ihn so sprechender machen.</p>
+      <p>Der Tag-Name sollte in dieser [master]/Entwickler-Instanz eindeutig sein!</p>
+      <p>Es können mehrere Tags pro Commit vergeben werden.</p>
+      <p>git &lt;"name des Tag"&gt; &LT;Commit-ID&gt;
+        <ul>
+          <li>"name des Tag": Sprechender, in dieser Instanz eindeutiger Name</li>
+          <li>Commit-ID ist die ID, die beim 'git commit' angegeben wird. Sie kann mit 'git log' ermittelt werden</li>
+        </ul>
+      </p>
 
     <h2 id="gitStatus">git status<h2>
+      <a href="#gitStatusBack">back to 'Wichtige Kommandos'</a>
       <p>C:\Users\public\documents\webprofessional\projects\webdeveloper [master +4 ~0 -0 ~]> git status</p>
       <p>Nachstehendes Beispiel neu editierter Files (nicht in Staging Area)</p>
       <table><tr><td>
