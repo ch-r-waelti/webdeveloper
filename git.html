@@ -29,6 +29,7 @@
         <li><a href="https://www.browsersync.io/" target="_blank">Browser-Sync</a>: Test Web-Server</li>
       </ul>
     </p>
+    <!-- H2 --------------------------------------------------------------- -->
     <h2>Git aufsetzen</h2>
     <p>Nach dem Laden und installieren sind in der Git Shell zwei, drei Dinge bzw. Kommandos abzuarbeiten:</p>
     <ol>
@@ -36,8 +37,14 @@
       <li>git config --global user.email &lt;"DEINE EMAIL ADDRESSE"&gt;</li>
       <li>ssh-keygen -t rsa -b 4096 -C &lt;"DEINE EMAIL ADDRESSE"&gt;</li>
     </ol>
-    <p>Der so generierte ssh-Key ist in Git <a href="https://github.com/"><u>https://github.com/</u></a> einzutragen.</p>
-    <h2>Projekt aufsetzen</h2>
+    <p>Der so generierte ssh-Key ist  - wenn gewünscht, bzw. wenn man es leid ist, sich jedes Mal anzumelden - in Git <a href="https://github.com/"><u>https://github.com/</u></a> einzutragen.</p>
+    <!-- H2 --------------------------------------------------------------- -->
+    <h2 id="inhalt">Inhalt</h2>
+      <li><a href="#projektAufsetzen">Projekt aufsetzen</a></li>
+      <li><a href="#wichtigeKommandos">Wichtige Kommandos</a></li>
+      <li><a href="#lifeCycleProject">Lifecycle Project</a></li>
+      <!-- H2 --------------------------------------------------------------- -->
+    <h2 id="projektAufsetzen">Projekt aufsetzen <a href="#inhalt">(zum Inhalt)</a></h2>
     <ol>
       <li>Projektordner erstellen: mkdir</li>
       <li>im Projektordner Kommando 'git init'</li>
@@ -51,31 +58,64 @@
       <p>Tipp: Um den Browser Sync nicht immer nochmals starten zu müssen, am besten eine zweite Shell öffnen, im Projektordner positionieren und das Kmmando dort aufrufen; dann muss nur noch refreshed werden</p>
       <p>Beenden: [cntrl][c] und entsprechend quittieren</p>
     </ol>
-    <h2>Wichtige Kommandos</h2>
+    <!-- H2 --------------------------------------------------------------- -->
+    <h2 id="wichtigeKommandos">Wichtige Kommandos <a href="#inhalt">(zum Inhalt)</a></h2>
     <ul>
-      <li id="gitStatusBack"><a href="#gitStatus">git status</a></li>
-      <p>Listet den Status der Files und Directories</p>
-      <li>git log</li>
-      <p>Listet auf, was gemacht wurde</p>
-      <p><p><u>Parameter</u></p>
-        <ul>
-          <li>&lt;ganzzahl&gt;: Listet erste Einträge auf</li>
-          <li>&lt;negative ganzzahl&gt;: Listet letzte Einträge auf</li>
-        </ul>
-      </p>
+      <li id="gitAdd">git add</li>
+        <p>Nimmt Komponenten der 'Working Area' in 'Stagin Area' auf (Gegenstück ist '<a href="#gitReset">git reset<a>')</p>
+        <p><p><u>Parameter</u></p>
+          <ul>
+            <li>&lt;filename&gt;: spezifisches File</li>
+            <li>&lt;.&gt;: Alle veränderten Files in der 'Working Area'</li>
+          </ul>
+        </p>
+      <li id="gitBranch">git branch</li>
+        <p>Erstellt einen neuen Entwicklungs-Ast</p>
+        <p><p><u>Parameter</u></p>
+          <ul>
+            <li>&lt;"sinnvoller Name des 'Branch'"&gt;</li>
+            <p>Der Name wird benötigt für die Kommandos '<a href="#gitCheckOut">git checkout</a>' und '<a href="#gitMerge">git merge</a>', siehe auch '<a href="#lifeCycleProject">Lifecycle Project</a>'</p>
+          </ul>
+        </p>
+      <li id="gitCommit">git commit</li>
+        <p>Gibt die Komponenten frei für '<a href="#gitMerge">merge</a>' oder '<a href="#gitPush">push</a>' und '<a href="#gitPull">pull</a>'</p>
+        <p><p><u>Parameter</u></p>
+          <ul>
+            <li>&lt;-m "sinnvoller Beschrieb des Commits"&gt;</li>
+            <p>wird &lt;-m'&gt; weggelassen, öffnet sich der Default-Editor (VI) zur Eingabe des 'sinnvollen Beschriebs des Commits'</p>
+          </ul>
+        </p>
+      <li id="gitLog">git log</li>
+        <p>Listet auf, was gemacht wurde</p>
+        <p><p><u>Parameter</u></p>
+          <ul>
+            <li>&lt;ganzzahl&gt;: Listet erste Einträge auf</li>
+            <li>&lt;negative ganzzahl&gt;: Listet letzte Einträge auf</li>
+          </ul>
+        </p>
+      <li id="gitReset">git reset</li>
+        <p>Nimmt Komponenten der 'Stagin Area' zurück in die  'Working Area' (Gegenstück ist '<a href="#gitAdd">git add<a>')</p>
+        <p><p><u>Parameter</u></p>
+          <ul>
+            <li>&lt;filename&gt;: spezifisches File</li>
+            <li>&lt;.&gt;: Alle veränderten Files in der 'Working Area'</li>
+          </ul>
+        </p>
+      <li id="gitStatus"><a href="#gitStatusDetail">git status</a></li>
+        <p>Listet den Status der Files und Directories</p>
       <li>git tag</li>
-      <p>Einen Committed 'Release' 'etikettieren'; d.h. man kann einen Commit, der einen komischen Schlüssel generiert benennen und ihn so sprechender machen.</p>
-      <p>Der Tag-Name sollte in dieser [master]/Entwickler-Instanz eindeutig sein!</p>
-      <p>Es können mehrere Tags pro Commit vergeben werden.</p>
-      <p>git &lt;"name des Tag"&gt; &LT;Commit-ID&gt;
-        <ul>
-          <li>"name des Tag": Sprechender, in dieser Instanz eindeutiger Name</li>
-          <li>Commit-ID ist die ID, die beim 'git commit' angegeben wird. Sie kann mit 'git log' ermittelt werden</li>
-        </ul>
-      </p>
-
-    <h2 id="gitStatus">git status<h2>
-      <a href="#gitStatusBack">back to 'Wichtige Kommandos'</a>
+        <p>Einen Committed 'Release' 'etikettieren'; d.h. man kann einen Commit, der einen komischen Schlüssel generiert benennen und ihn so sprechender machen.</p>
+        <p>Der Tag-Name sollte in dieser [master]/Entwickler-Instanz eindeutig sein!</p>
+        <p>Es können mehrere Tags pro Commit vergeben werden.</p>
+        <p>git &lt;"name des Tag"&gt; &LT;Commit-ID&gt;
+          <ul>
+            <li>"name des Tag": Sprechender, in dieser Instanz eindeutiger Name</li>
+            <li>Commit-ID ist die ID, die beim 'git commit' angegeben wird. Sie kann mit 'git log' ermittelt werden</li>
+          </ul>
+        </p>
+    <!-- H2 --------------------------------------------------------------- -->
+    <h2 id="gitStatusDetail">git status <a href="#inhalt">(zum Inhalt)</a></h2>
+      <a href="#gitStatus">back to 'Wichtige Kommandos'/'git status'</a>
       <p>C:\Users\public\documents\webprofessional\projects\webdeveloper [master +4 ~0 -0 ~]> git status</p>
       <p>Nachstehendes Beispiel neu editierter Files (nicht in Staging Area)</p>
       <table><tr><td>
@@ -112,7 +152,9 @@ Changes to be committed:<br>
         On branch master<br>
         nothing to commit, working tree clean
       </td><tr></table>
-    <h2>Lifecycle Project</h2>
+
+    <!-- H2 --------------------------------------------------------------- -->
+    <h2 id="lifeCycleProject">Lifecycle Project <a href="#inhalt">(zum Inhalt)</a></h2>
 
   </main>
 </body>
