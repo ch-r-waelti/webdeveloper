@@ -213,14 +213,36 @@ Changes to be committed:<br>
       <h3>Git Hub: Synchronsieren</h3>
       <p>Unser lokaler 'master' muss nun noch mit dem Repository synchronisert werden - dazu (angelehnt an obiger Eröffnung):
         <p>Voraussetzung ist allerdings bzw. das wäre vorteilhaft: Das lokale Projekt ist bereingit (add / commit)</p>
-        <ol>
-          <li>Anmelden: git remote add origin https://github.com/ch-r-waelti/webdeveloper.git</li>
-          <li>Upload: git push -u origin master</li>
-          <li>Download: git pull</li>
-        </ol>
-      </p>
+          <ol>
+            <p>
+              <li>Anmelden: git remote add origin https://github.com/ch-r-waelti/webdeveloper.git</li>
+              <p>Der Name leitet sich ab:</p>
+              <ul>
+                  <li>der Befehl: </li>
+                  <p>git remote add origin</p>
+                  <li>die Adresse (Teil 1, der Server): </li>
+                  <p>https://github.com</p>
+                  <li>die Adresse (Teil 2, der Account):</li>
+                  <p>/ch-r-waelti</p>
+                  <li>die Adresse (Teil 3, das Projekt/der Projektordner mit Zusatz '.git'):</li>
+                  <p>/webdeveloper.git</p>
+              </ul>
+              <li>Upload: git push -u origin master</li>
+              <li>Download: git pull</li>
+              <br>'push' wie auch 'pull' synchronisieren die Stände
+            </p>
+          </ol>
+        </p>
     <!-- H2 --------------------------------------------------------------- -->
     <h2 id="lifeCycleProject">Lifecycle Project <a href="#inhalt">(zum Inhalt)</a></h2>
+      <p>Wie man das aufsetzt, ist natürlich Gusto von jedem selber bzw. auch ein Erfahrungswert - und deshalb lasse ich das Kapitel noch offen ...</p>
+      <p>Ok, ganz lassen kann ich es nicht ... ich glaube, ich werde/würde es so aufsetzen:</p>
+      <ul>
+        <li>master: Für Erstentwicklung bis zum ersten Release</li>
+        <li>developer: Für die Weiterentwicklung eines neuen Releases - dieser wird für einen neuen Release mit dem 'master' synchronisiert und sinnvoll 'tagged' (<a href="#gitTag">git tag</a>))</li>
+        <li>hot fix: Parallel zu 'master' und 'developer' - ist ein 'hot fix' nötig, wird dieser mit 'master' und 'developer' synchronisiert.</li>
+        <li>Ist ein 'hot fix' auf einen älterne Release nötig (remember? <a href="#gitTag">git tag</a>), wird, sofern er nur schwierig mit einem wesentlich späteren Release vereinbar ist, als z.Bsp. 'master kunde x' geführt</p>
+      </ul>
 
   </main>
 </body>
