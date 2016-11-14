@@ -29,8 +29,9 @@
         <li><a href="https://www.browsersync.io/" target="_blank">Browser-Sync</a>: Test Web-Server</li>
       </ul>
     </p>
+
     <!-- H2 --------------------------------------------------------------- -->
-    <h2>Git aufsetzen</h2>
+    <h2 id="gitAufsetzen">Git aufsetzen</h2>
     <p>Nach dem Laden und installieren sind in der Git Shell zwei, drei Dinge bzw. Kommandos abzuarbeiten:</p>
     <ol>
       <li>git config --global user.name &lt;"DEIN NAME"&gt;</li>
@@ -38,12 +39,17 @@
       <li>ssh-keygen -t rsa -b 4096 -C &lt;"DEINE EMAIL ADDRESSE"&gt;</li>
     </ol>
     <p>Der so generierte ssh-Key ist  - wenn gewünscht, bzw. wenn man es leid ist, sich jedes Mal anzumelden - in Git <a href="https://github.com/"><u>https://github.com/</u></a> einzutragen.</p>
+
     <!-- H2 --------------------------------------------------------------- -->
     <h2 id="inhalt">Inhalt</h2>
       <li><a href="#projektAufsetzen">Projekt aufsetzen</a></li>
       <li><a href="#wichtigeKommandos">Wichtige Kommandos</a></li>
+      <li><a href="#gitIgnore">'.gitIgnore'</a></li>
+      <li><a href="#gitStatusDetail">git status (Detail)</a></li>
+      <li><a href="#gitHub">Git Hub</a></li>
       <li><a href="#lifeCycleProject">Lifecycle Project</a></li>
-      <!-- H2 --------------------------------------------------------------- -->
+
+    <!-- H2 --------------------------------------------------------------- -->
     <h2 id="projektAufsetzen">Projekt aufsetzen <a href="#inhalt">(zum Inhalt)</a></h2>
     <ol>
       <li>Projektordner erstellen: mkdir</li>
@@ -53,11 +59,12 @@
       <p>Sollen Files in Unterordnern erstellt werden, in der Shell Direktory erstellen und darin mit 'atom .' weitere Files erstellen</p>
       <li>Bearbeitete Files in die 'Staging Area' schreiben: git add &lt;file | .&gt;</li>
       <p>'.' lädt alle Files in die 'Staging Area'<p>
-      <li>Files versionieren: git commit -m "<sinnvoller aenderungsgrund>"<li>
+      <li>Files versionieren: git commit &lt;-m "sinnvoller aenderungsgrund"&gt;</li>
       <li>Testen (mit Browser Sync) im Projektordner: browser-sync start --server</li>
       <p>Tipp: Um den Browser Sync nicht immer nochmals starten zu müssen, am besten eine zweite Shell öffnen, im Projektordner positionieren und das Kmmando dort aufrufen; dann muss nur noch refreshed werden</p>
       <p>Beenden: [cntrl][c] und entsprechend quittieren</p>
     </ol>
+
     <!-- H2 --------------------------------------------------------------- -->
     <h2 id="wichtigeKommandos">Wichtige Kommandos <a href="#inhalt">(zum Inhalt)</a></h2>
     <ul>
@@ -70,15 +77,29 @@
           </ul>
         </p>
       <li id="gitBranch">git branch</li>
-        <p>Erstellt einen neuen Entwicklungs-Ast</p>
+        <p>Aufliesten / Löschen 'Branches'</p>
         <p><p><u>Parameter</u></p>
           <ul>
-            <li>&lt;"sinnvoller Name des 'Branch'"&gt;</li>
-            <p>Der Name wird benötigt für die Kommandos '<a href="#gitCheckOut">git checkout</a>' und '<a href="#gitMerge">git merge</a>', siehe auch '<a href="#lifeCycleProject">Lifecycle Project</a>'</p>
+            <li>...ohne...</li>
+            <p>Auflisten der Branches. Der aktuelle ist mit einem '*' markiert</p>
+            <li>&lt;-d "Name des 'Branch'"&gt;</li>
+            <p>Löschen eines Branches</p>
+          </ul>
+        </p>
+      <li id="gitCheckout">git checkout</li>
+        <p>Eigentlich die Umgebung wecheln - oder erstellen.</p>
+        <p><p><u>Parameter</u></p>
+          <ul>
+            <li>&lt;-b "sinnvoller Name des 'Branch'"&gt;</li>
+            <p>Ein neuer Branch wird erstellt</p>
+            <li>&lt;"Name eines 'Branch'" oder "master"&gt;</li>
+            <p>Wechseln in einen 'Branch' - siehe auch <a href="#gitMerge">git merge</a></p>
+            <li>&lt;"Name eines 'Tag'"&gt;</li>
+            <p>Wechseln zu einem mit <a href="#gitTag">git tag</a>) 'etikettierten' Release.</p>
           </ul>
         </p>
       <li id="gitCommit">git commit</li>
-        <p>Gibt die Komponenten frei für '<a href="#gitMerge">merge</a>' oder '<a href="#gitPush">push</a>' und '<a href="#gitPull">pull</a>'</p>
+        <p>Gibt die Komponenten in der 'Staging Area' frei für '<a href="#gitMerge">merge</a>' oder '<a href="#gitPush">push</a>' und '<a href="#gitPull">pull</a>'</p>
         <p><p><u>Parameter</u></p>
           <ul>
             <li>&lt;-m "sinnvoller Beschrieb des Commits"&gt;</li>
@@ -93,6 +114,13 @@
             <li>&lt;negative ganzzahl&gt;: Listet letzte Einträge auf</li>
           </ul>
         </p>
+      <li id="gitmerge">git merge</li>
+        <p>Synchonisiert zwei 'Branches' - dazu muss mit <a href="#gitCheckout">git checkout</a> in den Ziel 'Branch' gewechselt werden und dann das Merge-Kommando abgesetzt werden.</p>
+        <p><p><u>Parameter</u></p>
+          <ul>
+            <li>&lt;"Name Quell 'Branch'</li>
+          </ul>
+        </p>
       <li id="gitReset">git reset</li>
         <p>Nimmt Komponenten der 'Stagin Area' zurück in die  'Working Area' (Gegenstück ist '<a href="#gitAdd">git add<a>')</p>
         <p><p><u>Parameter</u></p>
@@ -103,18 +131,24 @@
         </p>
       <li id="gitStatus"><a href="#gitStatusDetail">git status</a></li>
         <p>Listet den Status der Files und Directories</p>
-      <li>git tag</li>
+      <li id="gitTag">git tag</li>
         <p>Einen Committed 'Release' 'etikettieren'; d.h. man kann einen Commit, der einen komischen Schlüssel generiert benennen und ihn so sprechender machen.</p>
         <p>Der Tag-Name sollte in dieser [master]/Entwickler-Instanz eindeutig sein!</p>
         <p>Es können mehrere Tags pro Commit vergeben werden.</p>
+        <p>Mit <a href="#gitCheckout">git checkout </a> kann dieser Release auch angesprochen werden - Sinn oder Unsinn must be well considered ...</p>
         <p>git &lt;"name des Tag"&gt; &LT;Commit-ID&gt;
           <ul>
             <li>"name des Tag": Sprechender, in dieser Instanz eindeutiger Name</li>
             <li>Commit-ID ist die ID, die beim 'git commit' angegeben wird. Sie kann mit 'git log' ermittelt werden</li>
           </ul>
         </p>
+
     <!-- H2 --------------------------------------------------------------- -->
-    <h2 id="gitStatusDetail">git status <a href="#inhalt">(zum Inhalt)</a></h2>
+    <h2 id="gitIgnoere">'.gitIgnoere' <a href="#inhalt">(zum Inhalt)</a></h2>
+      <p>Im Projet kann ein File angelegt werden, dass '.gitIgnore' heisst. Darin können Files aufgelistet werden, die von Git ignoriert werden sollen.</p>
+
+    <!-- H2 --------------------------------------------------------------- -->
+    <h2 id="gitStatusDetail">git status (Detail)<a href="#inhalt">(zum Inhalt)</a></h2>
       <a href="#gitStatus">back to 'Wichtige Kommandos'/'git status'</a>
       <p>C:\Users\public\documents\webprofessional\projects\webdeveloper [master +4 ~0 -0 ~]> git status</p>
       <p>Nachstehendes Beispiel neu editierter Files (nicht in Staging Area)</p>
@@ -153,6 +187,38 @@ Changes to be committed:<br>
         nothing to commit, working tree clean
       </td><tr></table>
 
+    <!-- H2 --------------------------------------------------------------- -->
+    <h2 id="gitHub">Git Hub <a href="#inhalt">(zum Inhalt)</a></h2>
+      <p>Im Internet kann unter <a href="https://github.com">github.com</a> ein Repository eröffnet werden. In der Regel ist es Public - das heisst, jeder, der einen Git Hub Account hat, kann in meiner Source rumschnüffeln.</p>
+      <p>Das kann unterbunden werden, indem man ein kostenpflichtiges privates Repository eröffnet ($ 7.00 per month, Stand November 2016).</p>
+      <h3>Git Hub: Eröffnen Repository</h3>
+        <p>Dazu muss:
+          <ol>
+            <li>Ein Account eroeffnen unter <a href="https://github.com">github.com</a> (siehe auch <a href="#gitAufsetzen">Git aufsetzen</a>).</li>
+            <li>Unter dem Menü 'New Repository' ein neues Repository eroeffnen</li>
+              <img src="pics/gitHubEntry.jpg" alt="Einstiegsbild Git Hub" title="Einstiegsbild Git Hub"/>
+            <li>Ein Repository eroeffnen</li>
+              <img src="pics/gitMenueNewProject.jpg" alt="Submenue Erstellen Repository" title="Submenue Erstellen Repository"/>
+              <p>Sinnvolle Paramter eingeben - public oder private (Kostenpflichtig!) eingeben und ... ab damit!</p>
+              <img src="pics/gitOpenProject.jpg" alt="Parameter Erstellen Repository" title="Parameter Erstellen Repository"/>
+              <p>Quittung:</p>
+              <img src="pics/gitQuittungOpenProject.jpg" alt="Bestaetigung Erstelltes Repository" title="Bestaetigung Erstelltes Repository"/>
+              <p>Einige Dinge daraus werden wir als Kommandos in der 'Git Shell' brauchen:</p>
+              <ul>
+                <li>'Connect' zum Server: git remote add origin https://github.com/ch-r-waelti/webdeveloper.git</li>
+                <li>Upload: git push -u origin master</li>
+              </ul>
+          </ol>
+        </p>
+      <h3>Git Hub: Synchronsieren</h3>
+      <p>Unser lokaler 'master' muss nun noch mit dem Repository synchronisert werden - dazu (angelehnt an obiger Eröffnung):
+        <p>Voraussetzung ist allerdings bzw. das wäre vorteilhaft: Das lokale Projekt ist bereingit (add / commit)</p>
+        <ol>
+          <li>Anmelden: git remote add origin https://github.com/ch-r-waelti/webdeveloper.git</li>
+          <li>Upload: git push -u origin master</li>
+          <li>Download: git pull</li>
+        </ol>
+      </p>
     <!-- H2 --------------------------------------------------------------- -->
     <h2 id="lifeCycleProject">Lifecycle Project <a href="#inhalt">(zum Inhalt)</a></h2>
 
