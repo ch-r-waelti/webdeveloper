@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2226dfd0-c39a-49fa-b2d2-a77d9fb1271f" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/git.html" afterPath="$PROJECT_DIR$/gitSASS.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/layout.css" afterPath="$PROJECT_DIR$/css/layout.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gitSASS.html" afterPath="$PROJECT_DIR$/gitSASS.html" />
     </list>
     <ignored path="webDeveloper.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,13 +36,20 @@
       <file leaf-file-name="gitSASS.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gitSASS.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="39" column="41" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="41" />
+            <state relative-caret-position="555">
+              <caret line="367" column="0" selection-start-line="367" selection-start-column="0" selection-end-line="367" selection-end-column="0" />
               <folding>
-                <element signature="e#16265#16270#0" expanded="true" />
-                <element signature="e#16278#16283#0" expanded="true" />
-                <element signature="e#16407#16412#0" expanded="true" />
-                <element signature="e#16496#16501#0" expanded="true" />
+                <element signature="e#1568#1572#0" expanded="true" />
+                <element signature="e#9504#9508#0" expanded="true" />
+                <element signature="e#9512#9516#0" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#code#0;n#pre#0;n#td#0;n#tr#0;n#table#0;n#div#4;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#10063#10067#0" expanded="true" />
+                <element signature="e#10071#10075#0" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#code#0;n#pre#0;n#td#0;n#tr#0;n#table#1;n#div#4;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#18869#18874#0" expanded="true" />
+                <element signature="e#18882#18887#0" expanded="true" />
+                <element signature="e#19034#19039#0" expanded="true" />
+                <element signature="e#19123#19128#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -53,7 +58,7 @@
       <file leaf-file-name="layout.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/layout.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1666">
+            <state relative-caret-position="1075">
               <caret line="43" column="2" selection-start-line="43" selection-start-column="2" selection-end-line="43" selection-end-column="2" />
               <folding />
             </state>
@@ -63,7 +68,7 @@
       <file leaf-file-name="index_html_lektionen.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index_html_lektionen.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-150">
+            <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -93,6 +98,7 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="117" />
+    <option name="y" value="6" />
     <option name="width" value="1813" />
     <option name="height" value="1084" />
   </component>
@@ -121,42 +127,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="webDeveloper" />
+              <option name="myItemId" value="LernDoc" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webDeveloper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webDeveloper" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webDeveloper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webDeveloper" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -224,17 +206,18 @@
       <updated>1479846057161</updated>
       <workItem from="1479846058385" duration="200000" />
       <workItem from="1479930894161" duration="3527000" />
+      <workItem from="1480150180129" duration="8636000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3727000" />
+    <option name="totallyTimeSpent" value="12363000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="117" y="0" width="1813" height="1084" extended-state="0" />
+    <frame x="117" y="6" width="1813" height="1084" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2545032" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.092388146" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -271,6 +254,50 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gitSASS.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1568#1572#0" expanded="true" />
+            <element signature="e#9504#9508#0" expanded="true" />
+            <element signature="e#9512#9516#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#code#0;n#pre#0;n#td#0;n#tr#0;n#table#0;n#div#4;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#10063#10067#0" expanded="true" />
+            <element signature="e#10071#10075#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#code#0;n#pre#0;n#td#0;n#tr#0;n#table#1;n#div#4;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#18869#18874#0" expanded="true" />
+            <element signature="e#18882#18887#0" expanded="true" />
+            <element signature="e#19034#19039#0" expanded="true" />
+            <element signature="e#19123#19128#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/layout.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1075">
+          <caret line="43" column="2" selection-start-line="43" selection-start-column="2" selection-end-line="43" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index_html_lektionen.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
@@ -279,7 +306,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index_html_lektionen.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-150">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -295,7 +322,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/layout.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1666">
+        <state relative-caret-position="1075">
           <caret line="43" column="2" selection-start-line="43" selection-start-column="2" selection-end-line="43" selection-end-column="2" />
           <folding />
         </state>
@@ -303,13 +330,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gitSASS.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="39" column="41" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="41" />
+        <state relative-caret-position="555">
+          <caret line="367" column="0" selection-start-line="367" selection-start-column="0" selection-end-line="367" selection-end-column="0" />
           <folding>
-            <element signature="e#16265#16270#0" expanded="true" />
-            <element signature="e#16278#16283#0" expanded="true" />
-            <element signature="e#16407#16412#0" expanded="true" />
-            <element signature="e#16496#16501#0" expanded="true" />
+            <element signature="e#1568#1572#0" expanded="true" />
+            <element signature="e#9504#9508#0" expanded="true" />
+            <element signature="e#9512#9516#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#code#0;n#pre#0;n#td#0;n#tr#0;n#table#0;n#div#4;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#10063#10067#0" expanded="true" />
+            <element signature="e#10071#10075#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#code#0;n#pre#0;n#td#0;n#tr#0;n#table#1;n#div#4;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#18869#18874#0" expanded="true" />
+            <element signature="e#18882#18887#0" expanded="true" />
+            <element signature="e#19034#19039#0" expanded="true" />
+            <element signature="e#19123#19128#0" expanded="true" />
           </folding>
         </state>
       </provider>

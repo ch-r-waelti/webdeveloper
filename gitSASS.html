@@ -22,287 +22,394 @@
   </nav>
   <main id="hauptteil">
     <h1 id="Inhalt">Inhalt</h1>
-    <li><a href="#inhaltGit">Git</a></li>
-    <li><a href="#inhaltSASS">SASS</a></li>
-    <h1><a href="https://github.com/" target="_blank">Git<a></h1>
-    <p>Ist ein Versionierungstool. Aktuell verwenden wir es mit der git shell, ein Unix-angelehntes Kommandofenster.</p>
-    <p>Wir verwenden in der Schule zusätzlich die Tools
+    <nav>
+      <ul>
+        <li><a href="#inhaltGit">Git</a></li>
+        <li><a href="#SASS">SASS</a></li>
+      </ul>
+    </nav>
+    <h1><a href="https://github.com/" target="_blank">Git</a></h1>
+    <div>
+      <p>Ist ein Versionierungstool. Aktuell verwenden wir es mit der git shell, ein Unix-angelehntes Kommandofenster.</p>
+      <p>Wir verwenden in der Schule zusätzlich die Tools</p>
       <ul>
         <li><a href="http://flight-manual.atom.io/" target="_blank">atom</a>: als Editor</li>
         <li><a href="https://www.browsersync.io/" target="_blank">Browser-Sync</a>: Test Web-Server</li>
       </ul>
-    </p>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="gitAufsetzen">Git aufsetzen</h2>
+      <div>
+        <p>Nach dem Laden und installieren sind in der Git Shell zwei, drei Dinge bzw. Kommandos abzuarbeiten:</p>
+        <ol>
+          <li>git config --global user.name &lt;"DEIN NAME"&gt;</li>
+          <li>git config --global user.email &lt;"DEINE EMAIL ADDRESSE"&gt;</li>
+          <li>ssh-keygen -t rsa -b 4096 -C &lt;"DEINE EMAIL ADDRESSE"&gt;</li>
+        </ol>
+        <p>Der so generierte ssh-Key ist  - wenn gewünscht, bzw. wenn man es leid ist, sich jedes Mal anzumelden - in Git <a href="https://github.com/"><u>https://github.com/</u></a> einzutragen.</p>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="inhaltGit">Inhalt Git <a href="#Inhalt">(zum Inhalt)</a></h2>
+      <nav>
+        <ul>
+          <li><a href="#projektAufsetzen">Projekt aufsetzen</a></li>
+          <li><a href="#wichtigeKommandos">Wichtige Kommandos</a></li>
+          <li><a href="#gitIgnore">'.gitIgnore'</a></li>
+          <li><a href="#gitStatusDetail">git status (Detail)</a></li>
+          <li><a href="#gitHub">Git Hub</a></li>
+          <li><a href="#lifeCycleProject">Lifecycle Project</a></li>
+        </ul>
+      </nav>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="projektAufsetzen">Projekt aufsetzen <a href="#inhaltGit">(zum inhalt Git)</a></h2>
+      <div>
+        <ol>
+          <li>Projektordner erstellen: mkdir</li>
+          <li>im Projektordner Kommando 'git init'
+            <div>Initialisiert Git und erstellt den 'master'</div>
+          </li>
+          <li>Files editieren mit 'atom .'
+            <div>Sollen Files in Unterordnern erstellt werden, in der Shell Direktory erstellen und darin mit 'atom .' weitere Files erstellen</div>
+          </li>
+          <li>Bearbeitete Files in die 'Staging Area' schreiben: git add &lt;file | .&gt;
+            <p>'.' lädt alle Files in die 'Staging Area'<p>
+          </li>
+          <li>Files versionieren: git commit &lt;-m "sinnvoller aenderungsgrund"&gt;</li>
+          <li>Testen (mit Browser Sync) im Projektordner: browser-sync start --serverx
+            <div>Tipp: Um den Browser Sync nicht immer nochmals starten zu müssen, am besten eine zweite Shell öffnen, im Projektordner positionieren und das Kmmando dort aufrufen; dann muss nur noch refreshed werden</div>
+            <div>Beenden: [cntrl][c] und entsprechend quittieren</div>
+          </li>
+        </ol>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="wichtigeKommandos">Wichtige Kommandos <a href="#inhaltGit">(zum Inhalt Git)</a></h2>
+      <div>
+        <ul>
+          <li id="gitAdd">git add
+            <p>Nimmt Komponenten der 'Working Area' in 'Stagin Area' auf (Gegenstück ist '<a href="#gitReset">git reset</a>')</p>
+            <div>
+              <p><u>Parameter</u></p>
+              <ul>
+                <li>&lt;filename&gt;: spezifisches File</li>
+                <li>&lt;.&gt;: Alle veränderten Files in der 'Working Area'</li>
+              </ul>
+            </div>
+          </li>
+          <li id="gitBranch">git branch
+            <p>Aufliesten / Löschen 'Branches'</p>
+            <p><u>Parameter</u></p>
+            <ul>
+              <li>...ohne...
+                <div>Auflisten der Branches. Der aktuelle ist mit einem '*' markiert</div>
+              </li>
+              <li>&lt;-d "Name des 'Branch'"&gt;
+                <div>Löschen eines Branches</div>
+              </li>
+            </ul>
+          </li>
+          <li id="gitCheckout">git checkout
+            <p>Eigentlich die Umgebung wecheln - oder erstellen.</p>
+            <p><p><u>Parameter</u></p>
+            <ul>
+              <li>&lt;-b "sinnvoller Name des 'Branch'"&gt;
+                <div>Ein neuer Branch wird erstellt</div>
+              </li>
+              <li>&lt;"Name eines 'Branch'" oder "master"&gt;
+                <div>Wechseln in einen 'Branch' - siehe auch <a href="#gitMerge">git merge</a></div>
+              </li>
+              <li>&lt;"Name eines 'Tag'"&gt;
+                <div>Wechseln zu einem mit <a href="#gitTag">git tag</a>) 'etikettierten' Release.</div>
+              </li>
+            </ul>
+          </li>
+          <li id="gitCommit">git commit
+            <p>Gibt die Komponenten in der 'Staging Area' frei für '<a href="#gitMerge">merge</a>' oder '<a href="#gitPush">push</a>' und '<a href="#gitPull">pull</a>'</p>
+            <p><u>Parameter</u></p>
+            <ul>
+              <li>&lt;-m "sinnvoller Beschrieb des Commits"&gt;
+                <div>wird &lt;-m'&gt; weggelassen, öffnet sich der Default-Editor (VI) zur Eingabe des 'sinnvollen Beschriebs des Commits'</div>
+              </li>
+            </ul>
+          </li>
+          <li id="gitLog">git log
+            <p>Listet auf, was gemacht wurde</p>
+            <div><p><u>Parameter</u></p>
+              <ul>
+                <li>&lt;ganzzahl&gt;: Listet erste Einträge auf</li>
+                <li>&lt;negative ganzzahl&gt;: Listet letzte Einträge auf</li>
+              </ul>
+            </div>
+          </li>
+          <li id="gitMerge">git merge
+            <p>Synchonisiert zwei 'Branches' - dazu muss mit <a href="#gitCheckout">git checkout</a> in den Ziel 'Branch' gewechselt werden und dann das Merge-Kommando abgesetzt werden.</p>
+            <div><p><u>Parameter</u></p>
+              <ul>
+                <li>&lt;"Name Quell 'Branch'</li>
+              </ul>
+            </div>
+          </li>
+          <li id="gitPull">git pull
+            <p>not documented yet ...</p>
+          </li>
+          <li id="gitPush">git push
+            <p>not documented yet ...</p>
+          </li>
+          <li id="gitReset">git reset
+            <p>Nimmt Komponenten der 'Stagin Area' zurück in die  'Working Area' (Gegenstück ist '<a href="#gitAdd">git add</a>')</p>
+            <div>
+              <div><u>Parameter</u></div>
+              <ul>
+                <li>&lt;filename&gt;: spezifisches File</li>
+                <li>&lt;.&gt;: Alle veränderten Files in der 'Working Area'</li>
+              </ul>
+            </div>
+          </li>
+          <li id="gitStatus"><a href="#gitStatusDetail">git status</a>
+            <p>Listet den Status der Files und Directories</p>
+          </li>
+          <li id="gitTag">git tag
+            <p>Einen Committed 'Release' 'etikettieren'; d.h. man kann einen Commit, der einen komischen Schlüssel generiert benennen und ihn so sprechender machen.</p>
+            <p>Der Tag-Name sollte in dieser [master]/Entwickler-Instanz eindeutig sein!</p>
+            <p>Es können mehrere Tags pro Commit vergeben werden.</p>
+            <p>Mit <a href="#gitCheckout">git checkout </a> kann dieser Release auch angesprochen werden - Sinn oder Unsinn must be well considered ...</p>
+            <p>git &lt;"name des Tag"&gt; &LT;Commit-ID&gt;</p>
+            <ul>
+              <li>"name des Tag": Sprechender, in dieser Instanz eindeutiger Name</li>
+              <li>Commit-ID ist die ID, die beim 'git commit' angegeben wird. Sie kann mit 'git log' ermittelt werden</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="gitIgnore">'.gitIgnoere' <a href="#inhaltGit">(zum Inhalt Git)</a></h2>
+      <div>
+        <p>Im Projet kann ein File angelegt werden, dass '.gitIgnore' heisst. Darin können Files aufgelistet werden, die von Git ignoriert werden sollen.</p>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="gitStatusDetail">git status (Detail)<a href="#inhaltGit">(zum Inhalt Git)</a></h2>
+      <div>
+        <a href="#gitStatus">back to 'Wichtige Kommandos'/'git status'</a>
+        <p>C:\Users\public\documents\webprofessional\projects\webdeveloper [master +4 ~0 -0 ~]> git status</p>
+        <p>Nachstehendes Beispiel neu editierter Files (nicht in Staging Area)</p>
+        <table><tr><td><pre><code>
+          On branch master
 
-    <!-- H2 --------------------------------------------------------------- -->
-    <h2 id="gitAufsetzen">Git aufsetzen</h2>
-    <p>Nach dem Laden und installieren sind in der Git Shell zwei, drei Dinge bzw. Kommandos abzuarbeiten:</p>
-    <ol>
-      <li>git config --global user.name &lt;"DEIN NAME"&gt;</li>
-      <li>git config --global user.email &lt;"DEINE EMAIL ADDRESSE"&gt;</li>
-      <li>ssh-keygen -t rsa -b 4096 -C &lt;"DEINE EMAIL ADDRESSE"&gt;</li>
-    </ol>
-    <p>Der so generierte ssh-Key ist  - wenn gewünscht, bzw. wenn man es leid ist, sich jedes Mal anzumelden - in Git <a href="https://github.com/"><u>https://github.com/</u></a> einzutragen.</p>
+          Initial commit
 
-    <!-- H2 --------------------------------------------------------------- -->
-    <h2 id="inhaltGit">Inhalt Git <a href="#Inhalt">(zum Inhalt)</a></h2>
-      <li><a href="#projektAufsetzen">Projekt aufsetzen</a></li>
-      <li><a href="#wichtigeKommandos">Wichtige Kommandos</a></li>
-      <li><a href="#gitIgnore">'.gitIgnore'</a></li>
-      <li><a href="#gitStatusDetail">git status (Detail)</a></li>
-      <li><a href="#gitHub">Git Hub</a></li>
-      <li><a href="#lifeCycleProject">Lifecycle Project</a></li>
+          Untracked files:
+            (use "git add &lt;file&gt;..." to include in what will be committed)
 
-    <!-- H2 --------------------------------------------------------------- -->
-    <h2 id="projektAufsetzen">Projekt aufsetzen <a href="#inhaltGit">(zum inhalt Git)</a></h2>
-    <ol>
-      <li>Projektordner erstellen: mkdir</li>
-      <li>im Projektordner Kommando 'git init'</li>
-      <p>Initialisiert Git und erstellt den 'master'</p>
-      <li>Files editieren mit 'atom .'</li>
-      <p>Sollen Files in Unterordnern erstellt werden, in der Shell Direktory erstellen und darin mit 'atom .' weitere Files erstellen</p>
-      <li>Bearbeitete Files in die 'Staging Area' schreiben: git add &lt;file | .&gt;</li>
-      <p>'.' lädt alle Files in die 'Staging Area'<p>
-      <li>Files versionieren: git commit &lt;-m "sinnvoller aenderungsgrund"&gt;</li>
-      <li>Testen (mit Browser Sync) im Projektordner: browser-sync start --server</li>
-      <p>Tipp: Um den Browser Sync nicht immer nochmals starten zu müssen, am besten eine zweite Shell öffnen, im Projektordner positionieren und das Kmmando dort aufrufen; dann muss nur noch refreshed werden</p>
-      <p>Beenden: [cntrl][c] und entsprechend quittieren</p>
-    </ol>
+                  <span style="color:red">css/
+                  git.html
+                  index.html
+                  index_html_lektionen.html</span>
 
-    <!-- H2 --------------------------------------------------------------- -->
-    <h2 id="wichtigeKommandos">Wichtige Kommandos <a href="#inhaltGit">(zum Inhalt Git)</a></h2>
-    <ul>
-      <li id="gitAdd">git add</li>
-        <p>Nimmt Komponenten der 'Working Area' in 'Stagin Area' auf (Gegenstück ist '<a href="#gitReset">git reset<a>')</p>
-        <p><p><u>Parameter</u></p>
-          <ul>
-            <li>&lt;filename&gt;: spezifisches File</li>
-            <li>&lt;.&gt;: Alle veränderten Files in der 'Working Area'</li>
-          </ul>
-        </p>
-      <li id="gitBranch">git branch</li>
-        <p>Aufliesten / Löschen 'Branches'</p>
-        <p><p><u>Parameter</u></p>
-          <ul>
-            <li>...ohne...</li>
-            <p>Auflisten der Branches. Der aktuelle ist mit einem '*' markiert</p>
-            <li>&lt;-d "Name des 'Branch'"&gt;</li>
-            <p>Löschen eines Branches</p>
-          </ul>
-        </p>
-      <li id="gitCheckout">git checkout</li>
-        <p>Eigentlich die Umgebung wecheln - oder erstellen.</p>
-        <p><p><u>Parameter</u></p>
-          <ul>
-            <li>&lt;-b "sinnvoller Name des 'Branch'"&gt;</li>
-            <p>Ein neuer Branch wird erstellt</p>
-            <li>&lt;"Name eines 'Branch'" oder "master"&gt;</li>
-            <p>Wechseln in einen 'Branch' - siehe auch <a href="#gitMerge">git merge</a></p>
-            <li>&lt;"Name eines 'Tag'"&gt;</li>
-            <p>Wechseln zu einem mit <a href="#gitTag">git tag</a>) 'etikettierten' Release.</p>
-          </ul>
-        </p>
-      <li id="gitCommit">git commit</li>
-        <p>Gibt die Komponenten in der 'Staging Area' frei für '<a href="#gitMerge">merge</a>' oder '<a href="#gitPush">push</a>' und '<a href="#gitPull">pull</a>'</p>
-        <p><p><u>Parameter</u></p>
-          <ul>
-            <li>&lt;-m "sinnvoller Beschrieb des Commits"&gt;</li>
-            <p>wird &lt;-m'&gt; weggelassen, öffnet sich der Default-Editor (VI) zur Eingabe des 'sinnvollen Beschriebs des Commits'</p>
-          </ul>
-        </p>
-      <li id="gitLog">git log</li>
-        <p>Listet auf, was gemacht wurde</p>
-        <p><p><u>Parameter</u></p>
-          <ul>
-            <li>&lt;ganzzahl&gt;: Listet erste Einträge auf</li>
-            <li>&lt;negative ganzzahl&gt;: Listet letzte Einträge auf</li>
-          </ul>
-        </p>
-      <li id="gitmerge">git merge</li>
-        <p>Synchonisiert zwei 'Branches' - dazu muss mit <a href="#gitCheckout">git checkout</a> in den Ziel 'Branch' gewechselt werden und dann das Merge-Kommando abgesetzt werden.</p>
-        <p><p><u>Parameter</u></p>
-          <ul>
-            <li>&lt;"Name Quell 'Branch'</li>
-          </ul>
-        </p>
-      <li id="gitReset">git reset</li>
-        <p>Nimmt Komponenten der 'Stagin Area' zurück in die  'Working Area' (Gegenstück ist '<a href="#gitAdd">git add<a>')</p>
-        <p><p><u>Parameter</u></p>
-          <ul>
-            <li>&lt;filename&gt;: spezifisches File</li>
-            <li>&lt;.&gt;: Alle veränderten Files in der 'Working Area'</li>
-          </ul>
-        </p>
-      <li id="gitStatus"><a href="#gitStatusDetail">git status</a></li>
-        <p>Listet den Status der Files und Directories</p>
-      <li id="gitTag">git tag</li>
-        <p>Einen Committed 'Release' 'etikettieren'; d.h. man kann einen Commit, der einen komischen Schlüssel generiert benennen und ihn so sprechender machen.</p>
-        <p>Der Tag-Name sollte in dieser [master]/Entwickler-Instanz eindeutig sein!</p>
-        <p>Es können mehrere Tags pro Commit vergeben werden.</p>
-        <p>Mit <a href="#gitCheckout">git checkout </a> kann dieser Release auch angesprochen werden - Sinn oder Unsinn must be well considered ...</p>
-        <p>git &lt;"name des Tag"&gt; &LT;Commit-ID&gt;
-          <ul>
-            <li>"name des Tag": Sprechender, in dieser Instanz eindeutiger Name</li>
-            <li>Commit-ID ist die ID, die beim 'git commit' angegeben wird. Sie kann mit 'git log' ermittelt werden</li>
-          </ul>
-        </p>
+          nothing added to commit but untracked files present (use "git add" to track)
+        </code></pre></td><tr></table>
+        <p>Nachstehendes Beispiel Files in der Staging Area</p>
+        <table><tr><td><pre><code>
+          On branch master
 
-    <!-- H2 --------------------------------------------------------------- -->
-    <h2 id="gitIgnoere">'.gitIgnoere' <a href="#inhaltGit">(zum Inhalt Git)</a></h2>
-      <p>Im Projet kann ein File angelegt werden, dass '.gitIgnore' heisst. Darin können Files aufgelistet werden, die von Git ignoriert werden sollen.</p>
+          Initial commit
 
-    <!-- H2 --------------------------------------------------------------- -->
-    <h2 id="gitStatusDetail">git status (Detail)<a href="#inhaltGit">(zum Inhalt Git)</a></h2>
-      <a href="#gitStatus">back to 'Wichtige Kommandos'/'git status'</a>
-      <p>C:\Users\public\documents\webprofessional\projects\webdeveloper [master +4 ~0 -0 ~]> git status</p>
-      <p>Nachstehendes Beispiel neu editierter Files (nicht in Staging Area)</p>
-      <table><tr><td>
-        On branch master<br><br>
+          Changes to be committed:
+            (use "git rm --cached &lt;file&gt;..." to unstage)
 
-        Initial commit<br><br>
-
-        Untracked files:<br>
-          (use "git add <file>..." to include in what will be committed)<br><br>
-
-                <span style="color:red">css/<br>
-                git.html<br>
-                index.html<br>
-                index_html_lektionen.html</span><br><br>
-
-        nothing added to commit but untracked files present (use "git add" to track)
-      </td><tr></table>
-      <p>Nachstehendes Beispiel Files in der Staging Area</p>
-      <table><tr><td>
-        On branch master<br><br>
-
-Initial commit<br<br>
-
-Changes to be committed:<br>
-  (use "git rm --cached <file>..." to unstage)<br><br>
-
-        <span style="color:green">new file:   css/layout.css<br>
-        new file:   git.html<br>
-        new file:   index.html<br>
-        new file:   index_html_lektionen.html</span>
-      </td><tr></table>
-      <p>Nachstehendes Beispiel: Alles committed und OK</p>
-      <table><tr><td>
-        On branch master<br>
-        nothing to commit, working tree clean
-      </td><tr></table>
-
-    <!-- H2 --------------------------------------------------------------- -->
-    <h2 id="gitHub">Git Hub <a href="#inhaltGit">(zum Inhalt Git)</a></h2>
-      <p>Im Internet kann unter <a href="https://github.com">github.com</a> ein Repository eröffnet werden. In der Regel ist es Public - das heisst, jeder, der einen Git Hub Account hat, kann in meiner Source rumschnüffeln.</p>
-      <p>Das kann unterbunden werden, indem man ein kostenpflichtiges privates Repository eröffnet ($ 7.00 per month, Stand November 2016).</p>
-      <h3>Git Hub: Eröffnen Repository</h3>
-        <p>Dazu muss:
+          <span style="color:green">new file:   css/layout.css
+          new file:   git.html
+          new file:   index.html
+          new file:   index_html_lektionen.html</span>
+        </code></pre></td><tr></table>
+        <p>Nachstehendes Beispiel: Alles committed und OK</p>
+        <table><tr><td>
+          On branch master<br>
+          nothing to commit, working tree clean
+        </td><tr></table>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="gitHub">Git Hub <a href="#inhaltGit">(zum Inhalt Git)</a></h2>
+      <div>
+        <p>Im Internet kann unter <a href="https://github.com">github.com</a> ein Repository eröffnet werden. In der Regel ist es Public - das heisst, jeder, der einen Git Hub Account hat, kann in meiner Source rumschnüffeln.</p>
+        <p>Das kann unterbunden werden, indem man ein kostenpflichtiges privates Repository eröffnet ($ 7.00 per month, Stand November 2016).</p>
+        <h3>Git Hub: Eröffnen Repository</h3>
+        <div>
+          <p>Dazu muss:</p>
           <ol>
             <li>Ein Account eroeffnen unter <a href="https://github.com">github.com</a> (siehe auch <a href="#gitAufsetzen">Git aufsetzen</a>).</li>
-            <li>Unter dem Menü 'New Repository' ein neues Repository eroeffnen</li>
-              <img src="pics/gitHubEntry.jpg" alt="Einstiegsbild Git Hub" title="Einstiegsbild Git Hub"/>
-            <li>Ein Repository eroeffnen</li>
-              <img src="pics/gitMenueNewProject.jpg" alt="Submenue Erstellen Repository" title="Submenue Erstellen Repository"/>
+            <li>Unter dem Menü 'New Repository' ein neues Repository eroeffnen
+              <img src="pics/gitHubEntry.jpg" alt="Einstiegsbild Git Hub" title="Einstiegsbild Git Hub">
+            </li>
+            <li>Ein Repository eroeffnen
+              <img src="pics/gitMenueNewProject.jpg" alt="Submenue Erstellen Repository" title="Submenue Erstellen Repository">
               <p>Sinnvolle Paramter eingeben - public oder private (Kostenpflichtig!) eingeben und ... ab damit!</p>
-              <img src="pics/gitOpenProject.jpg" alt="Parameter Erstellen Repository" title="Parameter Erstellen Repository"/>
+              <img src="pics/gitOpenProject.jpg" alt="Parameter Erstellen Repository" title="Parameter Erstellen Repository">
               <p>Quittung:</p>
-              <img src="pics/gitQuittungOpenProject.jpg" alt="Bestaetigung Erstelltes Repository" title="Bestaetigung Erstelltes Repository"/>
+              <img src="pics/gitQuittungOpenProject.jpg" alt="Bestaetigung Erstelltes Repository" title="Bestaetigung Erstelltes Repository">
               <p>Einige Dinge daraus werden wir als Kommandos in der 'Git Shell' brauchen:</p>
               <ul>
                 <li>'Connect' zum Server: git remote add origin https://github.com/ch-r-waelti/webdeveloper.git</li>
                 <li>Upload: git push -u origin master</li>
               </ul>
+            </li>
           </ol>
-        </p>
-      <h3>Git Hub: Synchronsieren</h3>
-      <p>Unser lokaler 'master' muss nun noch mit dem Repository synchronisert werden - dazu (angelehnt an obiger Eröffnung):
-        <p>Voraussetzung ist allerdings bzw. das wäre vorteilhaft: Das lokale Projekt ist bereingit (add / commit)</p>
+        </div>
+        <h3>Git Hub: Synchronsieren</h3>
+        <div>
+          <p>Unser lokaler 'master' muss nun noch mit dem Repository synchronisert werden - dazu (angelehnt an obiger Eröffnung):
+          <p>Voraussetzung ist allerdings bzw. das wäre vorteilhaft: Das lokale Projekt ist bereingit (add / commit)</p>
           <ol>
-            <p>
-              <li>Anmelden: git remote add origin https://github.com/ch-r-waelti/webdeveloper.git</li>
+            <li>Anmelden: git remote add origin https://github.com/ch-r-waelti/webdeveloper.git
               <p>Der Name leitet sich ab:</p>
               <ul>
-                  <li>der Befehl: </li>
-                  <p>git remote add origin</p>
-                  <li>die Adresse (Teil 1, der Server): </li>
-                  <p>https://github.com</p>
-                  <li>die Adresse (Teil 2, der Account):</li>
-                  <p>/ch-r-waelti</p>
-                  <li>die Adresse (Teil 3, das Projekt/der Projektordner mit Zusatz '.git'):</li>
-                  <p>/webdeveloper.git</p>
+                  <li>der Befehl:
+                    <p>git remote add origin</p>
+                  </li>
+                  <li>die Adresse (Teil 1, der Server):
+                    <p>https://github.com</p>
+                  </li>
+                  <li>die Adresse (Teil 2, der Account):
+                    <p>/ch-r-waelti</p>
+                  </li>
+                  <li>die Adresse (Teil 3, das Projekt/der Projektordner mit Zusatz '.git'):
+                    <p>/webdeveloper.git</p>
+                  </li>
               </ul>
-              <li>Upload: git push -u origin master</li>
-              <li>Download: git pull</li>
-              <br>'push' wie auch 'pull' synchronisieren die Stände
-            </p>
+            </li>
+            <li>Upload: git push -u origin master</li>
+            <li>Download: git pull
+              <p>'push' wie auch 'pull' synchronisieren die Stände</p>
+            </li>
           </ol>
-        </p>
-    <!-- H2 --------------------------------------------------------------- -->
-    <h2 id="lifeCycleProject">Lifecycle Project <a href="#inhaltGit">(zum Inhalt Git)</a></h2>
-      <p>Wie man das aufsetzt, ist natürlich Gusto von jedem selber bzw. auch ein Erfahrungswert - und deshalb lasse ich das Kapitel noch offen ...</p>
-      <p>Ok, ganz lassen kann ich es nicht ... ich glaube, ich werde/würde es so aufsetzen:</p>
-      <ul>
-        <li>master: Für Erstentwicklung bis zum ersten Release</li>
-        <li>developer: Für die Weiterentwicklung eines neuen Releases - dieser wird für einen neuen Release mit dem 'master' synchronisiert und sinnvoll 'tagged' (<a href="#gitTag">git tag</a>))</li>
-        <li>hot fix: Parallel zu 'master' und 'developer' - ist ein 'hot fix' nötig, wird dieser mit 'master' und 'developer' synchronisiert.</li>
-        <li>Ist ein 'hot fix' auf einen älterne Release nötig (remember? <a href="#gitTag">git tag</a>), wird, sofern er nur schwierig mit einem wesentlich späteren Release vereinbar ist, als z.Bsp. 'master kunde x' geführt</p>
-      </ul>
+        </div>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="lifeCycleProject">Lifecycle Project <a href="#inhaltGit">(zum Inhalt Git)</a></h2>
+      <div>
+        <p>Wie man das aufsetzt, ist natürlich Gusto von jedem selber bzw. auch ein Erfahrungswert - und deshalb lasse ich das Kapitel noch offen ...</p>
+        <p>Ok, ganz lassen kann ich es nicht ... ich glaube, ich werde/würde es so aufsetzen:</p>
+        <ul>
+          <li>master: Für Erstentwicklung bis zum ersten Release</li>
+          <li>developer: Für die Weiterentwicklung eines neuen Releases - dieser wird für einen neuen Release mit dem 'master' synchronisiert und sinnvoll 'tagged' (<a href="#gitTag">git tag</a>))</li>
+          <li>hot fix: Parallel zu 'master' und 'developer' - ist ein 'hot fix' nötig, wird dieser mit 'master' und 'developer' synchronisiert.</li>
+          <li>Ist ein 'hot fix' auf einen älterne Release nötig (remember? <a href="#gitTag">git tag</a>), wird, sofern er nur schwierig mit einem wesentlich späteren Release vereinbar ist, als z.Bsp. 'master kunde x' geführt</li>
+        </ul>
+      </div>
+    </div>
+    <h1 id="SASS">SASS <a href="#Inhalt">(zum Inhalt)</a></h1>
+    <div>
       <!-- H2 --------------------------------------------------------------- -->
       <h2 id="inhaltSASS">Inhalt SASS <a href="#Inhalt">(zum Inhalt)</a></h2>
-      <p>SASS ist eine Art, CSS - das behaupten manche - vereinfacht darzustellen. Gleichzeitig, wenn richtig konfiguriert, werden SASS-Files in CSS-Files umgewandelt.</p>
-      <li><a href="#SASSAufsetzen">SASS aufsetzen</a></li>
-      <li><a href="#SASSwichtigeKommandos">SASS: Wichtige Kommandos</a></li>
+      <div>
+        <p>SASS ist eine Art, CSS - das behaupten manche - vereinfacht darzustellen. Gleichzeitig, wenn richtig konfiguriert, werden SASS-Files in CSS-Files umgewandelt.</p>
+        <nav>
+          <ul>
+            <li><a href="#SASSAufsetzen">SASS aufsetzen</a></li>
+            <li><a href="#SASSBEM">BEM</a></li>
+            <li><a href="#SASSwichtigeKommandos">SASS: Wichtige Kommandos</a>
+              <ul>
+                <li><a href="#SASSEditieren">Editieren</a></li>
+                <li><a href="#SASSMixins">Mixins</a></li>
+                <li><a href="#SASSBetrieb">Betrieb</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <!-- H2 --------------------------------------------------------------- -->
       <h2 id="SASSAufsetzen">SASS aufsetzen <a href="#inhaltSASS">(zum Inhalt SASS)</a></h2>
-      <p>Die Kommandos sollten in a) der Git-Shell oder b) dem Terminal von PHP Storm erfolgen</p>
-      <p>Wichtiger Link: <a href="https://www.npmjs.com/package/gulp-sass">Gulp SASS</a></p>
-      <ol>
-        <li>npm init</li>
-        <p>Package Manager (whatever that means ...)</p>
-        <li>np install -g gulp</li>
-        <p>Gulp installieren es erstellt das 'package.json' (oder evt. wird es auch erst mit nächstem Punkt erstellt(?!?)</p>
-        <li>npm install gulp --save-dev</li>
-        <p>Installation von 'gulp' (whatever ...) - dass sollte im Projektordner erfolge.n</p>
-        <li>npm install gulp-sass --save-dev</li>
-        <p>Installation von 'SASS' - dass sollte im Projektordner erfolgen.</p>
-        <li>gulpfile.js</li>
-        <p>Im Projekt-Root muss ein File erstellt werden, welches folgenden Inhalt hat:</p>
-        <p>'use strict';<br><br>
-          var gulp = require('gulp');<br>
-          var sass = require('gulp-sass');<br><br>
-          gulp.task('sass', function () {<br>
-          return gulp.src('css/*.scss')<br>
-          .pipe(sass().on('error', sass.logError))<br>
-          .pipe(gulp.dest('css'));<br>
-          });<br><br>
-          gulp.task('sass:watch', function () {<br>
-          gulp.watch('css/*.scss', ['sass']);<br>
-          });
-        </p>
-        <p>Folgende Passagen sind anzupassen</p>
-        <ul>
-          <li>'return gulp.src('css/*.scss')'</li>
-          <p>Quelle: Pfad/File mit Endung '.scss' (Wildcard für Name ist OK/muss sein(?!?)</p>
-          <li>'.pipe(gulp.dest('css'));'</li>
-          <p>Output des SASS-Precompilers</p>
-          <li>'gulp.watch('css/*.scss', ['sass']);'</li>
-          <p>Fuer den 'Watch' - Quellpfad.</p>
-        </ul>
-      </ol>
+      <div>
+        <p>Die Kommandos sollten in a) der Git-Shell oder b) dem Terminal von PHP Storm erfolgen</p>
+        <p>Wichtiger Link: <a href="https://www.npmjs.com/package/gulp-sass">Gulp SASS</a></p>
+        <ol>
+          <li>npm init
+            <p>Package Manager (whatever that means ...)</p>
+          </li>
+          <li>np install -g gulp
+            <p>Gulp installieren es erstellt das 'package.json' (oder evt. wird es auch erst mit nächstem Punkt erstellt(?!?)</p>
+          </li>
+          <li>npm install gulp --save-dev
+            <p>Installation von 'gulp' (whatever ...) - dass sollte im Projektordner erfolge.n</p>
+          </li>
+          <li>npm install gulp-sass --save-dev
+            <p>Installation von 'SASS' - dass sollte im Projektordner erfolgen.</p>
+          </li>
+          <li>gulpfile.js
+            <p>Im Projekt-Root muss ein File erstellt werden, welches folgenden Inhalt hat:</p>
+            <table><tr><td><pre><code>
+              'use strict';
+              var gulp = require('gulp');
+              var sass = require('gulp-sass');
+              gulp.task('sass', function () {
+              return gulp.src('css/*.scss')
+              .pipe(sass().on('error', sass.logError))
+              .pipe(gulp.dest('css'));
+              });
+              gulp.task('sass:watch', function () {
+              gulp.watch('css/*.scss', ['sass']);
+              });
+            </code></pre></td></tr></table>
+            <p>Folgende Passagen sind anzupassen</p>
+            <ul>
+              <li>'return gulp.src('css/*.scss')'
+                <p>Quelle: Pfad/File mit Endung '.scss' (Wildcard für Name ist OK/muss sein(?!?)</p>
+              </li>
+              <li>'.pipe(gulp.dest('css'));'
+                <p>Output des SASS-Precompilers</p>
+              </li>
+              <li>'gulp.watch('css/*.scss', ['sass']);'
+                <p>Fuer den 'Watch' - Quellpfad.</p>
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="SASSBEM">BEM (Block Element Modifier) <a href="#inhaltSASS">(zum Inhalt SASS)</a></h2>
+      <div>
+        <p>BEM ist eher eine Methode, wie man das HTML und CSS strukturiert: Man denkt in Blöcken und den sich daraus ergebenden Hierarchien - wobei letztere nicht zu tief sein sollte.</p>
+      </div>
       <!-- H2 --------------------------------------------------------------- -->
       <h2 id="SASSwichtigeKommandos">SASS: Wichtige Kommandos <a href="#inhaltSASS">(zum Inhalt SASS)</a></h2>
-      <h3>Editieren</h3>
-      <p>Die Syntax entspricht eigentlich CSS mit '{' und '}' sowie 'Eigenschaft:' 'Wert;'.</p>
-      <ul>
-        <li>$xxx: Variablen, Syntax wie CSS: $variable: wert;</li>
-        <li>&amp;xxx,<br>&amp;yyy</li>
-        <p>Wenn Selectors mit gleichem Wert in der Hierarchie, koennen sie so referenziert werden.</p>
-        <li>&amp;xxx: wird verwendet, wenn verschachtelt wird: Der Name der höheren Ebene und dieses &amp;xxx angehängt.'</li>
-      </ul>
-      <h3>Betrieb</h3>
-      <ul>
-        <li>gulp sass:watch</li>
-        <p>Startet den 'Watch' und wandelt Aenderungen automatisch in CSS um. Dafür massgebend ist die Code-Sequenz 'gulp.watch('css/*.scss', ['sass']);' (siehe auch weiter oben).</p>
-      </ul>
+      <div>
+        <h3 id="SASSEditieren">Editieren <a href="#inhaltSASS">(zum Inhalt SASS)</a></h3>
+        <div>
+          <p>Die Syntax entspricht eigentlich CSS mit '{' und '}' sowie 'Eigenschaft:' 'Wert;'.</p>
+          <ul>
+            <li>$xxx: Variablen, Syntax wie CSS: $variable: wert;</li>
+            <li>&amp;xxx,<br>&amp;yyy
+              <p>Wenn Selectors mit gleichem Wert in der Hierarchie, koennen sie so referenziert werden.</p>
+            </li>
+            <li>&amp;xxx: wird verwendet, wenn verschachtelt wird: Der Name der höheren Ebene und dieses &amp;xxx angehängt.'</li>
+          </ul>
+        </div>
+        <h3 id="SASSMixins">Mixins <a href="#inhaltSASS">(zum Inhalt SASS)</a></h3>
+        <div>
+          <p>Mixins ist eine Möglichkeit, eine Art Templates zu erstellen, welche dann an verschiedenen Orten im SASS referenzert werden können.</p>
+          <p>Beispiel Template:</p>
+          <table><tr><td><pre><code>
+            @mixin entryBackground($color : #c4f7fc) {
+              background: $color;
+            }
+          </code></pre></td></tr></table>
+          <p>Beispiel Referenz Template</p>
+          <table><tr><td><pre><code>
+            .class {
+              @include entryBackground();   // referenz mixin; Defaultwert wird angenommen
+                  }
+            .class2 {
+              @include entryBackground(#c4f7fc);   // referenz mixin mit Parameter
+                  }
+          </code></pre></td></tr></table>
+        </div>
+        <h3 id="SASSBetrieb">Betrieb <a href="#inhaltSASS">(zum Inhalt SASS)</a></h3>
+        <div>
+          <ul>
+            <li>gulp sass:watch
+              <p>Startet den 'Watch' und wandelt Aenderungen automatisch in CSS um. Dafür massgebend ist die Code-Sequenz 'gulp.watch('css/*.scss', ['sass']);' (siehe auch weiter oben).</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </main>
 </body>
 </html>
