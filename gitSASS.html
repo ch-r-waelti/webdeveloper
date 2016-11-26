@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/layout.css">
-    <title>Git</title>	<!- Wird im Fenster/Lasche als Titel angezeigt -->
+    <title>Git / SASS</title>	<!- Wird im Fenster/Lasche als Titel angezeigt -->
 </head>
 <!-
 	Kommentar
@@ -21,6 +21,9 @@
       </table>
   </nav>
   <main id="hauptteil">
+    <h1 id="Inhalt">Inhalt</h1>
+    <li><a href="#inhaltGit">Git</a></li>
+    <li><a href="#inhaltSASS">SASS</a></li>
     <h1><a href="https://github.com/" target="_blank">Git<a></h1>
     <p>Ist ein Versionierungstool. Aktuell verwenden wir es mit der git shell, ein Unix-angelehntes Kommandofenster.</p>
     <p>Wir verwenden in der Schule zusätzlich die Tools
@@ -41,7 +44,7 @@
     <p>Der so generierte ssh-Key ist  - wenn gewünscht, bzw. wenn man es leid ist, sich jedes Mal anzumelden - in Git <a href="https://github.com/"><u>https://github.com/</u></a> einzutragen.</p>
 
     <!-- H2 --------------------------------------------------------------- -->
-    <h2 id="inhalt">Inhalt</h2>
+    <h2 id="inhaltGit">Inhalt Git <a href="#Inhalt">(zum Inhalt)</a></h2>
       <li><a href="#projektAufsetzen">Projekt aufsetzen</a></li>
       <li><a href="#wichtigeKommandos">Wichtige Kommandos</a></li>
       <li><a href="#gitIgnore">'.gitIgnore'</a></li>
@@ -50,7 +53,7 @@
       <li><a href="#lifeCycleProject">Lifecycle Project</a></li>
 
     <!-- H2 --------------------------------------------------------------- -->
-    <h2 id="projektAufsetzen">Projekt aufsetzen <a href="#inhalt">(zum Inhalt)</a></h2>
+    <h2 id="projektAufsetzen">Projekt aufsetzen <a href="#inhaltGit">(zum inhalt Git)</a></h2>
     <ol>
       <li>Projektordner erstellen: mkdir</li>
       <li>im Projektordner Kommando 'git init'</li>
@@ -66,7 +69,7 @@
     </ol>
 
     <!-- H2 --------------------------------------------------------------- -->
-    <h2 id="wichtigeKommandos">Wichtige Kommandos <a href="#inhalt">(zum Inhalt)</a></h2>
+    <h2 id="wichtigeKommandos">Wichtige Kommandos <a href="#inhaltGit">(zum Inhalt Git)</a></h2>
     <ul>
       <li id="gitAdd">git add</li>
         <p>Nimmt Komponenten der 'Working Area' in 'Stagin Area' auf (Gegenstück ist '<a href="#gitReset">git reset<a>')</p>
@@ -144,11 +147,11 @@
         </p>
 
     <!-- H2 --------------------------------------------------------------- -->
-    <h2 id="gitIgnoere">'.gitIgnoere' <a href="#inhalt">(zum Inhalt)</a></h2>
+    <h2 id="gitIgnoere">'.gitIgnoere' <a href="#inhaltGit">(zum Inhalt Git)</a></h2>
       <p>Im Projet kann ein File angelegt werden, dass '.gitIgnore' heisst. Darin können Files aufgelistet werden, die von Git ignoriert werden sollen.</p>
 
     <!-- H2 --------------------------------------------------------------- -->
-    <h2 id="gitStatusDetail">git status (Detail)<a href="#inhalt">(zum Inhalt)</a></h2>
+    <h2 id="gitStatusDetail">git status (Detail)<a href="#inhaltGit">(zum Inhalt Git)</a></h2>
       <a href="#gitStatus">back to 'Wichtige Kommandos'/'git status'</a>
       <p>C:\Users\public\documents\webprofessional\projects\webdeveloper [master +4 ~0 -0 ~]> git status</p>
       <p>Nachstehendes Beispiel neu editierter Files (nicht in Staging Area)</p>
@@ -188,7 +191,7 @@ Changes to be committed:<br>
       </td><tr></table>
 
     <!-- H2 --------------------------------------------------------------- -->
-    <h2 id="gitHub">Git Hub <a href="#inhalt">(zum Inhalt)</a></h2>
+    <h2 id="gitHub">Git Hub <a href="#inhaltGit">(zum Inhalt Git)</a></h2>
       <p>Im Internet kann unter <a href="https://github.com">github.com</a> ein Repository eröffnet werden. In der Regel ist es Public - das heisst, jeder, der einen Git Hub Account hat, kann in meiner Source rumschnüffeln.</p>
       <p>Das kann unterbunden werden, indem man ein kostenpflichtiges privates Repository eröffnet ($ 7.00 per month, Stand November 2016).</p>
       <h3>Git Hub: Eröffnen Repository</h3>
@@ -234,7 +237,7 @@ Changes to be committed:<br>
           </ol>
         </p>
     <!-- H2 --------------------------------------------------------------- -->
-    <h2 id="lifeCycleProject">Lifecycle Project <a href="#inhalt">(zum Inhalt)</a></h2>
+    <h2 id="lifeCycleProject">Lifecycle Project <a href="#inhaltGit">(zum Inhalt Git)</a></h2>
       <p>Wie man das aufsetzt, ist natürlich Gusto von jedem selber bzw. auch ein Erfahrungswert - und deshalb lasse ich das Kapitel noch offen ...</p>
       <p>Ok, ganz lassen kann ich es nicht ... ich glaube, ich werde/würde es so aufsetzen:</p>
       <ul>
@@ -243,7 +246,63 @@ Changes to be committed:<br>
         <li>hot fix: Parallel zu 'master' und 'developer' - ist ein 'hot fix' nötig, wird dieser mit 'master' und 'developer' synchronisiert.</li>
         <li>Ist ein 'hot fix' auf einen älterne Release nötig (remember? <a href="#gitTag">git tag</a>), wird, sofern er nur schwierig mit einem wesentlich späteren Release vereinbar ist, als z.Bsp. 'master kunde x' geführt</p>
       </ul>
-
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="inhaltSASS">Inhalt SASS <a href="#Inhalt">(zum Inhalt)</a></h2>
+      <p>SASS ist eine Art, CSS - das behaupten manche - vereinfacht darzustellen. Gleichzeitig, wenn richtig konfiguriert, werden SASS-Files in CSS-Files umgewandelt.</p>
+      <li><a href="#SASSAufsetzen">SASS aufsetzen</a></li>
+      <li><a href="#SASSwichtigeKommandos">SASS: Wichtige Kommandos</a></li>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="SASSAufsetzen">SASS aufsetzen <a href="#inhaltSASS">(zum Inhalt SASS)</a></h2>
+      <p>Die Kommandos sollten in a) der Git-Shell oder b) dem Terminal von PHP Storm erfolgen</p>
+      <p>Wichtiger Link: <a href="https://www.npmjs.com/package/gulp-sass">Gulp SASS</a></p>
+      <ol>
+        <li>npm init</li>
+        <p>Package Manager (whatever that means ...)</p>
+        <li>np install -g gulp</li>
+        <p>Gulp installieren es erstellt das 'package.json' (oder evt. wird es auch erst mit nächstem Punkt erstellt(?!?)</p>
+        <li>npm install gulp --save-dev</li>
+        <p>Installation von 'gulp' (whatever ...) - dass sollte im Projektordner erfolge.n</p>
+        <li>npm install gulp-sass --save-dev</li>
+        <p>Installation von 'SASS' - dass sollte im Projektordner erfolgen.</p>
+        <li>gulpfile.js</li>
+        <p>Im Projekt-Root muss ein File erstellt werden, welches folgenden Inhalt hat:</p>
+        <p>'use strict';<br><br>
+          var gulp = require('gulp');<br>
+          var sass = require('gulp-sass');<br><br>
+          gulp.task('sass', function () {<br>
+          return gulp.src('css/*.scss')<br>
+          .pipe(sass().on('error', sass.logError))<br>
+          .pipe(gulp.dest('css'));<br>
+          });<br><br>
+          gulp.task('sass:watch', function () {<br>
+          gulp.watch('css/*.scss', ['sass']);<br>
+          });
+        </p>
+        <p>Folgende Passagen sind anzupassen</p>
+        <ul>
+          <li>'return gulp.src('css/*.scss')'</li>
+          <p>Quelle: Pfad/File mit Endung '.scss' (Wildcard für Name ist OK/muss sein(?!?)</p>
+          <li>'.pipe(gulp.dest('css'));'</li>
+          <p>Output des SASS-Precompilers</p>
+          <li>'gulp.watch('css/*.scss', ['sass']);'</li>
+          <p>Fuer den 'Watch' - Quellpfad.</p>
+        </ul>
+      </ol>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="SASSwichtigeKommandos">SASS: Wichtige Kommandos <a href="#inhaltSASS">(zum Inhalt SASS)</a></h2>
+      <h3>Editieren</h3>
+      <p>Die Syntax entspricht eigentlich CSS mit '{' und '}' sowie 'Eigenschaft:' 'Wert;'.</p>
+      <ul>
+        <li>$xxx: Variablen, Syntax wie CSS: $variable: wert;</li>
+        <li>&amp;xxx,<br>&amp;yyy</li>
+        <p>Wenn Selectors mit gleichem Wert in der Hierarchie, koennen sie so referenziert werden.</p>
+        <li>&amp;xxx: wird verwendet, wenn verschachtelt wird: Der Name der höheren Ebene und dieses &amp;xxx angehängt.'</li>
+      </ul>
+      <h3>Betrieb</h3>
+      <ul>
+        <li>gulp sass:watch</li>
+        <p>Startet den 'Watch' und wandelt Aenderungen automatisch in CSS um. Dafür massgebend ist die Code-Sequenz 'gulp.watch('css/*.scss', ['sass']);' (siehe auch weiter oben).</p>
+      </ul>
   </main>
 </body>
 </html>
