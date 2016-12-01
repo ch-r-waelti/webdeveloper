@@ -321,13 +321,16 @@
         <p>Wichtiger Link: <a href="https://www.npmjs.com/package/gulp-sass">Gulp SASS</a></p>
         <ol>
           <li>npm init
-            <p>Package Manager (whatever that means ...)</p>
+            <p>Package Manager (whatever that means ...): Erstellt das File 'package.json'</p>
           </li>
           <li>np install -g gulp
-            <p>Gulp installieren es erstellt das 'package.json' (oder evt. wird es auch erst mit nächstem Punkt erstellt(?!?)</p>
+            <p>Gulp generell installieren. Dies muss nur einmal erfolgen.</p>
           </li>
           <li>npm install gulp --save-dev
-            <p>Installation von 'gulp' (whatever ...) - dass sollte im Projektordner erfolge.n</p>
+            <p>Installation von 'gulp' (whatever ...) - dass sollte im Projektordner erfolgen. Es erstellt den Ordner 'node-modules', welches die nötige Software enthält.</p>
+            <img src="pics\sasspackage_json.jpg" alt="Beispiel 'package.json" title="Beispiel 'package.json">
+
+            <p>TIPP: Den Ordner in '.gitignore' aufführen; er muss von Git nicht versioniert werden.</p>
           </li>
           <li>npm install gulp-sass --save-dev
             <p>Installation von 'SASS' - dass sollte im Projektordner erfolgen.</p>
@@ -360,7 +363,13 @@
               </li>
             </ul>
           </li>
+          <li id="back">CSS-File und 'Demon', dass SASS automatisch 'kompiliert' wird, starten
+            <p>Jetzt nur noch die Files für das CSS-Stylesheet und für SASS (Endung '.scss' erstellen.</p>
+            <p>Um SASS automatisiert auszuführen das Kommando <a href="#SASSgulpSassWatch">'gulp sass:watch'</a> im Command-Fenster oder im PHP-Terminal eingeben.</p>
+          </li>
         </ol>
+        <p>Nach erfolgreicher Installation sollte die Projektstruktur so (oder so ähnlich aussehen):</p>
+        <img src="pics\sassProjectStructure.jpg" alt="Beispiel einer Projektstruktur mit SASS" title="Beispiel einer Projektstruktur mit SASS">
       </div>
       <!-- H2 --------------------------------------------------------------- -->
       <h2 id="SASSBEM">BEM (Block Element Modifier) <a href="#inhaltSASS">(zum Inhalt SASS)</a></h2>
@@ -403,7 +412,11 @@
         <h3 id="SASSBetrieb">Betrieb <a href="#inhaltSASS">(zum Inhalt SASS)</a></h3>
         <div>
           <ul>
-            <li>gulp sass:watch
+            <li>gulp sass
+              <p>Kompilaton erzwingen (statt mit <a href="#SASScompileWatch">'gulp sass:watch'</a>> als Demon im Hintergrund)</p>
+            </li>
+            <li id="SASScompileWatch">gulp sass:watch
+              <p>Kommando im PHP-Terminal oder git-Shell im Root des Projektes eingeben.</p>
               <p>Startet den 'Watch' und wandelt Aenderungen automatisch in CSS um. Dafür massgebend ist die Code-Sequenz 'gulp.watch('css/*.scss', ['sass']);' (siehe auch weiter oben).</p>
             </li>
           </ul>
