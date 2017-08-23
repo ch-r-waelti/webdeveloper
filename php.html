@@ -1,0 +1,1334 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <title>php</title>	<!- Wird im Fenster/Lasche als Titel angezeigt -->
+</head>
+<!-
+	Kommentar
+-->
+<body>
+  <header id="kopf">Kopf</header>
+  <nav id="navigation">
+      <table id="tNavi" rules="all">
+          <tr>
+            <td class="tNavi_c1"><a href="index.html">back</a></td>
+            <td class="tNavi_c2"></td>
+            <td class="tNavi_c3"></td>
+            <td class="tNavi_c4"></td>
+          </tr>
+      </table>
+  </nav>
+  <main id="hauptteil">
+    <h1 id="Inhalt">Inhaltsverzeichnis</h1>
+    <nav>
+      <ul>
+        <li><a href="#einleitungPHP">PHP Einleitung</a></li>
+        <li><a href="#einfachesBeispielPHP">Einfaches Beispiel</a></li>
+        <li><a href="#externesFilePHP">Externer PHP-Code</a></li>
+        <li><a href="#operatorenPHP">Operatoren</a></li>
+        <li><a href="#sprachKonstruktePHP">Sprachkonstrukte PHP</a></li>
+        <li><a href="#variablenPHP">Variablen</a>
+        <ul>
+            <li><a href="#variablenNamenskonventionenPHP">Namenskonventionen</a></li>
+            <li><a href="#variablenTypenPHP">Typen</a></li>
+            <li><a href="#variablenBesonderheitenPHP">Besonderheiten</a></li>
+            <li><a href="#datumPHP">Datum</a></li>
+            <li><a href="#superGlobalsPHP">&apos;Superglobale&apos; Variablen</a></li>
+        </ul>
+        </li>
+        <li><a href="#konstantenPHP">Konstanten</a></li>
+        <li><a href="#arrayPHP">Arrays</a>
+        <ul>
+            <li><a href="#indizierterArrayPHP">Indizierter Array</a></li>
+            <li><a href="#assozierterArrayPHP">Assozierter Array</a></li>
+            <li><a href="#arraySortierenPHP">Array sortieren</a></li>
+        </ul>
+        </li>
+        <li><a href="#getPostPHP">Kommunikation in PHP (GET/POST) </a>
+        <ul>
+            <li><a href="#getPHP">GET</a></li>
+            <li><a href="#postPHP">POST</a></li>
+        </ul>
+        </li>
+        <li><a href="#sessionCookiesPHP">Session und Cookies</a>
+        <ul>
+            <li><a href="#cookiesPHP">Cookies</a></li>
+            <li><a href="#sessionPHP">Session</a></li>
+        </ul>
+        </li>
+        <li><a href="#functionPHP">Funktion</a>
+        <ul>
+            <li><a href="#functionDeklarationPHP">Deklaration</a></li>
+            <li><a href="#functonAnwendungPHP">Anwendung / Aufruf</a></li>
+            <li><a href="#funktionenPHP">Interessante Funktionen</a></li>
+        </ul>
+        </li>
+        <li><a href="#klassenUndObjektePHP">Klassen und Objekte</a>
+        <ul>
+            <li><a href="#klassenDeklarationPHP">Klassen Deklaration</a></li>
+            <li><a href="#ObjektPHP">Objekte (instanzierte Klassen)</a></li>
+            <li><a href="#statischeEigenschaftPHP">Statische Eigenschaften / Klassenvariablen</a></li>
+            <li><a href="#statischeMethodePHP">Statische Methoden</a></li>
+        </ul>
+        </li>
+        <li><a href="#PDOSQLDBPHP">PHP und SQL-DBs</a>
+        <ul>
+          <li><a href="#PDOVerbindungDBPHP">PDO instanzieren / Verbindung zu DB</a></li>
+          <li><a href="#PDOMethodsPHP">PDO: Methoden</a></li>
+          <li><a href="#PDOFetchModesPHP">MySql lesen / Fetch-Modes</a></li>
+          <li><a href="#PDOPrepareExecutePHP">Prepare() / Execute()</a></li>
+        </ul>
+        </li>
+        <li><a href="#jsonPHP">JSON (JavaScript Object Notation)</a></li>
+        <li><a href="#mySqlPHP">MySql: Spezialtiäten</a>
+        <ul>
+          <li><a href="#mySqlInsertPHP">Insert</a></li>
+          <li><a href="#mySqlPasswortSchutzPHP">Passwortschutz</a></li>
+        </ul>
+        </li>
+      </ul>
+    </nav>
+    <h1 id="einleitungPHP">PHP Einleitung <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h1>
+    <div>
+      <p>PHP ist eine Programmiersprache, die interpretiert wird. Der Code liegt ausschliesslich auf
+          dem Server und gelangt nie zum Client. Er wird dort ausgeführt und in der Regel wird mittels
+          dem Befehl 'echo' HTML-Code kreïert, welcher an der Stelle des Skriptes zum Client gesandt wird.</p>
+      <p>Somit ist das Verwenden eigentlich und im Gegensatz von JavaScript nur davon abhängig, was der
+          Server für eine Version von PHP zur Verfügung stellt. Clientseitig kann aber alles ignoriert
+          werden - ausser natürlich des gebenen Codes, welcher widerum auf dem Client vom Browser bzw.
+          dessen Version abhängig ist.</p>
+      <p>PHP kann viel (Logik, Datenbankzugriffe) - aber als Interface dient HTML (welches dann widerum mit CSS
+          formatiert werden kann).</p>
+      <p>PHP kann (soll) auch objektorientiert angewandt werden.</p>
+      <p><a href="http://php.net/">http://php.net/</a></p>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="einfachesBeispielPHP">Einfaches Beispiel <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+        <p>Damit es funktioniert, muss die Datei statt der Endung '.html' die Endung '.php' haben!</p>
+        <table><tr><td><pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="de"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Hallo PHP'&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+<span style="color:red">&lt;?php
+    // einzeiliger Kommentar
+
+    echo "&lt;p&gt;hallo PHP-welt!&lt;/p&gt;";
+
+    /*
+      mehrzeiliger Kommentar
+    */
+?&gt;</span>
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre></td><tr></table>
+        <p>Für Klassen oder andere Definitionen, welche ausgelagert werden und zum Code hinzugeholt werden (dazu später
+            mehr), kann das 'HTML'-Geschmäus weggelassen werden. Nie aber '&lt;?php' und abschliessend '?&gt;'.</p>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="externesFilePHP">Externer PHP-Code <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+        <p>Wie oben angetönt, kann PHP in mehreren Files organisiert sein (wie auch immer). Es gibt zwei Befehle, um
+            diese Files (wie immer relativ zum Root der Web-Site) zu referenzieren.</p>
+        <p>In dem Fall muss nicht der ganze HTML-Overhead mitcodiert werden. Es genügt '&lt;?php' und abschliessend
+            '?&gt;'.</p>
+        <ul>
+          <li>include 'pfad/file';
+            <p>Das File wird geladen, falls es vorhanden ist.</p>
+          </li>
+          <li>include_once  pfad/file';
+            <p>Das File wird geladen - aber nur einmal, sofern die anderen Referenzen ebenfalls mit
+              'include_once' angefordert werden</p>
+          </li>
+          <li>require 'pfad/file';
+            <p>Das File wird geladen, es MUSS vorhanden sein.</p>
+          </li>
+          <li>require_once  pfad/file';
+            <p>Das File wird geladen - aber nur einmal, sofern die anderen Referenzen ebenfalls mit
+              'require_once' angefordert werden</p>
+          </li>
+        </ul>
+        <p>Die Files müssen jeweils vor der ersten Referenz aus dem Code geladen worden sein (PHP wird ja von oben
+            nach unten interpretiert und nicht kompiliert! - Der Vollständigkeit halber: Funktionen im gleichen
+            File müssen nicht unbedingt vor dem ersten Aufruf definiert werden. Wie man damit umgeht, ist wohl
+            eine persönliche Stilfrage).</p>
+      </div>
+      <h2 id="operatorenPHP">Operatoren <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+        <h3 >Rechenoperatoren</h3>
+        <table>
+          <tr><td>+ / - / * / / / ()</td><td>Die üblichen Verdächtigen</td></tr>
+          <tr><td>++ / --</td><td>Autoinkrement / Autodekrement<br>
+            Vor der Variable: Gerechnet wird vor Ausführung<br>
+            Nach der Variable: Gerechnet wird nach der Ausführung</td></tr>
+          <tr><td>+= / -=</td><td>Abgekürzte Berrechnung der Variable: <code>i+=12;</code></td></tr>
+          <tr><td>.</td>
+            <td>Verbinden von zwei Strings<br>
+              ACHTUNG: In JavaScript ist das '+'!!</td></tr>
+          <tr><td>.=</td>
+            <td>Verlängern eines Strings: <code>$text.="noch mehr Text";</code><br>
+              ACHTUNG: In JavaScript ist das '+'!!</td></tr>
+          <tr><td>%</td><td>Modulo: Ermitteln ganzzahliger Rest einer Division.</td></tr>
+        </table>
+        <h3 >Logik-Operatoren</h3>
+        <table>
+          <tr><td>> / < / >= / <= / ()</td><td>Die üblichen Verdächtigen</td></tr>
+          <tr><td>==</td><td>ist gleich</td></tr>
+          <tr><td>!=</td><td>ist ungleich</td></tr>
+          <tr><td>!</td><td>nicht</td></tr>
+          <tr><td>&&</td><td>UND-Verknüpfung</td></tr>
+          <tr><td>||</td><td>ODER-Verknüpfung</td></tr>
+        </table>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="sprachKonstruktePHP">Sprachkonstrukte <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+        <p>Aufbau eines Kommandos:</p>
+            <ul>
+                <li>Anweisungen werden mit einem ';' (Semikolon) abgeschlossen.</li>
+                <li>Ausser bei Konstrukten mit '{' und '}' (Loops, ifs, Funktionen ...)</li>
+            </ul>
+        <p>Beispiele:</p>
+        <p><code>$variable = wert;</code></p>
+        <pre><code>
+if ($variable == null) {
+    $variable = wert;
+}
+        </code></pre>
+        <table>
+            <tr>
+                <th>Konstrukt</th><th>Erklärung</th>
+            </tr>
+            <tr><td>break [n];</td><td><p>Unterbricht eine Schlaufe komplett</p>
+                <p>n: 'breakt' n Verschachtelungen von Loops, beginnend vom innersten Loop (n=1) bis zum übergeordneten
+                    Loop (n = 2) und so weiter. Wird n weggelassen, wird nur der innerste Loop unterbrochen.</p></td></tr>
+            <tr><td>continue [n];</td><td><p>Unterbricht eine Schlaufe und springt zum Schlaufenbeginn.</p>
+                <p>n: 'continuet' n Verschachtelungen von Loops, beginnend vom innersten Loop (n=1) bis zum übergeordneten
+                    Loop (n = 2) und so weiter. Wird n weggelassen, wird nur der innerste Loop fortgesetzt.</p></td></tr>
+            <tr><td>echo</td><td><p>Ausgabe ins File, welches gesandt wird. Die Ausgabe erfolgt genau an der Position,
+                anstelle und wo das PHP-Skript ist. Normalerweise wird html-Code erzeugt.</p></td></tr>
+            <tr><td>exit(status)</td>
+                <td><p>bricht php sofort ab</p>
+                    <p>Status: Wenn vom Typ String, wird er ausgegeben, wenn numerisch, dann von 0 (ok) bis 254 -
+                        der Zweck dazu hat sich  mir nicht erschlossen ...</p></td></tr>
+            <tr><td>for</td><td><p>Schlaufe: for (initial; bedingung; 'nachführen') {}</p>
+                    <p>'initial' entspricht der Initialisierung; Beispiel: $i = 0;</p>
+                    <p>'bedingung' ist das Abbruchkriterium, wenn Wahr, dann wird die Schleife fortgesetzt! Beispiel:
+                        $i < 10;</p>
+                    <p>'nachführen': Gelegenheit, den Zähler nachzuführen; Beispiel: $i++;</p>
+                <p>Beispiel:</p>
+                <pre><code>
+for ($i = 0; $i < 10; $i++) {
+    // Schleife gibt 10 Absätze mit 0 bis 9 aus
+    echo "&lt;p&gt;$i"&lt;p&gt;";
+}
+                    </code></pre></td></tr>
+            <tr><td>foreach</td><td><p>Abarbeiten eines Arrays</p>
+                    <p>Beispiel einfacher Array:</p>
+                    <pre><code>
+foreach ($array as $inhalt) {
+    echo "&lt;p&gt;$inhalt"&lt;p&gt;";
+}
+                    </code></pre>
+                    <p>Beispiel indizierter Array</p>
+            <pre><code>
+foreach ($array as $feld => $inhalt) {
+    echo "&lt;p&gt;$feld => $inhalt"&lt;p&gt;";
+}
+                    </code></pre></td></tr>
+            <tr><td>goto</td><td><p>Springen an eine Marke, welche mit abschliessendem ':' im Geltungsbereich
+                enthalten sein muss. Es kann nicht aus Funktionen, in Funktionen oder Schleifen gesprungen werden -
+                aus Schleifen heraus hingegen schon. Der Programmstruktur zu Liebe sparsam verwenden ...</p></td></tr>
+            <tr><td>if</td><td><p>Bedingung</p>
+                <p>Mögliche Operatoren</p>
+                <table>
+                    <tr><td>Operator</td><td>Erklärung</td></tr>
+                    <tr><td>==</td><td>ist gleich</td></tr>
+                    <tr><td>!=</td><td>Ist ungleich</td></tr>
+                    <tr><td>&lt; / &lt:=/td><td>Ist kleiner / kleiner gleich</td></tr>
+                    <tr><td>&gt; / &gt;=</td><td>Ist grösser / grösser gleich</td></tr>
+                    <tr><td>!</td><td>'Not' oder Unwahr</td></tr>
+                    <tr><td>&&</td><td>UND-Verknüpfung zweier Bedingungen</td></tr>
+                    <tr><td>||</td><td>ODER-Verknüpfung zweier Bedingungen</td></tr>
+                </table>
+                <p>Beispiel (umfangreich)</p>
+                <pre><code>
+if ($variable == "Gustav") {
+    echo "Gustav";  }
+elseif ($variable == "Franz" {
+    echo "Franz";   }
+else {
+    echo "unbekannt"
+}
+                </code></pre></td></tr>
+            <tr><td>include<br>include_once</td><td><p>Kopiert eine angegebene Datai an die Stelle und führt sie aus.
+                Der Name ist als String (in Hochkomma/Gänsefüsschen) zu übergeben.</p>
+                <p>Ausgangpfad ist der Basispfad der WebSite. Wird die Datei nicht gefunden erfolgt eine Warunung -
+                    im Gegensatz zu 'require', welches einen Fatal-Error erzeugt.</p>
+                <p>include_once: PHP prüft, ob die Datei nicht bereits included ist. Sollte sie sein, wird der Befehl
+                    übergangen.</p>
+                <p>Beispiel: <code>include[_once] 'pfad/file';</code></p></td></tr>
+            <tr><td>require<br>require_once</td><td><p>Kopiert eine angegebene Datai an die Stelle und führt sie aus.
+                    Der Name ist als String (in Hochkomma/Gänsefüsschen) zu übergeben.</p>
+                <p>Ausgangpfad ist der Basispfad der WebSite. Wird die Datei nicht gefunden erfolgt ein Fatal-Error -
+                    im Gegensatz zu 'include', welches eine Warunung erzeugt.</p>
+                <p>require_once: PHP prüft, ob die Datei nicht bereits included ist. Sollte sie sein, wird der Befehl
+                    übergangen.</p>
+                <p>Beispiel: <code>require[_once] 'pfad/file';</code></p></td></tr>
+            <tr><td>return</td><td><p>Für Funktionen: Beendet diese und gibt einen Wert zurück.</p></td></tr>
+            <tr><td>switch</td><td><p>Mehrfachverzweigung - am besten erklärt mit Beispiel:</p>
+                <pre><code>
+switch ($i) {
+    case 0:
+        echo "i ist gleich 0";
+        break;
+    case 1:
+        echo "i ist gleich 1";
+        break;
+    case 2:
+        echo "i ist gleich 2";
+        break;
+}
+                </code></pre>
+                <p>'break;' veranlasst PHP, den 'switch' zu verlassen - ansonsten würde weiter geprüft, was vielleicht
+                    manchmal sinnvoll sein könnte(?).</p></td></tr>
+            <tr><td>try / catch</td><td><p>Versuche etwas in &apos;try&apos;... falls Fehler wird
+                &apos;catch&apos; ausgeführt.</p>
+                <p>Wird wohl am häufigsten mit DB-Operationen verwendet.</p>
+                <pre><code>
+try {
+    // versuche etwas
+}
+catch ($fehlerParameter){
+    // im Fehlerfall landen wir hier und können (re-) agieren
+    // &apos;&fehlerParameter&apos; ist individuell ...
+}
+                </code></pre></td></tr>
+            <tr><td>while</td><td><p>Tue etwas bis ... widerum ein Beispiel</p>
+                <p>Kopfgesteuert:</p><pre><code>
+while ($i != 3) {
+    $i = 3;  // jetzt wird die Schlaufe abgebrochen
+}
+                </code></pre>
+            <p>Fussgesteuert:</p><pre><code>
+{
+    $i = 3;  // jetzt wird die Schlaufe abgebrochen
+} while ($i != 3)
+                </code></pre></td></tr>
+        </table>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="variablenPHP">Variablen <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+          <h3 id="variablenNamenskonventionenPHP">Namenskonventionen</h3>
+          <ul>
+              <li>Beginnend mit ¨$', gefolgt von Buchstaben oder '_'</li>
+              <li>Ausser '_' keine Sonderzeichen</li>
+              <li>Müssen nicht deklariert werden</li>
+              <li>Auf reservierte Wörter achten</li>
+          </ul>
+          <h3 id="variablenTypenPHP">Typen <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+          <p>Diese werden automatisch definiert - da Variablen nicht deklariert werden müssen.</p>
+          <table>
+              <tr><td>boolean</td><td>True oder False</td></tr>
+              <tr><td>integer</td><td>Ganzzahl</td></tr>
+              <tr><td>double</td><td>Gleitkommazahl</td></tr>
+              <tr><td>string</td><td>Zeichenkette</td></tr>
+              <tr><td>array</td><td>Array oder Tabelle (n-Dimensional)</td></tr>
+              <tr><td>object</td><td>Objekt</td></tr>
+          </table>
+          <h3 id="variablenBesonderheitenPHP">Besonderheiten <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+          <div>
+              <h4>null</h4>
+              <p>Entspricht 'nichts', eine Variable kann so 'neutralisiert' werden oder es ist auch nützlich,
+                  einen definiert undefinierten Wert aus einer Funktion zurückzugeben.</p>
+              <h4>Strings: Hochkomma vs. Gänsefüsschen</h4>
+              <p>Grundsätzlich werden in PHP Strings in Hochkommas bzw. Gänsefüsschen dargestellt. Im Zusammenhang
+                  mit 'echo' ausgebenem HTML-Code bekommt dieses Feature plötzlich eine Dimension:</p>
+              <p><code>echo <span style="color:red">"</span>&lt;a
+                  href=<span style="color:red">'</span>linkadresse<span style="color:red">'</span>&gt;linktext&lt;a&gt;<span style="color:red">"</span>;
+              </code></p>
+              <p>So kann ein String im String dargestellt werden.</p>
+              <h4>Spezialität &apos; / &quot;</h4>
+              <p>Der Unterschied in der Handhabung von &apos; und &quot; ist am besten anhand von Beispielen zu
+                  veranschaulichen:
+              <p><code>$variable = "ich";</code></p>
+              <p><code>echo "Inhalt von Variable <span style="color: green">$variable</span> ist: "
+                  . <span style="color: green">$variable</span>;</code></p>
+              <p>Ausgabe: Inhalt von Variable <span style="color: green">ich</span> ist:
+                  <span style="color: green">ich</span></p>
+              <p><code>echo 'Inhalt von Variable <span style="color: red">$variable</span> ist: '
+                  . <span style="color: red">$variable</span>;</code></p>
+              <p>Ausgabe: Inhalt von Variable <span style="color: red">$variable</span> ist:
+                  <span style="color: red">ich</span></p>
+              <p>Ist eine Variable innerhalb von &apos; im String enthalten, wird der Name ausgegeben. Innerhalb von &quot;
+                  hingegen wird die Variable aufgeschlüsselt.</p>
+              <h3 id="datumPHP">Datum <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+              <p>PHP kennt kein Feldformat Datum, was die Sache etwas schwer macht ... einige hilfreiche
+                  Funktionen:</p>
+              <ul>
+                  <li><p>checkdate</p>
+                      <p><code>checkdate($day, $month, $year);</code></p>
+                      <p>Prüft ein Datum</p>
+                  </li>
+                  <li><p>date</p>
+                      <p><code>date($format [, $time]);</code></p>
+                      <p>Gibt ein Datum zurück, abhängig vom Format-String. Wird die Zeit nicht mitgegeben, wird
+                          der Unix-Timestamp angenommen.</p>
+                      <p>Die nachfolgenden Formatierungszeichen können mit '/', '.', ':' (getestet) oder was auch immer
+                          (ungetestet) ergänzt werden.</p>
+                      <p>Formatierungszeichen Datum</p>
+                      <table>
+                          <tr><td>d</td><td>Tag des Monates, zweistellig, ggf. mit führendem 0</td></tr>
+                          <tr><td>j</td><td>Tag des Monates ohne führendes 0</td></tr>
+                          <tr><td>D</td><td>dreistellige Abkürzung des Wochentags</td></tr>
+                          <tr><td>l (kleines 'L')</td><td>Wochentag ausgeschrieben</td></tr>
+                          <tr><td>N</td><td>Wochentag numerisch: 1 = Montag bis  7 = Sonntag</td></tr>
+                          <tr><td>Z</td><td>Tag des Jahres</td></tr>
+                          <tr><td>m</td><td>Monat, zweistellig, ggf. mit führendem 0</td></tr>
+                          <tr><td>n</td><td>Monat als Zahl ohne führendes 0</td></tr>
+                          <tr><td>M</td><td>dreistellige Abkürzung des Monates</td></tr>
+                          <tr><td>F</td><td>Monat ausgeschrieben</td></tr>
+                          <tr><td>t</td><td>Anzahl Tage des Monates (28 (,29), 30, 31)</td></tr>
+                          <tr><td>W</td><td>Wochennummer Jahres (1. Woche ist die Woche des ersten Montages)</td></tr>
+                          <tr><td>y</td><td>Jahr 2-stellig</td></tr>
+                          <tr><td>Y</td><td>Jahr 4-stellig</td></tr>
+                          <tr><td>L</td><td>Prüft, ob das Jahr ein Schaltjahr ist.</td></tr>
+                      </table>
+                      <p>Formatierungszeichen Zeit</p>
+                      <table>
+                          <tr><td>g</td><td>Stunde 1 - 12</td></tr>
+                          <tr><td>G</td><td>Stunde 1 - 24</td></tr>
+                          <tr><td>a</td><td>am/pm, klein geschrieben</td></tr>
+                          <tr><td>A</td><td>AM/PM, gross geschrieben</td></tr>
+                          <tr><td>i</td><td>Minuten, 2-stellig, ggf. mit Vornull</td></tr>
+                          <tr><td>s</td><td>Sekundenen, 2-stellig, ggf. mit Vornull</td></tr>
+                      </table>
+                  </li>
+                  <li><p>strtotime</p>
+                      <p><code>strtotime($date);</code></p>
+                      <p>Versucht ein 'plausibles' Datum zu einem Unix-Timestamp umzuwandeln.</p>
+                  </li>
+              </ul>
+              <h3 id="superGlobalsPHP">&apos;Superglobale&apos; Variablen< <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+
+              <div>
+                  <p>PHP stellt diverse Variablen in Form von Arrays zur Verfügung. Einige werden hier
+                      erklärt (der Verweis findet sich in der Erklärung), viele aber nicht. Für diese wird
+                      auf <a href="http://www.w3schools.com/php/php_superglobals.asp">Superglobale Variablen
+                          http://www.w3schools.com/php/php_superglobals.asp</a> verwiesen.
+                  </p>
+                  <table>
+                      <tr><td>$GLOBALS</td><td>Zugriff auf alle globalen Variabeln</td></tr>
+                      <tr><td>$_SERVER</td><td>Zugriff auf Server-Infos</td></tr>
+                      <tr><td>$_REQUEST</td><td>Zugriff auf Request-Infos</td></tr>
+                      <tr><td>$_POST</td><td>Zugriff auf POST Daten nach einem Formular submit
+                          (siehe auch <a href="#getPostPHP">Kommunikation in PHP (GET/POST) </a>)</td></tr>
+                      <tr><td>$_GET</td><td>Zugriff auf Request Parameter in der URL
+                          (siehe auch <a href="#getPostPHP">Kommunikation in PHP (GET/POST) </a>)</td></tr>
+                      <tr><td>$_FILES</td>Zugriff auf Files, die mit einem Formular hochgeladen wurden<td></td></tr>
+                      <tr><td>$_ENV</td><td>Zugriff auf Variablen der Laufzeitumgebung</td></tr>
+                      <tr><td>$_COOKIE</td><td>Zugriff auf Cookies des aktuellen Benutzers
+                          (siehe auch <a href="#sessionCookiesPHP">Session und Cookies</a>)</td></tr>
+                      <tr><td>$_SESSION</td><td>Zugriff auf Session des aktuellen Benutzers
+                          (siehe auch <a href="#sessionCookiesPHP">Session und Cookies</a>)</td></tr>
+                  </table>
+              </div>
+          </div>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="konstantenPHP">Konstanten <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+          <ul>
+              <li>Wie Variablen - können aber nicht geändert werden.</li>
+              <li>Sind global gültig - auch in Funktionen.</li>
+              <li>Namenskonventionen
+              <ul>
+                  <li>Beginnen <strong>NICHT</strong> mit &apos;$&apos;</li>
+                  <li>Beginnen mit Buchstaben oder &apos;_&apos;</li>
+                  <li>Warum nicht in Grossbuchstaben ...</li>
+              </ul>
+              <li><p>Definition:</p>
+                  <p><code>define(&quot;VERSION&quot;, &quot;1.0.1&quot;); </code></p>
+              </li>
+              <li><p>Referenz:</p>
+                  <p><code>echo "Version " . VERSION;</code></p>
+              </li>
+          </ul>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="arrayPHP">Arrays <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+          <p>Arrays oder Tabellen (mehrdimensional organisierte Daten) sind ein recht mächtiges Teil in PHP. Es wird
+              unter zwei Typen unterschieden:</p>
+          <ul>
+              <li>indizierter, einfacher Array: Mit einfachem, numerischem Index</li>
+              <li>assozierter Array: Ein Array mit 'Key', also alphanumerischem Index</li>
+          </ul>
+          <p>Arrays können sämtliche Datentypen repräsentieren - auf gleicher Hierarchieebene sogar verschiedenen
+              Datentyps (proof of concept während dieser Dokumentation allerdings ausstehend).</p>
+          <h3 id="indizierterArrayPHP">Indizierter Array <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+          <div>
+              <p>Dies ist ein einfacher Array bzw. Tabelle, welcher mit Zahl indiziert wird: Erstes Entry hat 0, das
+                  nächste 1 und so weiter bis zum letzten Eintrag.</p>
+              <p><code>$variable = array("ich", "Du", "er", "wir");</code></p>
+              <p><code>echo "&lt;p&gt;Wert des ersten Eintrages: $variable[1]&lt;/p&gt;";</code></p>
+              <p>oder</p>
+              <pre><code>
+    foreach($variable as $inhalt) {
+        echo "&lt;p&gt;Inhalt: $variable[1]&lt;/p&gt;";
+    }
+              </code></pre>
+              <p>oder</p>
+              <pre><code>
+    for($i=0;$i &lt; count($variable);$i++) {
+        echo "&lt;p&gt;Inhalt $i: " . $variable[$i] . "&lt;/p&gt;";
+    }
+              </code></pre>
+          </div>
+          <h3 id="assozierterArrayPHP">Assozierter Array <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+          <div>
+              <p>Das ist ein Array, der mit leserlichen Werten indiziert ist.</p>
+              <pre><code>
+    $variable = array("christian"=&gt;"ich"
+                    , "sofia"=&gt;"Du"
+                    , "hausfreund"=&gt;"er"
+                    , "familie"=&gt;"wir");
+              </code></pre>
+              <pre><code>
+    echo "&lt;p&gt;Wert des Eintrages &apos;ich&apos;: $variable[&apos;ich&apos;]&lt;/p&gt;";
+              </code></pre>
+              <p>oder</p>
+              <pre><code>
+    foreach($variable as $name=&gt;$inhalt) {
+        echo "&lt;p&gt;Inhalt &name: $inhalt&lt;/p&gt;";
+    }
+              </code></pre>
+              <p>Ein assozierter Array kann NICHT indiziert angesprochen werden!</p>
+          </div>
+          <h3 id="arraySortierenPHP">Array sortieren <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+          <div>
+              <ul>
+                  <li><p>indizierte Arrays</p>
+                      <table>
+                          <tr>
+                              <td>sort($array)</td><td>aufsteigend</td>
+                          </tr>
+                          <tr>
+                              <td>rsort($array)</td><td>absteigend</td>
+                          </tr>
+                      </table>
+                  </li>
+                  <li><p>assozierte Arrays</p>
+                      <table>
+                          <tr>
+                              <td>asort($array)</td><td>aufsteigend nach Wert</td>
+                          </tr>
+                          <tr>
+                              <td>ksort($array)</td><td>aufsteigend nach Key</td>
+                          </tr>
+                          <tr>
+                              <td>arsort($array)</td><td>absteigend nach Wert</td>
+                          </tr>
+                          <tr>
+                              <td>aksort($array)</td><td>absteigend nach Key</td>
+                          </tr>
+                      </table>
+                  </li>
+                  <li><p>Sophisticated Sort (usort)</p>
+                      <p>Sortiert einen Array mit Hilfe einer Sortierfunktion. Die Funktion gibt
+                          zurück: </p>
+                      <table>
+                        <tr><td>Resultat identisch: 0</td><td>Die Elemente sind gleich</td></tr>
+                        <tr><td>Resultat negativ</td>
+                            <td>Das erste Element ist kleiner als das zweite</td></tr>
+                        <tr><td>Resultat positiv</td>
+                            <td>Das erste Element ist grösser als das zweite</td></tr>
+                      </table>
+                      <p><a href="#functionPHP">Mehr zum Thema Funktion</a></p>
+                      <p>Beispiel:</p>
+                      <pre><code>
+    <span style='color: green'>// Ausgangslage: Array mit Arrays (Text und Timestamp)</span>
+    $liste = array(array(&quot;item1&quot;, strtotime(&apos;02-03-2017&apos;))
+                 , array(&quot;item2&quot;, strtotime(&apos;27-2-2017&apos;))
+                 , array(&quot;item3&quot;, strtotime(&apos;23-2-2017&apos;)));
+    // Ausgabe vor Sortierung
+    foreach($liste as $element) {
+        echo &quot;&lt;p&gt;1 $element[0]&lt;br&gt; 2 &quot; . date(&apos;d-m-Y&apos;, $element[1]) . &quot;&lt;/p&gt;&quot;;
+    }
+    <span style='color: green'>// Sortierfunktion
+    // Magic: Als Parameter werden zwei Elemente von $Liste übergeben</span>
+    <span style='color: red'>function vergleiche</span>($a, $b) {
+        <span style='color: green'>// Wir vergleichen das 2. Element der beiden übergebenen Arrays: das Datum</span>
+        if ($a[1] == $b[1])  return 0;      <span style='color: green'>// gleich</span>
+        elseif ($a[1] &lt; $b[1]) return - 1;  <span style='color: green'>// erstes grösser als zweites</span>
+        else return 1;                      <span style='color: green'>// zweites grösser als erstes</span>
+    }
+    <span style='color: green'>// Sortierfunktion Variante 2: Differenz rechnen</span>
+    function vergleiche2($a, $b) {
+        return $a[1] - $b[1]; <span style='color: green'>// Differenz positiv, negativ oder 0 als Resultat</span>
+    }
+    <span style='color: green'>// Sortierung</span>
+    usort($liste, <span style='color: red'>&quot;vergleiche&quot;</span>);
+    <span style='color: green'>// Ausgabe nach Sortierung</span>
+    foreach($liste as $element) {
+        echo &quot;&lt;p&gt;1 $element[0]&lt;br&gt; 2 &quot; . date(&apos;d-m-Y&apos;, $element[1]) . &quot;&lt;/p&gt;&quot;;
+    }
+                      </code></pre>
+                      <p>Ausgabe vor Sortierung:</p>
+                      <pre><code>
+1 item1
+2 02-03-2017
+
+1 item2
+2 27-02-2017
+
+1 item3
+2 23-02-2017
+                      </code></pre>
+                      <p>Ausgabe nach Sortierung:</p>
+                      <pre><code>
+1 item3
+2 23-02-2017
+
+1 item2
+2 27-02-2017
+
+1 item1
+2 02-03-2017
+                      </code></pre>
+                  </li>
+              </ul>
+
+          </div>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="getPostPHP">Kommunikation in PHP (GET/POST) <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+          <p>Es wird mit zwei Methoden unterschieden: GET und POST. GET ist sichtbar,
+              die Kommunikation erfolgt über die URL: <code>www.domain.ch?para1=1&amp;para2=2</code>.
+              POST erfolgt - sagen wir einmal - unsichtbarer versteckter (ich weiss
+              im Detail nicht wie): Es werden alle Parameter aus einem Formular mit
+              method="POST" an den Server geschickt. In PHP können die beiden aus
+              folgenden Arrays ausgelesen werden:
+          </p>
+          <ul>
+            <li>$_GET</li>
+            <li>$_POST</li>
+          </ul>
+          <p>Im folgenden zwei Beispiele der Handhabung.</p>
+          <h3 id="getPHP">GET <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+          <div>
+              <p>Aufruf:</p>
+              <pre><code>
+    &lt;a href=&quot;php.php<span style="color: red">?param1=&quot; . $wert1 </span><span style="color: green">. "&amp;param2=&quot; . $wert2 . "&amp;</span>&quot;&gt;link&lt;/a&gt;
+              </code></pre>
+              <ul>
+                <li>Eingeleitet mit &apos;?&apos;</li>
+                <li>Name des Parameters gefolgt von &apos;=&apos;</li>
+                <li>Wert des Parameters gefolgt von &apos;&amp;&apos;</li>
+                <li>Weitere Parameter: Wiederholen der letzten beiden Punkte.</li>
+              </ul>
+              <p>Auswertung in &apos;php.php&apos;:</p>
+              <pre><code>
+    if (isset($_GET) && !empty($_GET) {
+        if(array_key_exists($_GET, <span style="color: red">&quot;param1&quot;</span>) {
+            $wert1 = $_GET[<span style="color: red">&apos;param1&apos;</span>];
+        }
+        if(array_key_exists($_GET, <span style="color: green">&apos;param2&apos;</span>) {
+            $wert2 = $_GET[<span style="color: green">&quot;param2&quot;</span>];
+        }
+    }
+              </code></pre>
+          </div>
+          <h3 id="postPHP">POST <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+          <div>
+              <p>Aufruf:</p>
+              <pre><code>
+    &lt;!- Formular --&gt;
+    &lt;form <span style="color: green">method=&apos;POST&apos; action=&apos;php.php&apos;&gt;</span>
+      &lt;fieldset&gt;
+      &lt;p&gt;
+          &lt;label for=&apos;f_title&apos;&gt;Titel&lt;/label&gt;
+          &lt;input id=&apos;f_title&apos; name=<span style="color: red">&apos;title&apos;</span> type=&apos;text&apos; maxlength=&apos;40&apos; tabindex=&apos;1&apos;&quot;
+             . &quot;value=&apos;$title&apos;&gt;
+      &lt;/p&gt;
+      &lt;p&gt;
+          &lt;label for=&apos;f_dueDate&apos;&gt;zu erledigen bis&lt;/label&gt;
+          &lt;input id=&apos;f_dueDate&apos; name=&apos;<span style="color: red">dueDate&apos;</span> type=&apos;date&apos; maxlength=&apos;200&apos; tabindex=&apos;3&apos;
+              value=&apos;$dueDate&apos;&gt;
+      &lt;/p&gt;
+      &lt;p&gt;
+          &lt;input id=&apos;f_write&apos; <span style="color: green">type=&apos;submit&apos;</span> name=&apos;write&apos; value=&apos;$mode&apos;
+      &lt;/p&gt;
+      &lt;/fieldset&gt;
+    &lt;/form&gt;
+              </code></pre>
+              <p>Auswertung in &apos;php.php&apos;:</p>
+              <pre><code>
+    if (isset($_POST) && !empty($_POST) {
+        if(array_key_exists($_POST, <span style="color: red">&quot;title&quot;</span>) {
+            $wert1 = $_POST[<span style="color: red">&apos;title&apos;</span>];
+        }
+        if(array_key_exists($_POST, <span style="color: red">&apos;dueDate&apos;</span>) {
+            $wert2 = $_POST[<span style="color: red">&quot;dueDate&quot;</span>];
+        }
+    }
+              </code></pre>
+          </div>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="sessionCookiesPHP">Session und Cookies <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+          <p>Es besteht die Möglichkeit (sofern der Benutzer des Browsers sog. Cookies erlaubt, Daten
+              über die Dauer einer Site/Request zu speichern. Widerum gibt es zwei Möglichkeiten:</p>
+          <ul>
+              <li><p>Cookie</p><p>Diese werden lokal beim Benutzer/Browser gespeichert</p></li>
+              <li><p>Session</p>
+                  <p>Beim Benutzer wird lediglich die Session-ID gespeichert, auf dem Server der
+                      Rest.
+                  </p>
+              </li>
+          </ul>
+          <h3 id="cookiesPHP">Cookies <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+          <div>
+              <p>Das Cookie sollte 4 * 1024 Bytes (4 KB) nicht überschreiten, um mit allen Browsern
+                  kompatibel zu bleiben. Das Cookie wird mittels einer Funktion gesetzt - und sind dann aus einem Array
+                  abrufbar. Die Zeitdauer der Gültigkeit kann vom Server &quot;gewünscht&quot;
+                  werden - letztendlich entscheidet der Browser (oder die durch den User getätigten
+                  Einstellungen) darüber.</p>
+              <ul>
+                  <li><p><code>setcookie(&quot;nameCookie&quot;, &quot;wertCookie&quot;, gueltigkeitsdauer</code></p>
+                      <table>
+                          <tr><td>nameCookie</td><td>Idenitifikation des Cookies im Array.</td></tr>
+                          <tr><td>wertCookie</td><td>Wert des Cookies.</td></tr>
+                          <tr><td>nameCookie</td>
+                              <td>Dauer der Gültigkeit (als absoluter UNIX-Timestamp). Ist der Wert 0, wird
+                                  das Cookie ungültig, wenn die Session geschlossen worden ist.</td>
+                          </tr>
+                      </table>
+                      <p>Anmerkungen zu <code>setcookie()</code>:</p>
+                      <ul>
+                        <li><strong>Es muss im HTML-Header erfolgen - bevor irgendeine Ausgabe erfolgt!</strong></li>
+                        <li>Obige Parameterbeschrieb ist nicht vollständig (siehe für mehr Infos im www.</li>
+                      </ul>
+                      <p>Anmerkung zum Unix-Timestamp:</p>
+                      <p>Es handelt sich um die Anzahl Sekunden seit 1. Januar 1970, 00:00. Will man also
+                          zum Beispiel einen Tag dazuzählen muss zum Timestamp 3600 *24 addiert werden.</p>
+                  </li>
+                  <li><p>Auslesen Cookies</p>
+                      <p>Die Cookies sind im Array &apos;$_COOKIE&apos;; (oder auch
+                          &apos;$HTTP_COOKIE_VARS&apos; gespeichert und können wie ein Array behandelt
+                          werden:</p>
+                      <p><code>$wert = $_COOKIE[&quot;nameCookie&quot;</code></p>
+                  </li>
+              </ul>
+          </div>
+          <h3 id="sessionPHP">Session <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+          <div>
+              <p>Im Gegensatz zu Cookies werden die Daten beim Verfahren &apos;Session&apos; bis auf die
+                  Identifikation der Session auf dem Server gespeichert - damit ist die Grössenbeschränkung
+                  von 4 KB nur bedingt relevant.</p>
+              <p>Die Session muss gestartet werden und kann auch zwischenzeitlich gestoppt bzw. zurückgesetzt
+                  werden. Die Id kann ermittelt oder gesetzt werden - was aber im Grunde genommen nicht nötig ist.</p>
+              <ul>
+                  <li><p>Re-/Starten Session </p>
+                      <p><code>session_start();</code></p>
+                      <p><strong>Es muss im HTML-Header erfolgen - bevor irgendeine Ausgabe erfolgt!</strong></p>
+                  </li>
+                  <li><p>Setzen/Lesen Session Parameter</p>
+                      <p><code>$_SESSION[&apos;neuerWert&apos;] = &apos;wert&apos;</code></p>
+                      <p><code>$wert = $_SESSION[&apos;neuerWert&apos;];</code></p>
+                  </li>
+                  <li><p>Setzen/Lesen Session-ID</p>
+                      <p><code>session_id($id);</code></p>
+                      <p><code>$id = session_id();</code></p>
+                  </li>
+                  <li><p>Zerstören Session</p>
+                      <p><code>session_destroy();</code></p>
+                  </li>
+              </ul>
+          </div>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="functionPHP">Funktion <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+          <p>Funktionen sind wieder verwendbare Codesequenzen, welche in eigenen, zu referenzierenden php-Files  als
+              Libraries deklariert werden können (referenzieren mit <code>include</code>, <code>require</code>
+              (<code>once</code> macht bei Verschachtelungen plötzlich Sinn).</p>
+          <p>In der Regel sollte die Funktion vor Gebrauch deklariert werden (ein Test hat allerdings ergeben, dass es
+              (neuerdings?) auch umgekehrt funktioniert.</p>
+          <h3 id="functionDeklarationPHP">Deklaration  <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+          <div>
+              <p>Funktion mit Namen 'summe' mit Parametern 'wert1' und 'wert2' wobei der zweite Wert, wird keiner
+                  übergeben, den Wert 1 annimmt. Die Funktion gibt als Resultat die Summe von 'wert1' und 'wert2' zurück.</p>
+              <p>In der Funktion verwendete Variablen sind nur innerhalb der Funktion gültig. Die übergebenen
+                  Variablen sind &apos;by value&apos; - das heisst: Werden die Werte in der Funktion geändert,
+                  bleiben die Original-Werte ausserhalb der Funktion unverändert.</p>
+              <pre><code>
+    function summe($wert1, $wert2=1) {
+         $summe = $wert1 + $wert2
+        // beliebiges oder nötiges, weiteres php-coding
+        return $summe;     // Rückgabe: Resultat
+    }
+              </code></pre>
+              <p>Man könnte die Funktion natürlich noch beliebig ausschmücken mit z.Bsp. Prüfung der Parameter etc.
+                  Das Beispiel soll ja nur das Prinzip zeigen.</p>
+          </div>
+          <h3 id="functonAnwendungPHP">Anwendung / Aufruf  <a href="#Inhalt">(zum Inhaltsverzeichnis)</a>   </h3>
+          <div>
+              <pre><code>
+    ...
+        $wert1 = 1;
+        $wert2 = 1;
+        $summe = summe($wert1, $wert2);
+        echo &quot;&lt;p&gt;Summe von $wert1 und $wert2 ist: $summe&lt;/p&gt;&quot;
+        // alternative (direkter Aufruf)
+        echo &quot;&lt;p&gt;Summe von $wert1 und $wert2 ist: &quot; . summe($wert1, $wert2) . &quot;&lt;/p&gt;&quot;
+    }
+              </code></pre>
+
+          </div>
+          <h3 id="funktionenPHP">Interessante Funktionen <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+          <table>
+              <tr><td>array_key_exists($array, &quot;key&quot;)</td><td><p>Ob mit &quot;key&quot;
+                ein Wert im Array vorhanden ist.</p></td></tr>
+              <tr><td>checkdate($day, $month, $year)</td><td><p>Prüft, ob ein Datum gültig ist.</p></td></tr>
+              <tr><td>count($Array)</td><td><p>Gibt die Anzahl Elemente eines Arrays zurück.</p></td></tr>
+              <tr><td>empty</td><td><p>Prüft, ob eine Variable leer ist. Eine Variable ist leer, wenn sie nicht
+                existiert oder wenn ihr Wert gleich NULL ist.</p>
+                <p>Siehe auch <code>is_null()</code> bzw. <code>isset()</code></p></td></tr>
+              <tr><td>function_exists($nameFunction))</td><td><p>Gibt Wahr zurück, wenn die Funktion existiert
+                (allerdings nicht ausprobiert!).</p></td></tr>
+              <tr><td>gettype($variable)</td><td><p>Gibt den Typen der Variable als String zurück</p></td></tr>
+              <tr><td>is_array($variable)</td><td><p>Gibt Wahr zurück, wenn die Variable ein Array ist.</p></td></tr>
+              <tr><td>is_null($variable)</td><td><p>Gibt Wahr zurück, wenn die Variable null bzw. nichts ist</p>
+                <p>Siehe auch <code>empty()</code> bzw. <code>isset()</code></p></td></tr>
+              <tr><td>is_numeric($variable)</td><td><p>Gibt Wahr zurück, wenn die Variable numerisch ist.</p></td></tr>
+              <tr><td>is_object($variable)</td><td><p>Gibt Wahr zurück, wenn die Variable ein Objekt ist.</p></td></tr>
+              <tr><td>is_string($variable)</td><td><p>Gibt Wahr zurück, wenn die Variable ein String ist.</p></td></tr>
+              <tr><td>isset($variable)</td><td><p>Prüft, ob eine Variable existiert und nicht NULL ist.</p>
+                <p>Siehe auch <code>empty()</code> bzw. <code>is_null()</code></p>
+                </td></tr>
+              <tr><td> method_exists($nameMethode)</td><td><p>Gibt Wahr zurück, wenn die Methode (Funktion einer
+                Klasse/Objekt) existiert (allerdings nicht ausprobiert!).</p></td></tr>
+              <tr><td>password_hash($pwd, $algo)</td><td><p>Passwort verschlüsseln - ziemlich sichere Methode.
+                Es wird empfohlen, als $algo die Konstante PASSWORD_DEFAULT mitzugeben. Dies stellt sicher
+                dass Algorithmusverbesserungen bei neuen Passwoertern mit einfliessen.</p>
+                <p>Mit <code>password_verify($pwd, $pwd_hashed)</code> kann das Passwort ohne Speicherung des
+                  Hashkeys wieder geprüft werden: Wenn das Resultat = 1 ist, ist alles OK.</p></td></tr>
+              <tr><td>password_verify($pwd, $pwd_hashed)</td><td><p>Passwort prüfen; siehe
+                <code>password_hash</code></p></td></tr>
+              <tr><td>print_r($variable)</td><td><p>Kann beim Debuggen helfen: Ausgabe von Variablen (Arrays
+                werden leidlich übersichtlich ausgegeben).</p></td></tr>
+              <tr><td>str_replace("needle","new needle","heyStack")</td><td><p>Replace ... selbstsprechend, oder?</p></td></tr>
+              <tr><td>str_word_count($variable);</td><td><p>Gibt die Anzahl Wörter eines Strings zurück.</p></td></tr>
+              <tr><td>strlen($variable);</td><td><p>Gibt die Länge des Strings zurück.</p></td></tr>
+              <tr><td>strpos($heystack, $needle);</td><td><p>Gibt die Position von $needle in $haystack zurück.</p></td></tr>
+              <tr><td>strtotime($date);</td><td><p>Versucht ein 'plausibles' Datum zu einem Unix-Timestamp umzuwandeln.</p></td></tr>
+              <tr><td>substr($heystack, $start, [$length]);</td><td><p>Gibt einen Teil des Quellstrings 'Heystack'
+                zurück ... sollte selbstsprechend sein.</p></td></tr>
+              <tr><td>var_dump($variable);</td><td><p>&quot;Dumpt&quot; eine Variable/Objekt.</p></td></tr>
+          </table>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="klassenUndObjektePHP">Klassen und Objekte <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+          <p>PHP kennt auch Klassen und damit natürlich auch Objekte (während Klassen die Deklaration
+              darstellen, sind die Objekte Instanzen der Klasse - aber den objektorientierten Ansatz hier
+              erklären zu wollen, sprengt den Rahmen dieser Lern-Notizen).</p>
+          <p>Mit den Klassendeklarationen verhält es sich ähnlich wie mit den Funktionen: Sie müssen (oder
+              zumindest sollten) vor der Verwendung deklariet werden. Dies kann auch in externen php-Files
+              geschehen, welche dann mit <code>include</code> oder <code>require</code> referenziert
+              werden können.</p>
+          <h3 id="klassenDeklarationPHP">Klassen Deklaration</h3>
+          <div>
+              <pre><code>
+    class klassenName {
+
+      // Eigenschaften (oder Klassenvariablen)
+      private $variable;
+
+      // Spezielle Funktion: Constructor
+      public function __construct($param1='defaultWert' [, $param2 ...]) {
+          // Coding, zum Beispiel Initialisierungen
+      }
+
+      /* Getter / Setter (Lesen / Setzen von Eigenschaften/Klassenvariablen
+         (sind eigentlich normale Methoden/Funktionen und werden nur am Namen als
+         Getter/Setter erkannt */
+      public get_variable() {
+          return $this->variable;
+      }
+      public set_variable($param='defaultWert') {
+          $this->variable = $param;
+          // ggf. weiteres, davon abhängiges Coding
+      }
+
+      /* methoden (Funktionen)
+         wir arbeiten mit dem Objekt ... */
+      public wirVeraendernDieEigenschaften($param1='defaultWert' [, $param2 ...]) {
+          // Coding
+      }
+    }
+              </code></pre>
+              <p>Besonderes</p>
+              <ul>
+                <li>Werden Eigenschaften oder Methoden vom Objekt selber, also innerhalb des Objektes
+                    angesprochen, ist mit <code>$this-></code> darauf zu verweisen.<br>
+                    Speziell: Die Variablen werden dann ohne &apos;$&apos; angesprochen!</li>
+                <li>Die Spezielle Methode &apos;__constructor()&apos; wird, wenn die Klasse instanziert
+                    wird, automatisch aufgerufen. Bei der Instanzierung können die definierten Parameter
+                    mitgegeben werden (siehe dazu auch im Folgenden).</li>
+                <li>Setter und Getter Konstrukte in der objektorientierten Programme, womit die an und
+                    für sich privaten Eigenschaften angesprochen werden können. Es kann darin auch
+                    &apos;Intelligenz&apos; in Form von php-Coding programmiert werden.<br>
+                    In php scheinen es aber normale Methoden (oder Funktionen) zu sein, die speziell
+                    benennt werden, dass man sie als solches erkennt.</li>
+              </ul>
+
+          </div>
+          <h3 id="ObjektPHP">Objekte (instanzierte Klassen) <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+          <div>
+              <p>Damit die Klassen auch verwendet werden können, müssen sie instanziert werden - mit
+                  der Deklaration alleine kann man nicht arbeiten. Eine Klasse ist eine Art Modell und
+                  das Objekt das abgeleitete, brauchbare Teil davon. Die Klasse kann mehrfach
+                  instanziert werden - mit verschiedenen Objektnamen oder in einem Array mit Objekten.</p>
+              <p>Instanzieren</p>
+              <pre><code>
+    $objektName = new klassenName($param);
+              </code></pre>
+              <p>Die Klasse wird instanziert und der &apos;$param&apos; dem &apos;__constructor()&apos;
+                  übergeben, welcher gleich anschliessend automatisch ausgeführt wird. So können zum
+                  Beispiel Eigenschaften initalisiert werden oder andere initiale Tätigkeiten ausgeführt
+                  werden.</p>
+              <p>Referenzieren Methoden</p>
+              <pre><code>
+    /* Verwenden Methode mit Parameter
+       (hier einen &apos;Setter&apos;) */
+    $objektName->set_variable($param);
+
+    /* Verwenden einer Methode mit Rückgabewerten
+       (hier einen &apos;Getter&apos;) */
+    echo "&lt;p&gt;" . $objektName->get_variable() . "&lt;/p&gt;";
+              </code></pre>
+          </div>
+          <h3 id="statischeEigenschaftPHP">Statische Eigenschaften / Klassenvariablen <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+          <div>
+              <p>Statische Eigenschaften (oder Klassenvariablen) existieren genau einmal pro Klasse - auch wenn
+                  die Klasse x-mal instanziert wird. Das hat Vorteile, wenn zum Beispiel die Eigenschaft für
+                  alle Objekte sowieso gleich ist. Im weiteren Sinn kann sie auch als Konstante verwendet
+                  werden.</p>
+              <h4>Deklaration / Verwendung</h4>
+              <div>
+                  <p>Die Deklaration hat natürlich innerhalb einer Klasse zu erfolgen!</p>
+                  <pre><code>
+    class Klassenname {
+
+        private <span style="color: red">static</span> $eigenschaft = "dick";
+
+        // ... weitere Eigenschaften / Methoden
+
+        public function get_eigenschaft() {
+
+            return <span style="color: red">Klassenname::$eigenschaft</span>;
+
+        }
+    }
+                  </code></pre>
+                  <p>Man beachte:</p>
+                  <ul>
+                    <li>Erstes wird die Klasse mit Namen und nicht mit $this angesprochen.</li>
+                    <li>Zweitens nicht mit einem &apos;-&gt;&apos;, sondern mit &apos;::&apos;.</li>
+                    <li>Dafür steht vor dem Namen der statischen Variable ein &apos;$&apos;.</li>
+                  </ul>
+              </div>
+          </div>
+          <h3 id="statischeMethodePHP">Statische Methoden <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+          <div>
+              <p>Das selbe kann man mit Methoden machen - es existiert eine über alle Objekte dieser Klasse.
+                  Ein dafür sinnvolles Beispiel fällt mir grad nicht ein - aber im Zusammenhang mit
+                  &apos;MySql&apos; werden wir eines sehen!</p>
+              <h4>Deklaration</h4>
+              <div>
+                  <pre><code>
+    class Klassenname {
+
+        // ... Eigenschaften / Methoden
+
+        public <span style="color: red">static</span> function echoHallo() {
+
+            echo "&lt;p&gt;Hallo&lt;/p&gt;";
+
+        }
+
+        // ... weitere Eigenschaften / Methoden
+
+    }
+                  </code></pre>
+              </div>
+              <h4>Verwendung</h4>
+              <div>
+                  <p>Die Klasse muss nicht instanziert werden - die statische Methode kann einfach gebraucht
+                      werden:</p>
+                  <pre><code><span style="color: red">Klassenname::</span>echoHallo();</code></pre>
+                  <p>Man beachte:</p>
+                  <ul>
+                      <li>Wir sprechen keine Instanz der Klasse, sondern die Klasse selber an.</li>
+                      <li>Widerum wird anstelle des &apos;->&apos; &apos;::&apos; verwendet.</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="PDOSQLDBPHP">PHP und SQL-DBs <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+          <p>Im Web ist vieles kostenos bzw. Open Source. Man kann - abgesehen von der Hardware und dem
+              nötigen Internetanschluss einen Server kostenlos aufsetzen. Eine weitere kostenlose und darum
+              populäre Software ist die Datenbank-Software &apos;MySql&apos;. Hier wollen wir eine Art des
+              Zugriffes mit PHP betrachten - die letzte Art; wer arbeitet schon mit uralt-php?!?</p>
+          <p>Wir konzentrieren uns auf die objektorientierte Methode &apos;PDO&apos; (PHP Data Objects),
+              welche ab php Version 5.1 unterstützt wird. PDO ermöglicht Zugriff auf verschiedene
+              DB-Systeme - wir betrachten hier aber nur einmal &apos;MySql&apos;.</p>
+          <p><a href="http://php.net/manual/de/class.pdo.php">http://php.net/manual/de/class.pdo.php</a></p>
+          <h3 id="PDOVerbindungDBPHP">PDO instanzieren / Verbindung aufbauen
+              <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+          <div>
+              <p>Zu den folgenden Beispielen ist anzumerken, dass statt der hier verwendeten Methode
+                  <code>query()</code> vorzugsweise mit den Methoden <code>prepare()</code> und
+                  <code>execute</code> gearbeitet werden soll (siehe
+                  <a href="#PDOPrepareExecutePHP">Prepare() / Execute()</a>).</p>
+              <h4>klassisch</h4>
+              <div>
+                  <p>Dies wird am besten mittels einem Stückchen Code verbeispielhaftet, welcher gleich noch
+                      Daten mittels eines SQL ausliest:</p>
+                  <p><strong>Diese Methode wird nicht unbedingt empfohlen - besser die im folgenden
+                      beschriebene <a href="#PDOConnectStaticPHP">statische Methode</a> anwenden!
+                      </strong></p>
+                  <pre><code>
+&lt;?php
+    $servername="localhost";
+    $db_name="todo_app";
+    $username="username";
+    $password="passwort";
+
+    try {
+        // wir versuchen zu verbinden
+        $conn = new PDO("mysql:host=$servername;dbname=$db_name;charset=utf8", $username, $password);
+        // set the PDO error mode to exception
+        $conn-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        // lesen (SQL-Statement)
+        $result = $conn-&gt;query("SELECT * FROM task LIMIT 100");  // HIER: LIMIT 100
+        $all = $result-&gt;fetchAll();            // gibt einen Array mit allen Records
+        foreach($all as $record) {
+            // alle records (indizierter Array)
+            foreach($record as $feldname =&gt; $wert) {
+                // alle Felder/Inhalte des Records (assozierter Array)
+                echo "&lt;p&gt;$feldname: $wert&lt;/p&gt;";
+            }
+        }
+
+    }
+    catch (PDOException $e) {
+        // Fehler
+        echo "&lt;p&gt;Connection failed: " . $e-&gt;getMessage() . "&lt;/p&gt;"; {
+    }
+?&gt;
+                  </code></pre>
+              </div>
+              <h4 id="PDOConnectStaticPHP">Mit statischer Methode</h4>
+              <div>
+                  <p>Da die EINE DB möglicherweise vielerorts gebraucht wird, kann diese statisch definiert
+                      und verwendet werden (siehe auch <a href="#statischeMethodePHP">Statische
+                      Methoden</a>).</p>
+                  <p>Diese Klasse muss (einmal, am besten in einem separaten php-File zwecks späterer,
+                      weiterer Verwendung) erstellt werden:</p>
+                  <pre><code>
+&lt;?php
+/**
+ * Created by PhpStorm.
+ * User: chwaelti
+ * Date: 09.02.2017
+ * Time: 19:11
+ * Klasse mit statischer Variable für Connection
+ * und statischer Funktion für die Datenbank anzuschnallen
+ * so, dass die Klasse nicht instanziert werden muss und
+ * die DB-Connection über die ganze &apos;Site&apos; nur einmal ge-
+ * macht werden muss.
+ */
+
+class db {
+
+    private static $CONN = null;        // statisch: Bleibt erhalten über alle Instanzen
+
+    // statische Funktion: Bleibt erhalten über alle Instanzen
+    public static function getDB() {
+        if (db::$CONN == null) {
+
+            $servername=&quot;localhost&quot;;
+            $db_name=&quot;todo_app&quot;;
+            $username=&quot;todo_user&quot;;
+            $password=&quot;todo_user&quot;;
+
+            try {
+                db::$CONN = new PDO(&quot;mysql:host=$servername;dbname=$db_name;charset=utf8&quot;
+                                  , $username, $password);
+                // set the PDO error mode to exception
+                db::$CONN-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            }
+            catch (PDOException $e) {
+                db::$CONN = &quot;Error&quot;;
+                die(&quot;Connection failed: &quot; . $e-&gt;getMessage());
+            }
+            return db::$CONN;
+        }
+        else {
+            return db::$CONN;
+        }
+    }
+}
+?&gt;
+                  </code></pre>
+                  <p>Die Anwendung soll im folgenden Beispiel verdeutlicht werden - in der Annahme, das
+                      - wie empfohlen - erstellte php-File heisst &apos;db.php&apos;:</p>
+                  <pre><code>
+&lt;?php
+
+<span style="color: red">require_once &quot;db.php&quot;;        // reinholen Deklaration Klasse</span>
+
+$conn = <span style="color: red">db::getDB();          // start der DB (Startdefinitionen in Klasse definiert)</span>
+if ($conn == &quot;error&quot;) {
+    echo &quot;&lt;p&gt;it didn&apos;t&apos; happen ...&quot;;
+}
+else {
+// connection erstellt
+
+    $result = $conn-&gt;query(&quot;SELECT * FROM task LIMIT 100&quot;);  // HIER: LIMIT 100
+    $all = $result-&gt;fetchAll();
+
+    foreach ($all as $row) {
+        echo &quot;&lt;p&gt;&quot; . ++$zaehler . &quot;&lt;/p&gt;&quot;;
+        echo &quot;&lt;p&gt;&quot;;
+        var_dump($row);
+        echo  &quot;&lt;/p&gt;&quot;;
+        if ($zaehler &gt;= $maxRec) {
+            break;
+        }
+    }
+}
+?&gt;
+                  </code></pre>
+              </div>
+          </div>
+          <h3 id="PDOMethodsPHP">PDO: Methoden
+              <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+          <div>
+              <p>In nachstehender Tabelle der Methoden ist unter der Spalte Parent vermerkt, welches
+                  Objekt denn die Methoden zur Verfügung stellt:</p>
+              <table>
+                  <tr><th>Objekt</th><th>Beschreibung</th></tr>
+                  <tr><td>$conn</td><td><p>Ist das Resultat der 'Eröffnung' der Zieldatenbank - bezogen auf
+                      das Beispiel oben:</p>
+                      <p><code>$conn = new PDO("mysql:host=$servername;dbname=$db_name;charset=utf8",
+                          $username, $password);</code></p>
+                      <p><a href="http://php.net/manual/de/class.pdo.php">
+                          http://php.net/manual/de/class.pdo.php</a></p>
+                  </td></tr>
+                  <tr><td>$result</td><td><p>Ist das Resultat der Methode <code>$conn-&gt;query($sql);
+                      </code> - bezogen auf das obige Beispiel:</p>
+                      <p><code>$result = $conn-&gt;query("SELECT * FROM task LIMIT 100");</code></p>
+                      <p><a href="http://php.net/manual/de/class.pdostatement.php">
+                          http://php.net/manual/de/class.pdostatement.php</a></p>
+                  </td></tr>
+              </table>
+              <table>
+                  <tr><th>Methode</th><th>Objekt</th><th>Beschreibung</th></tr>
+                  <tr><td>bindParam(...)</td><td>$conn</td><td>Damit können die Parameter eines mit
+                      <code>$conn-&gt;prepare($sqlSelect);</code> vorbereiteten Sql-Statements gesetzt
+                      werden. Darauf wird in <a href="#PDOPrepareExecutePHP">Prepare() / Execute()</a>
+                      eingegangen.</td></tr>
+                  <tr><td>columnCount()</td><td>$result</td><td>Gibt die Anzahl Spalten des gelesenen Satzes zurück.</td></tr>
+                  <tr><td>errorInfo()</td><td>$conn</td><td>Gibt einen Array mit den Fehlern aus letzter
+                      Abfrage zurück.</td></tr>
+                  <tr><td>exec($sql)</td><td>$conn</td><td>Führt ein SQL-Statement (ohne Resultat, also kein
+                      &apos;select&apos;-Statement) aus und gibt die Anzahl betroffener Tabellen-Rows
+                      zurück.</td></tr>
+                  <tr><td>execute()</td><td>$conn</td><td>Ausfuehren eines mit
+                      <code>$conn-&gt;prepare($sqlSelect);</code> vorbereiteten Sql-Statements. Auf diese
+                      beiden Methoden wird weiter <a href="#PDOPrepareExecutePHP">Prepare() / Execute()</a>
+                      eingegangen.</td></tr>
+                  <tr><td>fetch($fetchMode)</td><td>$result</td><td>Bereitstellen eines Datensatzes. Die Form ist abhängig
+                      vom mitgegebenen Parameter $fetchMode.</td></tr>
+                  <tr><td>fetchAll($fetchMode)</td><td>$result</td><td>Alle Datensätze bereitstellen. Der Parameter
+                      wird im Folgenden separat beschrieben. Es handelt sich um einen indizierten Array,
+                      welcher (in Abhängigkeit von $fetchMode) die Daten bereithält.</td></tr>
+                  <tr><td>lastInsertId()</td><td>$conn</td><td>Gibt, wenn auf eine Tabelle mit Primary Key
+                      Definition AUTO_INCREMENT inserted wurde, den Wert des Primary Keys zurueck.</td></tr>
+                  <tr><td>prepare($sql)</td><td>$conn</td><td>Vorbereitung eines Select-Statements, welches
+                      mit <code>$conn-&gt;execute();</code> ausgeführt werden kann. Auf diese beiden
+                      Methoden wird weiter <a href="#PDOPrepareExecutePHP">Prepare() / Execute()</a>
+                      eingegangen.</td></tr>
+                  <tr><td>query($sql)</td><td>$conn</td><td>Führt ein SQL aus und gibt Resultate zurück.
+                      Die Methoden &apos;prepare()&apos; und &apos;execute()&apos; sind dieser Methode
+                      vorzuziehen (siehe <a href="#PDOPrepareExecutePHP">Prepare() / Execute()</a>).</td></tr>
+                  <tr><td>rowCount()</td><td>$result</td><td>Gibt die Anzahl Datensätze, die gefunden wurden, zurück.</td></tr>
+              </table>
+          </div>
+          <h3 id="PDOFetchModesPHP">fetch()/fetchAll() Fetch-Modes
+              <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+          <div>
+              <p>Mit den Fetch-Modes können die Daten, welche mit SQL Select-Statement gelesen werden
+                  verschieden abgegriffen werden. Der Mode wird der Fetch-/FetchAll-Methode als
+                  Parameter mitgebeben. Folgende Modes wurden nicht wirklich ausprobiert.</p>
+              <p>Ausgangslage (Snippet aus vorigem Beispiel):</p>
+              <pre><code>
+    // lesen (SQL-Statement)
+    $result = $conn-&gt;query("SELECT * FROM task LIMIT 100");  // HIER: LIMIT 100
+    $all = $result-&gt;<span style="color: red">fetchAll()   </span>;            // gibt einen Array mit allen Records
+              </code></pre>
+              <table>
+                  <tr><th>fetch mode</th><th>Resultat</th><th>know how</th></tr>
+                  <tr><td>PDO::FETCH_NUM</td>
+                      <td>Ein indiziertes Array mit den Resultaten durchnummeriert von 0 bis n</td>
+                      <td>ja</td></tr>
+                  <tr><td>PDO::FETCH_ASSOC</td>
+                      <td>Ein assoziatives Array mit den Resultaten, wobei der Key dem Spaltennamen
+                           in der DB entspricht</td>
+                      <td>ja</td></tr>
+                  <tr><td>PDO::FETCH_BOTH</td>
+                      <td>Kombination der beiden ersten Varianten</td>
+                      <td>nein</td></tr>
+                  <tr><td>PDO::FETCH_OBJ</td>
+                      <td>Gibt ein einfaches stdObject zurück</td>
+                      <td>nein</td></tr>
+                  <tr><td>PDO::FETCH_CLASS</td>
+                      <td>Füllt die Daten in eine beliebige Klasse ab</td>
+                      <td>nein</td></tr>
+              </table>
+          </div>
+          <h3 id="PDOPrepareExecutePHP">Prepare() / Execute() <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+          <div>
+              <p>Da die Kommunikation mit dem Server in php über die GET-Methode, also über die URL
+                  erfolgt (siehe auch <a href="#getPHP">GET</a>), ist das ein möglicher Angriffspunkt
+                  fuer Hacker - dieser hat sogar einen eigenen Namen: &apos;SQL Injection&apos;.</p>
+              <p>Wenn z.B. das Query also lautet <code>&quot;DELETE FROM USER WHERE ID=$id&quot;</code>
+                  und die id in der URL mitgegeben wird:</p>
+              <p><code>www.website.com?id=5&amp;</code></p>
+              <p>Ist es möglich, dass ein etwas kundiger Hacker daraus zum Beispiel</p>
+              <p><code>www.website.com?id=5 <span style="color: red"> or id > 0</span>&amp;</code></p>
+              <p>macht und in unserem Beispiel damit alles auf der Tabelle löscht. Es ist ja nicht so,
+                  dass der Hacker das weiss - aber er kann es versuchen. Aber dagegen kann man etwas
+                  unternommen werden: PDO-&gt;prepare($sql);!</p>
+              <p>siehe auch Tutorial: <a href="http://kushellig.de/prepared-statements-php-data-objects-pdo/">
+                  http://kushellig.de/prepared-statements-php-data-objects-pdo/</a></p>
+              <p>Beispiel (anknüpfend an Beispiele unter <a href="#PDOConnectStaticPHP">Mit statischer
+                  Methode</a>:</p>
+              <h4>prepare()</h4>
+                  <p><code>
+                      $conn = DB::get()-&gt;prepare(&quot;SELECT * FROM user WHERE name = <span style="color: red">
+                      :vorname</span> AND lastname = <span style="color: red">:nachnam  e</span>&quot;);
+                  </code></p>
+              <h4>execute()</h4>
+              <p><code>
+                  $conn-&gt;execute(array(<span style="color: red">&apos;:vorname&apos;</span>
+                  =&gt; &apos;Max&apos;, <span style="color: red">&apos;:nachname&apos;</span>
+                  =&gt; &apos;Mustermann&apos;));
+              </code></p>
+              <h4>Alternativ: bindParam()</h4>
+              <p><code>
+                  $conn-&gt;bindParam(<span style="color: red">&apos;:vorname&apos;</span>,
+                  &apos;Max&apos;, PDO::PARAM_STR, 12,
+                  <span style="color: red">&apos;:nachname&apos;</span>, &apos;Mustermann&apos;
+                  , PDO::PARAM_STR, 12);<br>
+                  $conn-&gt;execute();
+              </code></p>
+              <h4>indiziert statt assoziativ</h4>
+              <p>Es gäbe auch noch die Variante, dass man indiziert arbeitet. Also statt der
+                  assoziativen Begriffe <code><span style="color: red">&apos;:vorname&apos;</span></code>
+                  und <code><span style="color: red">&apos;:nachname&apos;</span></code> Fragezeichen
+                  verwendet und diese indiziert in der Reihenfolge anspricht:</p>
+              <p><code>$conn = DB::get()-&gt;prepare(&quot;SELECT * FROM user WHERE name =
+                  <span style="color: red">?</span> AND lastname =
+                  <span style="color: red">?</span>&quot;);<br>
+                  $conn-&gt;execute(<span style="color: red">array(&apos;Max&apos;,
+                      &apos;Mustermann&apos;)</span>);</code></p>
+              <p><strong>Die assoziative Variante ist vorzuziehen!</strong></p>
+          </div>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="jsonPHP">JSON (JavaScript Object Notation) <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+          <p>JSON wird zur Übertragung und zum Speichern von strukturierten Daten eingesetzt; es dient als
+              Datenformat bei der Serialisierung. Insbesondere bei Webanwendungen und mobilen Apps wird es
+              in Verbindung mit JavaScript, Ajax oder WebSockets zum Transfer von Daten zwischen dem
+              Client und dem Server häufig genutzt.</p>
+          <p>(Quelle: <a href="https://de.wikipedia.org/wiki/JavaScript_Object_Notation">
+              https://de.wikipedia.org/wiki/JavaScript_Object_Notation</a></p>
+          <p><a href="http://php.net/manual/de/ref.json.php">http://php.net/manual/de/ref.json.php</a></p>
+          <table>
+              <tr><th>Funktion</th><th>Beschreibung</th></tr>
+              <tr><td>json_encode($variable)</td><td>Erstellen json-String</td></tr>
+              <tr><td>json_decode($variable)</td><td>Decodieren json-String</td></tr>
+              <tr><td>json_last_error()</td><td>Gibt den letzten aufgetretenen Fehler zurück</td></tr>
+              <tr><td>json_last_error_msg()</td><td>Gibt die letztn aufgetretenn Fehlermeldung zurück</td></tr>
+          </table>
+          <p>Was das soll, erschliesst sich mir noch nicht ganz - aber vielleicht macht es mehr Sinn,
+              wenn das Kapitel JavaScript bearbeitet wird.</p>
+          <ul>Wichtige Hinweise
+            <li><code>json_encode()</code> hat Muehe mit privaten Variablen; Stichwort für Google: &apos;
+                implements JsonSerializable&apos;.</li>
+          </ul>
+          <p><strong>If it doesn't make much sense to you ... try this:<br>
+              <a href="http://nitschinger.at/Handling-JSON-like-a-boss-in-PHP/">
+                  http://nitschinger.at/Handling-JSON-like-a-boss-in-PHP/
+              </a></strong></p>
+      </div>
+
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="mySqlPHP">MySql: Spezialtiäten <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+          <p>Wie jede SQL-DB hat auch MySql seine Eigenheiten. Auf besondere wird hier eingegangen.</p>
+          <h3 id="mySqlInsertPHP">Insert <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+          <div>
+              <h4>Primary Key AUTO_INCREMENT</h4>
+              <p>Wird ein Schlüssel (Primary Key) mit AUTO_INCREMENT definiert (er kreiert sich selber,
+                  damit ist ein fortwährende Eindeutigkeit gesichert), soll als Wert beim
+                  Insert-Statement NULL mitgegeben werden. Was auch funktionieren sollte, ist, dass
+                  man das Attribut im Insert-Statement gar nicht bedient.</p>
+              <p>Uebrigens: Mit der PDO-Methode <code>lastInsertId()</code> kann der generierte Primary
+                  Key Wert ermittelt werden.</p>
+              <h4>Aenderungsnachweis (Datum)</h4>
+              <p>Oft wird in Datenbanken auf dem Datensatz markiert, wann (und von wem) er eingefuegt
+                  wurde. Das &apos;Wer&apos; kann über einen User (zum Beispiel mit Login) abgehandlet
+                  werden. Das &apos;Wann&apos;: Als Wert im Insertstatement die Konstante <code>
+                  CURRENT_TIMESTAMP</code> als Wert mitgeben.</p>
+          </div>
+          <h3 id="mySqlPasswortSchutzPHP">Passwortschutz <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+          <div>
+            <h4>Passwort</h4>
+            <p>Damit Passwörter beim 'Anschnallen' der DB überhaupt greift, sollten die Berechtigungen in
+                'mySql' entsprechend auf (zumindest aktuell so bekannt) &apos;localhost&apos; gesetzt
+                sein</p>
+            <p><img src="pics/berechtigungMySql_Passwort.jpg" height="287" width="736"/></p>
+            <h4>Set Password</h4>
+            <p><code>UPDATE mysql.user SET Password=PASSWORD('customerpassword') WHERE User='customer';</code></p>
+          </div>
+      </div>
+
+
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="undefined">undefined <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+          <p>bla, bla, bla</p>
+          <h3 id="undefinedEither">auch undefiniert <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+          <div>
+          </div>
+      </div>
+  </main>
+</body>
+</html>

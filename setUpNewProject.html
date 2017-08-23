@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <title>Set up new Project</title>
+</head>
+<body>
+    <header>
+        <nav id="navigation">
+            <table id="tNavi" rules="all">
+                <tr>
+                    <td class="tNavi_c1"><a href="index.html">back</a></td>
+                    <td class="tNavi_c2"></td>
+                    <td class="tNavi_c3"></td>
+                    <td class="tNavi_c4"></td>
+                </tr>
+            </table>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <h1>Aufsetzen eines Web-Projektes</h1>
+            <h2 id="uebersicht">Uebersicht</h2>
+            <ol>
+                <li><a href="#voraussetzungen">Voraussetzungen</a>
+                <ul>
+                    <li><a href="#node">node.js</a></li>
+                    <li><a href="#gitVoraussetzung">git</a></li>
+                </ul>
+                </li>
+                <li><a href="#dateiStruktur">Dateistruktur</a></li>
+                <li><a href="#htmlStruktur">html</a></li>
+                <li><a href="#git">git</a></li>
+                <li><a href="#npmInit">npm init (Package Manager)</a></li>
+                <li><a href="#gulp">gulp</a></li>
+                <li><a href="#browserSync">Browsersync</a></li>
+                <li><a href="#sass">SASS</a></li>
+                <li><a href="#niceToHaveToolsWithSASS">Nice to have with SASS: Tools</a>
+                <ul>
+                    <li><a href="#sourceMaps">sourcemaps</a></li>
+                    <li><a href="#compressingCSS">Compressing CSS </a></li>
+                    <li><a href="#autoPrefixer">Autoprefixer</a></li>
+                </ul>
+                </li>
+            </ol>
+            <h2 id="voraussetzungen">Voraussetzungen <a href="#uebersicht">(Uebersicht)</a></h2>
+                <h3 id="node">node.js <a href="#uebersicht">(Uebersicht)</a></h3>
+                    <p>Ein Framework / Interpreter-Umgebung, womit sich Web-Server realisieren lassen. node läuft in
+                        der JavaScript-Laufzeitumgebung 'V8'. Es beinhaltet den Paketmanager 'npm'. </p>
+                    <p><a href="https://nodejs.org" target="_blank">https://nodejs.org</a></p>
+                    <h4>npm</h4>
+                    <p>Wichtiges Ding: Damit können weitere Tools installiert werden, die dann unter node.js Framework
+                        laufen. Die Installationen müssen im Command-Fenster oder alternativ in der git-Shell oder
+                        auch phpStorm-Terminal erfolgen. Das wichtigste Kommando dürfte dabei</p>
+                    <p><code>npm install</code></p>
+                    <p>sein. Wichtige Parameter:</p>
+                    <ul>
+                        <li><p><code>-g</code> oder <code>--global</code></p>
+                            <p>Installation Global (Default wäre Lokal und nur für diese Instanz (Basispfad)
+                                verfügbar (Global empfohlen).</p>
+                        </li>
+                        <li><p><code>--save-dev</code> oder <code>-D</code></p>
+                            <p>Das installierte Paket wird in den Abhängigkeiten erscheinen (package.json). Dazu
+                                sollte die Installation im entsprechenden Projektverzeichnis erfolgen.</p>
+                            <p>Dumm, wenn die Installation bereits einmal mit '--global' erfolgte ... dann bleibt wohl nur
+                                das manuelle Ergänzen von 'package.json' (wenn man den den ursprünglichen Eintrag
+                                im damalig aktuellen Projekt findet ...).</p>
+                            <p>Vielleicht macht es Sinn</p>
+                            <ul>
+                                <li>man notiert sich das 'ursprüngliche' Projekt</li>
+                                <li>ein 'Modell'-Projekt zu erstellen, damit man die
+                                    entsprechenden Einträge dort holen kann</li>
+                                <li>man installiert alles 'Lokal'</li>
+                                <li>(Das scheint mir das Beste!) man installiert alles 'global' und zwar für
+                                    jedes Projekt immer wieder ... wenn es denn funktioniert ('proof of concept'
+                                    fehlt bisher)</li>
+                              ...
+                            </ul>
+                        </li>
+                    </ul>
+                    <p><a href="https://docs.npmjs.com/cli/npm" target="_blank">docs.npmjs.com/cli/npm</a></p>
+                    <p><a href="https://docs.npmjs.com/cli/install" target="_blank">docs.npmjs.com/cli/install</a></p>
+                <h3 id="gitVoraussetzung">git <a href="#uebersicht">(Uebersicht)</a></h3>
+                    <p>git ist ein Versionierungssoftware. Download ist zu finden unter
+                        <a href="https://github.com" target="_blank">https://github.com</a>. Möglicherweise ist dort
+                        eine aktuellere Anleitung, um git zu installieren - also vor Verwenden der Anleitung hier
+                        macht es Sinn, dies nochmals zu überprüfen.</p>
+                    <p>Man kann/könnte mit git auch via Internet einen Master pflegen und so indirekt auf verteilten Systemen
+                        arbeiten. Der Code, der dort publiziert wird, ist allerdings öffentlich. Man kann auch privaten Raum
+                        haben - der ist dann allerdings kostenpflichtig. Eine Alternative zu git wäre z.Bsp. Subversions
+                        (oder so), was aber im Kurs nicht relevant ist.</p>
+            <h2 id="dateiStruktur">Dateistruktur <a href="#uebersicht">(Uebersicht)</a></h2>
+                <p>Die Basisstruktur ist relativ einfach und enthält mindestens das html-Startfile
+                   'index.html' und empfehlenswerterweise einen Ordner für das Stylesheet, welcher
+                   zB. 'style' heissen könnte. Darin das Stylesheet (bsp. 'style.css' und ggf.
+                   das zugehörige SASS-CSS-File.</p>
+                <p>Empfehlenswerterweise (Bilder sagen mehr als tausend Worte) gleich noch ein
+                   Ordner 'img' anlegen, um die Bilder abzulegen.</p>
+                <p>Je nach Komplexität der Site (oder neu-web-deutsch 'App') kann dieses
+                   Hauptstruktur weiter verfeinert werden - mit weiteren Ordnern pro Seite der
+                   App.</p>
+                <img src="img/baseStructur_50.jpg" alt="Basis Struktur Web Projekt" height="108" width="488"/>
+            <h2 id="htmlStruktur">HTML Struktur <a href="#uebersicht">(Uebersicht)</a></h2>
+                <pre><code>
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;link rel="stylesheet" type="text/css" href="css/layout.css"&gt;
+        &lt;title&gt;Set up new Project&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;header&gt;
+        &lt;nav&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+        &lt;article&gt;
+        &lt;/article&gt;
+    &lt;/main&gt;
+    &lt;aside&gt;
+    &lt;/aside&gt;
+    &lt;footer&gt;
+    &lt;/footer&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+                </code></pre>
+            <h2 id="git">git <a href="#uebersicht">(Uebersicht)</a></h2>
+                <p>Man kann das Projekt unter Versionskontrolle stellen. Siehe dazu auch <a href="#gitVoraussetzung">
+                    git unter Voraussetungen</a>. Hier wird nicht auf die Variante mit Internet eingegangen - was
+                    der Autor vielleicht später bedauern wird ...
+                </p>
+                <ol>
+                    <li>
+                        <p>Download und install git an und für sich (nicht hier beschrieben)</p>
+                    </li>
+                    <li>
+                        <p>Git Shell (oder einen anderen Kommandointerpreter) starten und in
+                            den die Basis des soeben erstellten Web Dateistruktur wechseln</p>
+                    </li>
+                    <li>
+                        <p>Kommando: <code>git init</code></p>
+                        <p>Erstellt und initialisiert den 'Master' - für die Erstentwicklung genügt das. Für die
+                            Weiterentwicklung sollte dann aber ein Entwickler-Branch erstellt werden, damit im
+                            'Master' Hot Fixes vollzogen werden könn(t)en.</p>
+                    </li>
+                    <li>
+                        <p>Erstellen eines Textfiles '.gitignore'. Darin können Files/Ordner von git ausgeschlossen
+                           werden, indem man einfach den Pfadnamen angibt - Basis ist - man ahnt es - der Basispfad.</p>
+                    </li>
+                </ol>
+            <h2 id="npmInit">npm init (Package Manager) <a href="#uebersicht">(Uebersicht)</a></h2>
+                <p>Erstellt das File <code>package.json</code> worin all die weiteren Installation festgehalten werden,
+                    sofern man mit der Option <code>--save-dev</code> installiert. Wird auch als Package Manager
+                    bezeichnet.</p>
+                <pre><code>npm init</code></pre>
+                <p>Das Package wird initialisiert - dazu werden verschiedene Angaben abgefragt, diese sind
+                    mehr oder minder anzugeben - was halt grad so Sinn macht ... Die Angaben werden im
+                    'package.json' im Root des Projektes gespeichert.</p>
+            <h2 id="gulp">Gulp <a href="#uebersicht">(Uebersicht)</a></h2>
+                <p>'gulp' ist ein Toolkit, womit Abläufe automatisiert werden können. Es ist Voraussetzung für die
+                    Automatisierung von zum Beispiel SASS (CSS-Präprozessor) oder Browsersync etc.</p>
+                <p>Installation:</p>
+                <ol>
+                    <li>
+                        <p>einmalige, globale Installation:</p>
+                        <pre><code>npm install -g gulp</code></pre>
+                    </li>
+                    <li>
+                        <p>Pro Projekt - erstellt den Ordner 'node_modules' mit den benötigten Modulen:</p>
+                        <pre><code>npm install gulp --save-dev</code></pre>
+                    </li>
+                </ol>
+                <p>Die Automationen werden im File 'gulpfile.js' im Basisverzeichnis des Projektes programmiert (siehe
+                    dazu Anweisungen in den entsprechenden Tools).</p>
+                <p>.gitignore:</p>
+                <p>Verzeichnis 'node_modules' und die Files darin: Es lohnt sich nicht, diesen 'Overhead'
+                    zu 'mitzu-git-ten' und das Verzeichnis node_modules aus git ausgeklammert werden.</p>
+                <p>Eintrag auf eigener Zeile: <code>node_modules/</code></p>
+                <p><a href="http://gulpjs.com" target="_blank">http://gulpjs.com</a></p>
+            <h2 id="browserSync">Browsersync <a href="#uebersicht">(Uebersicht)</a></h2>
+                <h3>'Manuell'</h3>
+                    <p>Browsersync synchronisiert die aktuelle Entwicklung mit dem gewünschten Browser, dass man das
+                       Resultat stets überprüfen kann. Unklar im Moment: Wie funktioniert das mit PHP</p>
+                    <p>Browsersync setzt voraus, dass 'node.js' installiert ist! Browsersync muss danach nur einmal
+                       in einer Kommandoshell (wie z.b. DOS-Command, git-Shell, PhpStorm Terminal).</p>
+                    <p>Browsersync muss pro PC nur einmal installiert werden, Kommando:</p>
+                    <p><code>npm install -g browser-sync</code></p>
+                    <p>Start:</p>
+                    <p><code>browser-sync start --system</code></p>
+                    <p>Der Start blockiert die Shell - deshalb Tipp: Zweite Shell Öffnen. Um den Effekt 100% erhalten
+                        zu können, sind offene Browser am besten zu schliessen.</p>
+                    <p>Details: <a href="https://browsersync.io">https://browsersync.io</a></p>
+                <h3>'Automatisiert'</h3>
+                    <p>Browsersync kann auch mit Hilfe von 'gulp' automatisiert werden:</p>
+                    <ol>
+                        <li>
+                            <p>In einem Command-Interpreter gult browser-sync installieren:</p>
+                            <p><code>npm install browser-sync gulp --save-dev</code></p>
+                        </li>
+                        <li>
+                            <p>'gulpfile.js' im Root-Verzeichnis erstellen/modifizieren:</p>
+                            <pre><code>
+var gulp        = require('gulp');      // falls nicht schon vorhanden
+var browserSync = require('browser-sync').create();
+
+// Static server
+gulp.task('browser-sync', function() {
+    browserSync.init({
+        server: {
+            baseDir: "./"
+        }
+    });
+});
+                            </code></pre>
+                        </li>
+                        <li>
+                            <p>Automatisierung Browsersync starten:</p>
+                            <p><code>gulp browser-sync</code></p>
+                        </li>
+                    </ol>
+            <h2 id="sass">SASS <a href="#uebersicht">(Uebersicht)</a></h2>
+                <p><a href="http://www.sassmeister.com" target="_blank">sassmeister.com</a></p>
+                <p>SASS ist ein automatisierbarer Precompiler, welcher für CSS-Files Features unterstützt, die CSS an
+                   sich missen lässt So können Strukturen, Templates/Variablen und sogar Funktionen definiert werden.</p>
+                <h3>Aktivitäten im Command-Shell</h3>
+                    <ol>
+                        <li>Basisverzeichnis der angehenden Web-Site / Command-Shell (zB Phpstorm Projekt) öffnen</li>
+                        <li>Kommando: <code>npm install --save-dev gulp-sass</code><p>Installiert SASS.</p></li>
+                        <li>Automatisierung SASS programmieren:
+                            <ol>
+                                <li>'gulpfile.js' im Root-Verzeichnis erstellen/modifizieren.
+                                <pre><code>
+/**
+ * Created by chwaelti on 27.12.2016.
+ */
+/* with loads copying from Ryan Christiani
+   ryanchristiani.com/getting-started-with-gulp-and-sass/ */
+
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+
+/* Task SASS-Precompiler ausführen */
+gulp.task('styles', function() {
+    /* Source-Directory (relativ zu gulpfile.js)
+       (/**/ wuerde Subdirectories beruecksichtigen) */
+
+    gulp.src('style/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        /* Target-Directory  (relativ zu gulpfile.js) */
+        .pipe(gulp.dest('style/'));
+});
+
+/* Watch-Task: SASS-Files beobachten und
+   ggf. 'styles' ausfuehren */
+gulp.task('sass:watch',function() {
+    gulp.watch('style/*.scss',['styles']);
+});
+                                </code></pre></li>
+                            </ol>
+                        </li>
+                        <li>Automatisierung SASS starten: <code>gulp sass:watch</code></li>
+                    </ol>
+            <h2 id="niceToHaveToolsWithSASS">Nice to have with SASS: Tools <a href="#uebersicht">(Uebersicht)</a></h2>
+                <h3 id="sourceMaps">sourcemaps <a href="#uebersicht">(Uebersicht)</a></h3>
+                    <p>Sourcmaps ist ein Hilfstool, womit man HTML-Sourcecode und CSS/SASS besser mappen kann. Das
+                        kann beim Suchen von Fehlern helfen. Just try it out ...</p>
+                    <p>Installation:</p>
+                    <ol>
+                        <li>
+                            <p>Rootverzeichnis mittels Commandinterpreter:</p>
+                            <pre><code>npm install gulp-sourcemaps --save-dev</code></pre>
+                        </li>
+                        <li>
+                            <p>Im File 'gulpfile.js' (ist ja wahrscheinlich mittlerweile vorhanden):</p>
+                            <pre><code>
+var sourcemaps = require('gulp-sourcemaps');
+                            </code></pre>
+                            <p>Dazu die folgenden zwei Zeilen beim SASS-Teil hinzufuegen:</p>
+                            <pre><code>
+gulp.task('sass', function () {
+    return gulp.src(‘css/styles.scss’)
+    <span style="color:green">.pipe(sourcemaps.init())</span>
+    .pipe(sass().on('error', sass.logError))
+    <span style="color:green">.pipe(sourcemaps.write())</span>
+    .pipe(gulp.dest('css'));
+    }
+);
+                            </code></pre>
+                        </li>
+                    </ol>
+                <h3 id="compressingCSS">Compressing CSS <a href="#uebersicht">(Uebersicht)</a></h3>
+                    <p>Mit folgendem Einschub im Sass-Code-Teil des 'gulpfile.js' kann der Output ins CSS 'compressed' werden.
+                        Er ist dann möglicherweise nicht mehr so leserliche - was aber keine Rolle spielen soll, wenn man CSS
+                        mit SASS 'codiert'.</p>
+                    <pre><code>
+gulp.task('sass', function () {
+    return gulp.src(‘css/styles.scss’)
+    .pipe(sass(
+        <span style="color:green">{</span>
+            <span style="color:green">outputStyle: ‘compressed'</span>
+        <span style="color:green">}</span>
+        ).on('error', sass.logError))
+    .pipe(gulp.dest('css'));
+    }
+);
+                    </code></pre>
+                <h3 id="autoPrefixer">Autoprefixer  <a href="#uebersicht">(Uebersicht)</a></h3>
+                    <p>Autprefixr hilft bei verschiedenen Browserversionen. Leider wurde das im Kurs nicht so
+                        verdeutlicht. Just try it out ...</p>
+                    <p>Installation:</p>
+                    <ol>
+                        <li>
+                            <p>Rootverzeichnis mittels Commandinterpreter:</p>
+                            <pre><code>npm install gulp-autoprefixer --save-dev</code></pre>
+                        </li>
+                        <li>
+                            <p>Im File 'gulpfile.js' (ist ja wahrscheinlich mittlerweile vorhanden) - folgende
+                                Ergänzungen:</p>
+                            <pre><code>
+var autoprefixer = require('gulp-autoprefixer');
+                            </code></pre>
+                            <p>Dazu die folgende Zeilen beim SASS-Teil hinzufuegen:</p>
+                            <pre><code>
+gulp.task('sass', function () {
+    return gulp.src('css/styles.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass( {
+                    outputStyle: 'compressed'
+                }
+            ).on('error', sass.logError)
+        )
+        .pipe(sourcemaps.write())
+        <span style="color:green">.pipe(autoprefixer({</span>
+                    <span style="color:green">browsers: ['last 3 versions'],</span>
+                    <span style="color:green">cascade: false</span>
+                <span style="color:green">}</span>
+            <span style="color:green">)</span>
+        <span style="color:green">)</span>
+        .pipe(gulp.dest('css'))
+    }
+);
+                            </code></pre>
+                        </li>
+                    </ol>
+        </article>
+    </main>
+    <aside>
+    </aside>
+    <footer>
+    </footer>
+</body>
+</html>

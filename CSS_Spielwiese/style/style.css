@@ -1,0 +1,107 @@
+/*
+    style fuer spielwiese
+*/
+
+
+/* floating mit automatischem fluss bei fenstergroessen-aenderung
+   funktioniert nur, wenn das unterste element width hat!!
+*/
+/* alles */
+* {      /* Fix: Dass Border-Box massgebend fuer 'sizing' ist */
+    box-sizing: border-box;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 18px;
+}
+.clearfix {    /* float zuruecksetzen */
+    clear: both;
+    overflow: hidden;
+}
+body {
+    /* centering ... doesn't work ohne width-angaben... */
+    margin-left: auto;
+    margin-right: auto;
+}
+header {
+    background: #aaf2ff;
+    clear: both;
+    display: block;
+}
+nav {
+    background-color: #d7ffc9;
+    display: block;
+}
+nav .dropdown{
+    background-color: #7effd6;
+    display: inline-block;  /* erzeugt margin ... muss aber sein, dass das dropdown an gleicher position ist */
+    margin-right: -5px;     /* hebt margin auf (auch beim letzten ... kann troubles geben) */
+    padding: 10px;
+    position: relative;
+    width: 150px;
+    }
+nav .dropdown-content {
+    display: none;
+    background-color: #7effd6 ;
+    left: 0px;                  /* erscheint sonst nach rechts verschoben (?!?) */
+    margin-top: 30px;           /* ach unten (wegen padding 'dropdown'(?!?) */
+    padding: 5px 5px 5px 10px;
+    position: absolute;
+    width: 150px;
+    z-index: 1;                  /* show on the top */
+}
+
+nav .dropdown:hover .dropdown-content {
+    display: inline-block;
+}
+nav .dropdown-content:hover {
+    background-color: #37ddff;
+}
+.wrapperAroundMainAndAside {
+    background: #ff8aeb;
+}
+main {
+    background: #52ff5d;
+    display: block;
+    float: left;
+    margin: 0px;
+}
+article {
+    float: left;
+}
+
+article div {
+    /* 'div' in article sollen floaten: sie haben fixe breite (grid-ansatz) */
+    background-color: #ffd2c9;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 280px;
+    /*min-width: 120px;
+      max-width: 280px;
+      das 'div' ist so gross, wie Platz aufgrund des inhaltes benoetigt wird
+      mit den einschraenkungen min/max - beeinflusst floating nicht! */
+}
+article > div {
+    /* erstes 'div' im 'article' */
+    margin-top: 10px;
+    margin-left: 10px;
+}
+article div:last-child {
+    /* letztes 'div' im 'article' */
+    background-color: red;
+    clear: both;
+    display: none;          /* unsichtbar */
+}
+aside {
+    background: #d0ffd4;
+    display: block;
+    float: left;
+}
+aside div {
+    background-color: #ffd2c9;
+    min-width: 320px;
+}
+footer {
+    background: #9cfeff;
+    display: block;
+}

@@ -1,0 +1,1072 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>js</title>	<!- Wird im Fenster/Lasche als Titel angezeigt -->
+</head>
+<!-
+	Kommentar
+-->
+<body>
+  <header id="kopf">Kopf</header>
+  <nav id="navigation">
+    <table id="tNavi" rules="all">
+      <tr>
+        <td class="tNavi_c1"><a href="index.html">back</a></td>
+        <td class="tNavi_c2"></td>
+        <td class="tNavi_c3"></td>
+        <td class="tNavi_c4"></td>
+      </tr>
+    </table>
+  </nav>
+  <main id="hauptteil">
+    <h1 id="Inhalt">Inhaltsverzeichnis</h1>
+    <nav>
+      <ul>
+        <li><a href="#einleitungJS">Einleitung</a> </li>
+        <li><a href="#einfachesBeispielJS">Einfaches Beispiel</a></li>
+        <li><a href="#einbindenInHTMLJS">Anwendung im HTML</a></li>
+        <li><a href="#operatorenJS">Operatoren</a></li>
+        <li><a href="#sprachKonstrukteJS">Sprachkonstrukte JS</a>
+          <ul>
+            <li><a href="#beispielLabelJS">Beispiel Loop mit Label</a></li>
+          </ul>
+        </li>
+        <li><a href="#ausgabeMoeglichkeitenJS">JS: Ausgabemoeglichkeiten</a></li>
+        <li><a href="#variablenJS">Variablen</a>
+          <ul>
+            <li><a href="#variablenNamenskonventionenJS">Namenskonventionen</a></li>
+            <li><a href="#variablenTypenJS">Typen</a></li>
+            <li><a href="#stringJS">Besonderheiten: String</a></li>
+            <li><a href="#stringKonstantenJS">Besonderheiten: String Konstanten</a></li>
+            <li><a href="#ArrayJS">Besonderheiten: Array</a></li>
+            <li><a href="#datumJS">Datum</a></li>
+          </ul>
+        </li>
+        <li><a href="#funktonenJS">Funktionen</a>
+          <ul>
+            <li><a href="#functionDeklarationJS">Deklaration</a></li>
+            <li><a href="#anonymeFunctionJS">Anonyme Function</a></li>
+            <li><a href="#callbackFunctionJS">Callback Function</a></li>
+            <li><a href="#coolefunktionenJS">Coole Funktionen</a></li>
+          </ul>
+        </li>
+        <li><a href="#DOMJS">DOM: Document Object Model</a>
+          <ul>
+            <li><a href="#funktionenDOMJS">Wichtige Methoden/Eigenschaften</a></li>
+          </ul>
+        </li>
+        <li><a href="#ajaxXMLHttpRequestJS">AJAX / XMLHttpRequest</a>
+          <ul>
+            <li><a href="#ajaxJS">AJAX (jQuery)</a></li>
+            <li><a href="#XMLHttpRequestJS">XMLHttpRequest (JS)</a></li>
+          </ul>
+        </li>
+        <li><a href="#coolesWeiteresJS">Cooles</a>
+          <ul>
+            <li><a href="#getOwnFileNameJS">Aktueller Filename ermitteln</a></li>
+          </ul>
+        </li>
+        <li><a href="#jqueryJS">jQuery: A JavaScript Library</a></li>
+      </ul>
+    </nav>
+    <h1 id="JS">JavaScript <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h1>
+    <div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="einleitungJS">Einleitung <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+        <p>JavaScript wird - im Gegensatz zu PHP - im Browser ausgeführt. Es braucht dazu nicht einmal
+           einen Server. JavaScript geht auf Brendan Eich 1995 zurück.</p>
+        <p>Der Einfachheit halber wird JavaScript in diesem Script mit JS abgekürzt.</p>
+        <p><a href="https://developer.mozilla.org/de/docs/Web/JavaScript">https://developer.mozilla.org/de/docs/Web/JavaScript</a></p>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="einfachesBeispielJS">Einfaches Beispiel <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+        <table><tr><td><pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="de"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Hallo JavaScript&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!--
+    HTML-Inhalt
+--&gt;
+<span style="color:red">;&lt;scripttype="text/javascript"&gt;
+    // einzeiliger Kommentar
+
+    alert("hello JavaScript");
+
+    /*
+      mehrzeiliger Kommentar
+    */
+&lt;/script&gt;</span>
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre></td><tr></table>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="einbindenInHTMLJS">Anwendung im HTML<a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+        <p>Das Coding von JS erfolgt direkt im HTML oder aber es kann in einer/mehrerer Datei(en)
+            referenziert werden. Grundsätzlich sind die Tags <code>&lt;script&gt;</code> und
+            <code>&lt;/script&gt;</code> zu verwenden:</p>
+        <ul>
+          <li>direktes Coding:
+            <table><tr><td><pre><code>
+&lt;script  type="text/javascript"&gt;
+    alert("hello world");
+&lt;/script&gt;
+            </code></pre></td><tr></table>
+          </li>
+          <li>Filereferenz:
+            <table><tr><td><pre><code>
+&lt;script  type="text/javascript" src="script/script.js"&gt;&lt;/script&gt;
+            </code></pre></td><tr></table>
+          </li>
+        </ul>
+        <p>Anmerkung: <code>type="text/javascript"</code> ist nicht zwingend nötig.</p>
+        <p>WICHTIG: Das JS soll grundsätzlich unmittelbar vor dem Ende des Bodys (<code>
+            &lt;/body&gt;</code>) eingefügt werden. Sonst wird vor dem Laden und Darstellen
+            der Site das JS geladen und der Inhalt erscheint verzögert.</p>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="operatorenJS">Operatoren <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+        <h3 id="kommentarJS">Kommentar <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+          <table>
+            <tr><td>//</td><td>einzeiliger Kommentar</td></tr>
+            <tr><td>/* / */</td>
+              <td>Mehrzeiliger Kommentar (laut Meinung 'alter Hasen' ist der
+                //-Kommentar (auch mehrzeilig) vorzuziehen, da '/*' / '*/' auch bestandteil von
+                Code sein können).
+              </td>
+            </tr>
+          </table>
+        <h3 id="rechenoperatiorenJS">Rechenoperatoren <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+          <table>
+            <tr><td>+ / - / * / / / ()</td><td>Die üblichen Verdächtigen</td></tr>
+            <tr><td>++ / --</td><td>Autoinkrement / Autodekrement<br>
+              Vor der Variable: Gerechnet wird vor Ausführung<br>
+              Nach der Variable: Gerechnet wird nach der Ausführung</td></tr>
+            <tr><td>+= / -=</td><td>Abgekürzte Berrechnung der Variable: <code>i+=12;</code></td></tr>
+            <tr><td>+</td><td>Verbinden von zwei Strings<br>ACHTUNG: In PHP ist das '.'!!</td></tr>
+            <tr><td>+=</td>
+              <td>Verlängern eines Strings: <code>$text.="noch mehr Text";</code><br>
+                ACHTUNG: In PHP ist das '.'!!</td></tr>
+            <tr><td>%</td><td>Modulo: Ermitteln ganzzahliger Rest einer Division.</td></tr>
+          </table>
+        <h3 id="vergleichsoperatorenJS">Vergleichsoperatoren</h3>
+          <table>
+            <tr><td>> / < / >= / <= / ()</td><td>Die üblichen Verdächtigen</td></tr>
+            <tr><td>==</td><td>ist gleich</td></tr>
+            <tr><td>!=</td><td>ist ungleich</td></tr>
+            <tr><td>===</td>
+              <td>ist gleich UND Datentyp identisch<br>
+                ACHTUNG: nicht in PHP!
+              </td>
+            </tr>
+            <tr><td>!==</td>
+              <td>ist ungleich UND Datentyp nicht identisch<br>
+                ACHTUNG: nicht in PHP!
+              </td>
+            </tr>
+            <tr><td>!</td><td>nicht</td></tr>
+            <tr><td>&&</td><td>UND-Verknüpfung</td></tr>
+            <tr><td>||</td><td>ODER-Verknüpfung</td></tr>
+          </table>
+        <h3 id="binaeroperatorenJS">Binäre Operatoren</h3>
+          <p>Die gibt es (meines Wissens) in PHP nicht.</p>
+          <p>Die Liste soll, wenn das Script von Web Professionals publiziert ist, ergänzt
+            werden. Kann aber, mangels Bedarf, wahrscheinlich sowieso vernachlässigt werden.</p>
+      </div>
+
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="sprachKonstrukteJS">Sprachkonstrukte JS<a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+        <p>Aufbau eines Kommandos:</p>
+        <ul>
+          <li>Anweisungen werden mit einem ';' (Semikolon) abgeschlossen. Im Gegensatz zu PHP
+            wäre das fakultativ - aber es ist eine gute Mode, es dennoch zu tun!</li>
+          <li>Ausser bei Konstrukten mit '{' und '}' (Loops, ifs, Funktionen ...)</li>
+        </ul>
+        <p>Beispiele:</p>
+        <p><code>var variable = wert;  // definieren einer Variable und gleichzeitige Wertzuweisung</code></p>
+        <pre><code>
+  if (variable == null) {
+      variable = wert;
+  }
+        </code></pre>
+        <p>Man beachte: Die Variablen werden im Gegensatz zu PHP ohne führendes '$' referenziert.</p>
+        <table>
+          <tr>
+            <th>Konstrukt</th><th>Erklärung</th>
+          </tr>
+          <tr><td>break [label];</td>
+            <td><p>Unterbricht eine Schlaufe komplett</p>
+              <p>[label]: 'breakt' die Switch- oder Loop-Anweisung, die den Label aufweist.
+                <a href="#beispielLabelJS">Siehe Beispiel.</a></p>
+              <p>ACHTUNG: PHP kennt [label] nicht - man kann mit einem Wert die Tiefe des Loops bestimmen!</p>
+            </td></tr>
+          <tr><td>continue [label];</td><td><p>Unterbricht eine Schlaufe und springt zum Schlaufenbeginn.</p>
+            <p>[label]: 'continuet' die Switch- oder Loop-Anweisung, die den Label aufweist.
+              <a href="#beispielLabelJS">Siehe Beispiel.</a>.</p>
+            <p>ACHTUNG: PHP kennt [label] nicht - man kann mit einem Wert die Tiefe des Loops bestimmen!</p>
+          </td></tr>
+          <tr><td>debugger</td><td><p>Hält an um zu debuggen, sofern ein Debugger vorhanden und (ggf.)
+            aktiviert ist.<br>Start Debugger in Chrome / Firefox: [F12]</p></td></tr>
+          <tr><td>for</td><td><p>Schlaufe: for ([initial]; [bedingung]; ['nachführen']) {}</p>
+            <p>[initial] entspricht der Initialisierung; Beispiel: $i = 0;</p>
+            <p>[bedingung] ist das Abbruchkriterium, wenn Wahr, dann wird die Schleife fortgesetzt! Beispiel:
+              $i < 10;</p>
+            <p>[nachführen]: Gelegenheit, den Zähler nachzuführen; Beispiel: $i++;</p>
+            <p>Beispiel:</p>
+            <pre><code>
+  for ($i = 0; $i < 10; $i++) {
+      // Schleife gibt 10 Absätze mit 0 bis 9 aus
+      console.log($i);
+  }
+                      </code></pre></td></tr>
+          <tr><td id="forIn">for in</td><td><p>Abarbeiten eines Arrays/Objektes über den Index/die Eigenschaft.</p>
+            <p>Beispiel Array:</p>
+            <pre><code>
+  var array = ["buick", "cadillac", "chevrolet", "oldsmobile", "pontiac"];
+  for (var item in array) {
+      console.log("item index: " + item + "; item-content: " + array[item]");
+  }
+            </code></pre>
+            <p>Output:<br>
+              item index: 0; item-content: buick
+              item index: 1; item-content: cadillac
+              item index: 2; item-content: chevrolet
+              item index: 3; item-content: oldsmobile
+              item index: 4; item-content: pontiac
+            </p>
+            <p>Beispiel Objekt</p>
+            <pre><code>
+  var object = {Marke_1: "buick", Marke_2: "cadillac", Marke_3: "chevrolet", Marke_4: "oldsmobile", Marke_5: "pontiac"};
+  for (var property in object) {
+        console.log("property: " + property + "; property-content: " + object[property]);
+  }
+            </code></pre>
+            <p>Output:<br>
+              property: Marke_1; property-content: buick
+              property: Marke_2; property-content: cadillac
+              property: Marke_3; property-content: chevrolet
+              property: Marke_4; property-content: oldsmobile
+              property: Marke_5; property-content: pontiac
+            </p>
+          </td></tr>
+          <tr><td>if</td><td><p>Bedingung</p>
+            <p>Mögliche Operatoren: Siehe <a href="#vergleichsoperatorenJS">Vergleichsoperatoren</a></p>
+            <p>Beispiel (umfangreich)</p>
+            <pre><code>
+  if (variable == "Gustav") {
+      echo "Gustav";  }
+  else {
+      echo "unbekannt"
+  }
+            </code></pre>
+            <p>Achtung: Im Gegensatz zu PHP gibt es in JS kein '<code>elseif</code>'</p>
+          </td></tr>
+          <tr><td>return</td><td><p>Für Funktionen: Beendet diese und gibt einen Wert zurück.</p></td></tr>
+          <tr><td>switch</td><td><p>Mehrfachverzweigung - am besten erklärt mit Beispiel:</p>
+            <pre><code>
+  switch (i) {
+      case 0:
+          echo "i ist gleich 0";
+          break;
+      case 1:
+          echo "i ist gleich 1";
+          break;
+      case 2:
+          echo "i ist gleich 2";
+          break;
+  }
+            </code></pre>
+            <p>'break;' veranlasst JS, den 'switch' zu verlassen - ansonsten würde weiter geprüft, was
+              mitunter erwünscht ist.</p>
+          </td></tr>
+          <tr><td>throw</td><td><p>Im Zusammenhang mit try / catch: Fehler generieren.</p>
+            <p>Beispiel:</p>
+            <pre><code>
+    try {
+        if(x == "") <span style="color: red;">throw</span> "is Empty";
+        if(isNaN(x)) <span style="color: red;">throw</span> "not a number";
+    }
+    catch(<span style="color: red;">err</span>) {
+        message.innerHTML = "Input " + <span style="color: red;">err</span>;
+    }
+            </code></pre>
+          </td></tr>
+          <tr><td>try / catch / finally</td><td><p>Versuche etwas in &apos;try&apos;... falls Fehler (oder ein
+            <code>throw</code> ausgeloest), wird  &apos;catch&apos; ausgeführt. Anschliessend wird - sofern
+            codiert - 'finally' ausgeführt (PHP kennt das nicht!)</p>
+            <pre><code>
+  try {
+      // versuche etwas
+  }
+  catch ($fehlerParameter){
+      // im Fehlerfall landen wir hier und können (re-) agieren
+      // &apos;&fehlerParameter&apos; ist individuell ...
+  }
+  finally {
+      // abschliessende statements
+  }
+            </code></pre>
+          </td></tr>
+          <tr><td>while / do ... while</td><td><p>Tue etwas bis ... widerum ein Beispiel:</p>
+            <p>Kopfgesteuert:</p><pre><code>
+  while (i != 3) {
+      i = 3;  // jetzt wird die Schlaufe abgebrochen
+  }
+            </code></pre>
+            <p>Fussgesteuert:</p><pre><code>
+  do {
+      i = 3;  // jetzt wird die Schlaufe abgebrochen
+  } while ($i != 3)
+            </code></pre>
+          </td></tr>
+        </table>
+        <h3 id="beispielLabelJS">Beispiel Loop mit Label</h3>
+        <div>
+          <p>Die Befehle <code>break></code> und <code>continue</code> können mit Labels
+            versehen werden, um einen bestimmten Loop anzusprechen (als Default wird der
+            aktuelle Loop angenommen). Funktioniert auch mit '<code>switch</code>' und
+            '<code>while</code>'</p>
+          <pre><code>
+  var i, i2;
+  first:
+  for (i = 0; i < 10; i++) {
+
+    if ((i % 2) > 0) {
+      continue first;   // nur wenn i gerade ist
+    }
+    second:
+    for (j = 0; j < 10; j++) {
+      if (i == 4) {
+        break second;   // wenn i 4 ist, diesen Loop abbrechen
+      }
+    }
+  }
+          </code></pre>
+        </div>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="variablenJS">Variablen <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+        <p>In JS werden die Variablen mit dem Schlüsselwort '<code>var</code>' deklariert. Würde man
+          das '<code>var</code>', wäre sie global. Die Variablen sind bis zur Zuweisung, welche auch
+          im '<code>var</code>'-Statement erfolgen kann, neutral. Der Typ wird erst durch die Zuweisung
+          spezifiziert.</p>
+        <p>So kann es sein, dass eine bisher nummerische Variable zu einem String wird, wenn diese mit
+          mit einem String konkateniert wird!</p>
+        <p>Eine variable kann verschiedene Werte in ihrem Life-Cycle annehmen - <span style="color: red">
+          wobei sich das nachstehende nicht nachvollziehen liess - es scheint, dass sie eher synonym
+          sind ...</span>:</p>
+        <ul>
+          <li><code>undefined</code>: Der deklarierten Variablen wurde noch nie ein Wert zugewiesen.</li>
+          <li><code>null</code>: Die Variable ist deklariert, aber hat keinen Wert (entspricht
+            '<code>undefined</code>' oder ihr wurde explizit '<code>null</code>' zugewiesen.</li>
+        </ul>
+        <h3 id="variablenNamenskonventionenJS">Namenskonventionen <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+        <div>
+          <ul>
+            <li>Die Namen (wie auch die der Funktionen) sind 'case senisitive', d.h., Gross-
+              /Kleinschreibung ist relevant!
+            </li>
+            <li>Der Namen muss mit einer der folgenden Auswahl beginnen:
+              <ul>
+                <li>Buchstabe (gross oder klein - eher klein, siehe 'Camel Case').</li>
+                <li>_ (Underscore)</li>
+                <li>$ (Dollar-Zeichen</li>
+              </ul>
+            </li>
+            <li>Die weiteren Zeichen sind:
+              <ul>
+                <li>Buchstaben (gross oder klein, siehe auch 'Camel Case').</li>
+                <li>_ (Underscore)</li>
+              </ul>
+            </li>
+            <li><p>Camel Case</p>
+                <p>Ist eine Usanz in JavaScript (und wahrscheinlich auch in PHP, wenn der gleiche Programmierer
+                  beides codiert). Statt Trennung der Wörter mit Sonderzeichen wird jeweils der erste Buchstabe
+                  eines neuen Wortes gross geschrieben:</p>
+                <ul>
+                  <li>einBeispiel</li>
+                  <li>nochEinBeispiel</li>
+                </ul>
+            </li>
+          </ul>
+        </div>
+        <h3 id="variablenTypenJS">Typen <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+        <table>
+          <tr><th>Type</th><th>Description</th></tr>
+          <tr><td>Boolean</td><td>... hat den Wert '<code>true</code>' oder '<code>false</code>'
+            ('<code>null</code>' ist auch möglich)</td>
+          </tr>
+          <tr><td>Number</td><th>Nummerisch</th></tr>
+          <tr><td>String</td><th>Zeichenkette</th></tr>
+          <tr><td>Null</td><th>nix</th></tr>
+          <tr><td>undefined</td><th>Undefiniert: deklarierte aber jungfräuliche Variable.</th></tr>
+          <tr><td>object</td><td>Variable repräsentiert ein Objekt</td></tr>
+          <tr><td>array</td><td>Liste - kein offizieller Typ, aber dennoch erwähnenswert, siehe
+            <a href="#ArrayJS">Arrays</a></td>
+          </tr>
+          <tr><td>Symbol (new in ECMAScript 6)</td><td>?</td></tr>
+        </table>
+        <h3 id="stringJS">Besonderheiten: String <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+        <div>
+          <p>Der Typ String scheint eine Art Objekt zu sein und stellt einige Methoden zur Verfügung.</p>
+          <table>
+            <tr>
+              <td>string[2]</td><td>Zeichen an Position 3 (erste Position = 0!)</td>
+            </tr>
+            <tr>
+              <td>string.indexOf(wert, [startPosition])</td>
+              <td>Liefert die Position, wenn 'wert' in String gefunden. Optional kann die 'startPosition'
+                mitgegeben werden. Wird der 'wert' nicht gefunden, ist das Resultat -1 (Achtung: Position 1 = 0!)
+              </td>
+            </tr>
+            <tr>
+              <td>string.length</td><td>Länge des String.</td>
+            </tr>
+            <tr>
+              <td>string.replace(toBeReplaced, replaceBy)</td><td>Ersetzen 'toBeReplaced' im String mit 'replaceBy'.</td>
+            </tr>
+            <tr>
+              <td>string.toLowerCase<br>string.toUpperCase</td><td>Gross-/Kleinschreibung.</td>
+            </tr>
+          </table>
+        </div>
+        <h3 id="stringKonstantenJS">Besonderheiten: String Konstanten<a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+        <div>
+          <p>Stringkonstanten können mit &apos; oder &quot; umrandet werden - Tipp: je nachdem, was im String
+            gebraucht wird, aussen anwenden.</p>
+          <p>Ein String kann sich nicht per se über mehrere Zeilen erstrecken - zwei Möglichkeiten:</p>
+            <ul>
+              <li>Mehrere Strings mit Konkatenation (+) verbinden</li>
+              <li>Am Ende der Zeile innerhalb des Strings ein &apos;\&apos; einfuegen</li>
+            </ul>
+          <p>Muss ein Zeilenbruch eingefügt werden, kann das mit der &apos;Escape-Sequenz&apos;
+            &apos;\n&apos; innerhalb des Strings erreicht werden.</p>
+          <p>Vielleicht gibt es noch mehr &apos;Escape-Sequenzen&apos;? Check with Google...</p>
+        </div>
+        <h3 id="ArrayJS">Besonderheiten: Array <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+        <div>
+          <p>Arrays sind indizierte Listen. Im Gegensatz zu PHP gibt es in JS nur indizierte Arrays.
+            Mit einem kleinen Kunstgriff kann aber ein 'assozierter' Array (in Form eines Objektes)
+            imitiert werden.</p>
+          <ul>
+            <li>Indizierter Array:
+              <pre><code>var array = ['Buick', 'Cadillac', 'Chevrolet', 'Oldsmobile', 'Pontiac'];</code></pre>
+              <p>Der erste Eintrag wird mit 0 indiziert.</p>
+            </li>
+            <li>Objekt (imitierter assozierter Array)
+              <p><code>var objekt = {gehoben: "Buick", luxus: "Cadillac", brotUndButter: "Chevrolet"};</code></p>
+              <p>Beispiel Referenz: <code>console.log("objekt.luxus: " + objekt.luxus);</code></p>
+            </li>
+          </ul>
+          <p>Vielleicht helfen die Beispiele unter <a href="#forIn">for ... in</a> ebenfalls.</p>
+          <p>Arrays sind auch eine Art (Standard-) Objekt und verfügen damit auch über einige Methoden:</p>
+          <table>
+            <tr><td>array.concat(array)</td>
+              <td>Gibt einen Array zurück, welcher den ersten Array (Methodenaufrufer) mit dem zweiten (Argument)
+                verbunden zurückgibt.
+              </td>
+            </tr>
+            <tr><td>array.includes(wert [, startIndex])</td>
+              <td>Gibt WAHR zurück, ist der Wert im Array enthalten - andernfalls FALSCH.
+              </td>
+            </tr>
+            <tr><td>array.indexOf(wert [, startIndex])</td>
+              <td><p>Gibt den ERSTEN Index zurück, wird der Wert im Array gefunden - andernfalls -1. Es kann mit 'startindex'
+                Der - eben - Index, ab welchem gesucht werden soll, angegeben werden.</p>
+                <p>Wichtig: Als Vergleichsmethode wird '===' angenommen, also der Wert und der Typ müssen stimmen!</p>
+              </td>
+            </tr>
+            <tr>
+              <td>array.length</td><td>Anzahl Elemente im Array.</td>
+            </tr>
+            <tr><td>array.pop()</td>
+              <td>Letztes Element eines Arrays entfernen. Als Resultat wird der Wert des 'gepoopten' Elments
+                zurückgegeben.
+              .</td>
+            </tr>
+            <tr><td>array.push(wert [, wert ...])</td>
+              <td>Wert hinter letztes Element eines Arrays anfügen. Als Resultat wird der Index des zuletzt
+                angefügten Elementes zurückgegeben.
+              </td>
+            </tr>
+            <tr>
+              <td>array.sort([vergleichsfunktion])</td>
+              <td>Sortiert einen Array. Standardmässig, also ohne Vergleichsfunktion wird aufsteigend sortiert.
+                Der Funktion werden zwei Paremeter mitgegeben. Der Sort nimmt dafür zwei zu vergleichende Array-
+                Elemente an.
+                <ul>
+                  <li>Ist das Reusltat negativ,  ist die Reichenfolge: a, b<li>
+                  <li>Ist das Resultat positiv, ist die Reihenflge b, a</li>
+                  <li>Ist das Resultat identisch, bleibt die Reihenfolge der beiden Elmente identisch.</li>
+                </ul>
+              </td>
+            </tr>
+            <tr><td>array.splice(elementStart, elementAnzahl [, elementNeu1 ...])</td>
+              <td>Löscht oder fügt  (je nach 'elementAnzahl' und 'elementNeuX' Elemente ab (inklusive)
+                'elementStart'. Ist zum Beispiel 'elementAnzahl' = 0 und neue(s) Element angegeben, wird das
+                neue Element nach Start 'elementStart' eingefügt. ist 'elmentAnzahl' > 0, wird die Anzahl
+                Elemente (mit 'elementStart') entfernt. Es kann auch gleichzeitig angefügt werden.<br>
+                Beispiel: <code>array.splice(3, 1, 'neuesItem')</code> gibt einen Array zurück, welcher
+                'neuesItem anstelle des 4. Elmentes einfügt (1. Elment = Index 0).
+              </td>
+            </tr>
+            <tr>
+              <td>array.toString()</td>
+              <td>Gibt die Elemente des Arrays als String, getrennt mit Kommas zurück</td>
+            </tr>
+          </table>
+          <p>Es gibt noch viele Methoden mehr ... vergleiche also auch mit dem Internet.</p>
+        </div>
+        <h3 id="datumJS">Datum <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+        <div>
+          <p>Das Datum in JS stellt, wie in PHP, die Anzahl Millisekunden seit 1. Januar 1970 dar..</p>
+          <p>Es gibt ein 'Standard-'-Klasse 'Date', welches viele Methoden zur Verfügung stellt. Dazu muss die
+            Klasse zuerst instanziert werden: <code>var datum = new Date()</code>.</p>
+          <p>Bei der Instanzierung können folgende Formate verarbeitet werden:</p>
+          <ul>
+            <li>heute = new Date()</li>
+            <li>zeitpunkt = new Date('August 1, 1291 20:00:00')</li>
+            <li>zeitpunkt = new Date('1291-8-1' [ + 'T20:00:00'])</li>
+            <li>zeitpunkt = new Date(1291, 8, 1 [, 20, 0, 0])</li>
+          </ul>
+          <table>
+            <tr>
+              <td>Date.get ...()</td>
+              <td><p>Gibt entsprechend den Wert zurück:</p>
+                <table>
+                  <tr><td>getDate</td><td>Tag des Monates</td></tr>
+                  <tr><td>getDay</td><td>Wochentag (Sonntag = 0)</td></tr>
+                  <tr><td>getFullYear</td><td>Jahr (mit Jahrtausend)</td></tr>
+                  <tr><td>getHourss</td><td>Stunden (0 bis 23)</td></tr>
+                  <tr><td>getMilliseconds</td><td>Millisekunden des Datums</td></tr>
+                  <tr><td>getMinutes</td><td>Minuten</td></tr>
+                  <tr><td>getMonth</td><td>Monat: 0 bis 11</td></tr>
+                  <tr><td>getSeconds</td><td>Sekunden</td></tr>
+                  <tr><td>getTime</td><td>Zeit des Datums</td></tr>
+                </table>
+                <p>Es gibt noch viele mehr ... goolge Internet ...</p>
+              </td>
+            </tr>
+            <tr>
+              <td>Date.Now()</td>
+              <td>Aktuelles Datum</td>
+            </tr>
+            <tr>
+              <td>Date.UTC(siehe Beschreibung)</td>
+              <td>Gibt ein Datum zurück<br>Parameter:<br>
+                year, month[, day[, hour[, minute[, second[, millisecond]]]]]</td>
+            </tr>
+          </table>
+          <p>Es gibt noch viele mehr ... goolge Internet ...</p>
+        </div>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="ausgabeMoeglichkeitenJS">JS: Ausgabemoeglichkeiten <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+        <table class="auflistung">
+          <tr>
+            <td>window.alert()</td>
+            <td>
+              <p>Nachrichten-Box</p>
+              <p>Beispiel:</p>
+              <p><code>
+                window.alert("Hello JavaScript-World");
+              </code></p>
+            </td>
+          </tr>
+          <tr>
+            <td>document.write()</td>
+            <td>
+                <p>Direkt ins HTML schreiben und zwar genau dort, wo das &lt;script&gt;-Tag
+                  ist.</p>
+                <p>Achtung:</p>
+                <p>Wird <code>document.write()</code>nach dem Laden von HTML angewendet (also JS
+                  am Schluss eingebunden), wird das HTML gelöscht (<span style="color:red">
+                  Wirklich?!?</span>). Also:
+                </p>
+                <p>- nur während des Ladens anwenden</p>
+                <p>- oder nur für temporäre Testzwecke</p>
+            </td>
+          </tr>
+          <tr>
+            <td>innerHTML</td>
+            <td>
+                <p>In ein HTML Element (siehe <a href="#DOMJS">DOM: Document Object Model</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td>console.log()</td>
+            <td>
+                <p>In die Console schreiben (sofern der Browser das unterstützt). Chrome und
+                  Firefox tun es:</p>
+                <p>Öffnen Konsole (Chrome, Firefox): <span style="color:green">F12</span></p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="DOMJS">DOM: Document Object Model <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+        <p>Das Document Object Model (DOM) widerspiegelt die HTML-Struktur im Browser. Das heisst
+          es können Elemente angesprochen werden und sogar Elemente entfernt oder hinzugefügt
+          werden.</p>
+        <h3 id="funktionenDOMJS">Wichtige Methoden/Eigenschaften <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+        <div>
+          <p>Nachfolgend wichtige Eigenschaften/Methoden des DOMs</p>
+          <table>
+            <tr>
+              <td>getElementById()</td>
+              <td>
+                <p>Element aus dem DOM mittels ID referenzieren (HTML: ID="id")</p>
+                <p>Beispiel:</p>
+                <pre><code>
+    var element;
+    element = document.getElementById("id");
+                </code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>getElementsByClassName()</td>
+              <td>
+                <p>HTML-Elemente aus dem DOM mittels Class referenzieren
+                  (HTML: class="className"). Gibt einen Array der gefundenen Elemente zurück.</p>
+                <p>Beispiel:</p>
+                <pre><code>
+    var elemente;
+    elemente = document.getElementByClassName("classname");
+                </code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>getElementsByClassName()</td>
+              <td>
+                <p>HTML-Elemente aus dem DOM mittels CSS-Selektor referenzieren. Gibt einen
+                  Array der gefundenen Elemente zurück. Als Argument können mehrere
+                  CSS-Selektoren, getrennt mit Komma, mitgegeben werden.</p>
+                <p>Beispiel: <span style="color: red;">Beispiel lief bei mir nicht!</span></p>
+                <pre><code>
+    var elemente;
+    elemente = document.querySelector(".classname");
+                </code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>innerHTML</td>
+              <td>
+                <p>Zuweisen von HTML-Code zu einem Element.</p>
+                <p>Beispiel:</p>
+                <pre><code>
+    var element = Document.getElementById("id");
+    element.innerHTML = "&lt;span style=&quotcolor: red;&quot&gt;text&lt;/span&gt;";
+                </code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>value</td>
+              <td>
+                <p>Repräsentiert den Wert eines Elementes (Eingabefeldes).</p>
+                <p>Beispiel:</p>
+                <pre><code>
+    var element = Document.getElementById("id");
+    var eingabe = element.value;
+                </code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>focus()</td>
+              <td>
+                <p>Setzt den Fokus oder Cursor auf ein Element.</p>
+                <p>Beispiel:</p>
+                <pre><code>
+    Document.getElementById("id").focus();
+                </code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>style</td>
+              <td>
+                <p>Zuweisen von CSS-Code zu einem Element.</p>
+                <p>Beispiel:</p>
+                <pre><code>
+    var element = Document.getElementById("id");
+    element.style = "color: red;";
+                </code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>className</td>
+              <td>
+                <p>Repräsentiert die Klasse eines HTML-Elementes.</p>
+                <p>Beispiel:</p>
+                <pre><code>
+    var element = Document.getElementById("id");
+    element.className = "CSSKlassenIdentifikation";
+                </code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>createElement(HTML-Tag)</td>
+              <td>
+                <p>Erstellen eines neuen HTML-Elementes. Als Argument wird der HTML-Tag
+                  mitgegeben.</p>
+                <p>Beispiel:</p>
+                <pre><code>
+    var element = document.createElement('div');
+                </code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>appendChild()</td>
+              <td>
+                <p>Fügt einem HTML-Element ein (mit createElement() zu erstellendes) HTML
+                  Element an.</p>
+                <p>Beispiel:</p>
+                <pre><code>
+    // erstellen HTML-Element
+    var element = document.createElement('div');
+    // anfuegen (body kann im DOM direkt angesprochen werden)
+    document.body.appendChild(element);
+                  </code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>removeChild()</td>
+              <td>
+                <p>Entfernt ein HTML-Element von seinem Parent-HTML-Element.</p>
+                <p>Beispiel:</p>
+                <pre><code>
+    // Element bestimmen
+    var element = Document.getElementById("id");
+    // anfuegen (body kann im DOM direkt angesprochen werden)
+    document.body.removeChild(element);
+                </code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>addEventListener(eventType, function)</td>
+              <td>
+                <p>eventType: Eine schier endlose Liste von möglichen Events, die als String-Konstante
+                  angegeben werden kann. Einige Beispiele:
+                </p>
+                <table>
+                  <tr><td>'load'</td><td>Element hat laden abgeschlossen (Document: Der HTML-Code ist
+                    geladen/aufgebaut).</td></tr>
+                  <tr><td>'focus'<br>'blur'</td><td>Das Element hat den Fokus erhalten/verloren.</td></tr>
+                  <tr><td>'submit'<br>'reset'</td><td>Der Submit-/Reset-Button wurde ausgelöst.</td></tr>
+                  <tr><td>'beforeprint'<br>'afterprint'</td><td>Der Druckdialog wurde aufgerufen. </td></tr>
+                  <tr><td>'resize'</td><td>Das Element wurde in der Grösse geändert.</td></tr>
+                  <tr><td>'scroll'</td><td>Das Element wurde 'gescrollt'. </td></tr>
+                  <tr><td>'cut'<br>'copy'<br>'copy'</td><td>Verarbeitung einer Selektion </td></tr>
+                  <tr><td>'keydown'<br>'keyup'</td><td>Eine Taste wurde gedrückt / released </td></tr>
+                  <tr><td>'click'<br>'dblclick'</td><td>Mausklicks</td></tr>
+                  <tr><td>'mouseenter'</td><td>Das Element wird von der Maus 'überfahren'. </td></tr>
+                </table>
+                <p>And many more ... siehe <a href="https://developer.mozilla.org/en-US/docs/Web/Events">
+                  https://developer.mozilla.org/en-US/docs/Web/Events</a>
+                </p>
+                <p>function: Hinzufuegen einer Funktion, die auf einen Event reagiert. Eine 'anonyme' Funktion
+                  wäre eine, wenn die Funktion gleich auscodiert werden würde (was Sinn macht, wenn
+                  die Funktion exklusive dem Event zugeordnetw werden kann.</p>
+                <p>Beispiel:</p>
+                <pre><code>
+    // Element bestimmen
+    var element = Document.getElementById("id");
+    // Listener installieren
+    element.addEventListener('click', document.alert("Autsch! Du hast mich geklickt!"))
+    // anfuegen (body kann im DOM direkt angesprochen werden
+    document.body.addChild(element);
+                </code></pre>
+                <p>Beispiel - installieren Funktion, welche nach Abschluss Laden HTML aufgerufen wird:</p>
+                <pre><code>
+    // warten bis HTML geladen und dann eigene Function init() starten
+    document.addEventListener('DOMContentLoaded', init);
+                </code></pre>
+              </td>
+            </tr>
+
+          </table>
+        </div>
+      </div>
+
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="funktonenJS">Funktionen <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+        <p>bla, bla, bla</p>
+
+        <h3 id="functionDeklarationJS">Deklarationt <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+        <div>
+          <pre><code>
+    function([parameter | optionalParameter = defaultvalue, ...]) {
+        anweisungen;
+        [....;]
+        return rückgabewert;
+    }we
+          </code></pre>
+        </div>
+        <h3 id="anonymeFunctionJS">Anonyme Function <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+        <div>
+          <p>Anonyme Funktionen sind Funktionen, die nur einmal definiert werden und auch nur einmal
+            referenziert werden. Sie sind eigentlich nicht wirklich nützlich - ausser evt. im
+            Zusammenhang mit Callback Functions.</p>
+          <p>Triviales Beispiel:</p>
+          <pre><code>
+    &lt;button onclick=&quot;function () { window.alert(&apos;button geklickt!&apos;) }&quot;&gt
+    klick mich!
+    &lt;/button&gt;
+          </code></pre>
+        </div>
+        <h3 id="callbackFunctionJS">Callback Function <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+        <div>
+          <p>Callback Functions sind Funktionen, die einer Funktion als Parameter mitgegeben werden und
+            in dieser Funktion dann auch verwendet werden.</p>
+          <p>Diese werden oft verwendet. Beim Event-Handling beispielsweise. Oder speziel im Zusammenhang
+            mit asynchronen Prozessen wie <a href="#ajaxJS">AJAX / XMLHttpRequest</a>.</p>
+          <p>Triviales Beispiel</p>
+          <pre><code>
+
+    // Definition der Callback Function
+    function callbackFunction(arg1) {
+        console.log(&quot;Argument: &quot;, arg1);
+    }
+
+    // Definition der Function, welche Callback als Argument erhält und benutzt
+    function usingCallbackFunction(callbackFunctionAsArg) {
+        callbackFunctionAsArg("Das soll via callbackFunction ausgegeben werden!");
+    }
+
+    // Ausfuehren der Funktion, welche die Callback Funktion ausführt
+    usingCallbackFunction(callbackFunction);
+
+          </code></pre>
+        </div>
+        <h3 id="coolefunktionenJS">Interessante Funktionen <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+        <div>
+            <table>
+                <tr>
+                  <td>typeof(variable)</td>
+                  <td><p>Ermitteln Art der Variable - returns:</p>
+                    <table>
+                      <tr>
+                        <td>string</td><td> &apos;string&apos;</td>
+                        <td>number</td><td> &apos;number&apos;</td>
+                        <td>boolean</td><td> &apos;boolean&apos;</td>
+                        <td>object /  (auch bei Arrays)</td><td> &apos;object&apos;</td>
+                        <td>function</td><td> &apos;function&apos;</td>
+                        <td>undefined</td><td> &apos;undefined&apos;</td>
+                        <td>null</td><td> &apos;object&apos</td>
+                        <td>alle anderen</td><td> &apos;object&apos</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td>variable.length</td>
+                  <td><p>Gibt die Länge bzw. Anzahl  Elemente eines Array zurück; Funktioniert nur mit Strings
+                    und Arrays.</p></td>
+                </tr>
+            </table>
+        </div>
+      </div>
+
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="ajaxXMLHttpRequestJS">AJAX / XMLHttpRequest <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+        <p>AJAX bzw. XMLHTTPRequest sind Methoden, um mit dem Server Daten auszutauschen, ohne dass die
+          ganze Seite konstruiert werden muss. Wobei AJAX ein Begriff aus jQuery ist, aber grundsätzlich
+          auf JavaScript und XMLHttpRequest basiert.</p>
+        <p>Die Idee ist, dass man eine HTTP-Adresse aufruft (also zum Beispiel ein php-File, welches auf
+          den Aufruf zugeschnitten ist) und wartet auf das Resultat. Das Resultat wird dann wie mit dem
+          Server vereinbart interpretiert in JavaScript (und DOM-Manipulations). Die Vereinbarung erfolgt
+          natürlich zwischen dem Client-Entwickler und dem Backend-Entwickler statt.</p>
+        <p>Häufig werden als Datenstrukturen JSON-Formate verwendet - was eine minimale Normierung der
+          Schnittstelle bedeutet (allerdings kommt es auf den Inhalt an und der muss ja dann doch wieder
+          vereinbart werden ...).</p>
+        <p>Besonders Wichtig ist das Wissen: Es handelt sich um eine asynchrone Funktion, das heisst, der Code
+          läuft weiter (sofern vorhanden) und wartet nicht auf die Antwort - ausser es ist z.Bsp. mit einer
+          sogenannten Callback-Function abgefangen (siehe dazu folgende Beispiele).</p>
+        <h3 id="ajaxJS">AJAX (jQuery) <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+        <div>
+          <p>Beispiel:</p>
+          <pre><code>
+
+    // init startet, wenn das DOM geladen ist
+    function init() {
+       // aufruf ajax
+       callAJAXByJQuery(onDoneAjax)
+    }
+
+    // callback: Was machen, wenn AJAX geladne
+    function onDoneAjax(result) {
+
+        console.log("result: ", result);
+    }
+
+    // AJAX-Call (mit callback 'onDoneAjax' als Argument
+    function callAJAXByJQuery(onDoneAjax) {
+        // AJAX by JQuery
+        $.ajax({
+            type: 'GET',    // funzt aber auch ohne
+            method: 'GET',  // funzt aber auch ohne (identisch mit 'tyoe:'?
+            // url bestimmt die adresse bzw., was vom Server ausgelöst werden soll
+            url: 'https://jsonplaceholder.typicode.com/todos'
+        })
+        .done( function ( data ) {
+            // verarbeiten, was zurückgekommen ist (ist in der variable 'data' gespeichert
+            // hier kommmt die callback-function zum zug
+            onDoneAjax(data);
+        });
+    }
+
+    // warte bis HTML geladen und dann f    unction init()
+    document.addEventListener('DOMContentLoaded', init);
+
+          </code></pre>
+        </div>
+        <h3 id="XMLHttpRequestJS">XMLHttpRequest (JS) <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+        <div>
+          <p>Beispiel:</p>
+          <pre><code>
+
+    // Parameter
+    var param = {
+        // Adresse für Daten
+        urlDestination: "https://jsonplaceholder.typicode.com/todos"
+    };
+
+    // Variablen
+    var result = {};
+
+    // Wird aufgerufen, wenn HTML geladen
+    function init() {
+
+        // button
+        // &lt;button&gt; on-click-event hinzufuegen; funktion doIt()
+        document.getElementById("doIt").addEventListener("click", doIt_clicked);
+    }
+
+    // Aktion auf Button
+    function doIt_clicked(ev) {
+        ev.preventDefault();
+        console.log("url in click: ", param.urlDestination);
+        callAJAXByJS(param.urlDestination, onDoneAjax);
+
+    }
+
+    // callback-Function, wenn Daten erhalten
+    function onDoneAjax(result) {
+
+        console.log("resultat: ", result);
+
+    }
+
+    // Aufruf XMLHttpRequest
+    function callAJAXByJS(reqestedURL, onDoneAjax) {
+
+        var xhr = new XMLHttpRequest();
+
+        console.log("doin'  ");
+
+        xhr.open("get", reqestedURL , true);
+
+        // Define function
+        xhr.onreadystatechange = function () {
+            var status;
+            var data;
+            if (xhr.readyState == 4) { // done
+                status = xhr.status;
+                if (status == 200) {
+                    data = JSON.parse(xhr.responseText);
+                    onDoneAjax(data);
+                }
+                else {
+                    console.log("Error on AJAXJS - Status: ", status);
+                }
+
+            }
+            else {
+                console.log("xhr.readyState: ", xhr.readyState)
+            }
+        };
+        // ... and: ACTION!
+        xhr.send();
+    }
+
+    // warte bis HTML geladen und dann function init()
+    document.addEventListener('DOMContentLoaded', init);
+
+          </code></pre>
+          <p>Beispiel mit Senden Parameter:</p>
+          <pre><code>
+
+    var http = new XMLHttpRequest();
+    var url = "get_data.php";
+    var params = "lorem=ipsum&name=binny";
+
+    http.open("POST", url, true);   // Methode Post
+
+    //Send the proper header information along with the request
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    http.onreadystatechange = function() {//Call a function when the state changes.
+      if(http.readyState == 4 && http.status == 200) {
+      // Antwort da (hier koennte/sollte der callback programmiert werden).
+          alert(http.responseText);
+      }
+    }
+    http.send(params);
+
+          </code></pre>
+        </div>
+      </div>
+
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="coolesWeiteresJS">Cooles <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+        <p>Hier sind interessante Code-Schnipsel aufgelistet, die das Leben erleichtern moegen / koennen.</p>
+        <h3 id="getOwnFileNameJS">Aktueller Filename ermitteln</h3>
+        <div>
+          <p>Es kann nötig sein, zu ermitteln, wo das JS aufgerufen wird (zum Beispiel als Absender).
+            Folgender Aufruf liefert den Filenamen (ohne Pfad!):</p>
+            <pre><code>
+    var waAre = location.pathname.substring(location.pathname.lastIndexOf('/')+1);
+            </code></pre>
+            <p>Den Geuebteren unter uns wird es nicht schwerfallen, mit Hilfe des Beispieles den Pfad heraus
+              zu kitzeln.</p>
+        </div>
+      </div>
+
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="jqueryJS">jQuery: A JavaScript Library <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+        <p>jQuery ist eigentlich eine komfortable Library, welches vieles bequemer handhaben lässt, als es
+          JavaScript tut. Wobei JavaScript holt auf.</p>
+        <p>jQuery hat noch einen Vorteil: Bei den vielen Browsern ist - war zumindest früher - jQuery eine
+          gute Möglichkeit den Code einzigartig zu halten und jQuery hat im Hintergrund die Differenzen
+          der Interpretationen von JavaScript &apos;ausgebügelt&apos;.</p>
+        <h3 id="methodsJQueryJS">methoden <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+        <div>
+        </div>
+      </div>
+      <!-- H2 --------------------------------------------------------------- -->
+      <h2 id="undefined">undefined <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+        <p>bla, bla, bla</p>
+        <h3 id="undefinedEither2">auch undefiniert <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+        <div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
