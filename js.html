@@ -221,12 +221,15 @@
             aktiviert ist.<br>Start Debugger in Chrome / Firefox: [F12]</p></td></tr>
           <tr><td>for</td><td><p>Schlaufe: for ([initial]; [bedingung]; ['nachführen']) {}</p>
             <p>[initial] entspricht der Initialisierung; Beispiel: $i = 0;</p>
-            <p>[bedingung] ist das Abbruchkriterium, wenn Wahr, dann wird die Schleife fortgesetzt! Beispiel:
-              $i < 10;</p>
+            <p>[bedingung] ist das Abbruchkriterium, <span style="color: red; font-weight: bold;">solange Wahr, wird die
+                 Schleife fortgesetzt!</span> Beispiel:
+              <span style="color: red;">(</span>$i < 10<span style="color: red;">)</span>;</p>
+            <p style="color: red;">Ich bin mir nicht sicher - aber ich glaube, es ist von Vorteil, die Bedingung in
+              Klammern zu setzen.</p>
             <p>[nachführen]: Gelegenheit, den Zähler nachzuführen; Beispiel: $i++;</p>
             <p>Beispiel:</p>
             <pre><code>
-  for ($i = 0; $i < 10; $i++) {
+  for ($i = 0; ($i < 10) ; $i++) {
       // Schleife gibt 10 Absätze mit 0 bis 9 aus
       console.log($i);
   }
