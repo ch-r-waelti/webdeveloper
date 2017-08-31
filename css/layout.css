@@ -115,6 +115,10 @@ li {
 .i1 {
     margin-left: 5%;
 }
+. important {
+    color: red;
+    font-weight: bold;
+}
 .resultat {
     width: 90%;
     margin-left: 5%;

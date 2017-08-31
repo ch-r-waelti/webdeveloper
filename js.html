@@ -859,6 +859,34 @@
         <div>
             <table>
                 <tr>
+                  <td>isNaN(feld)</td>
+                  <td><p>'is not a number': Gibt Wahr zurück, wenn 'feld' nicht numerisch.</p></td>
+                </tr>
+                <tr>
+                  <td>haystack.indexOf(needle)</td>
+                  <td><p>zwei varianten:</p>
+                      <ul>
+                        <li>'haystack' ist ein String: gibt die Position von 'needle' zurück (1. Position = 0!)</li>
+                        <li>'haystack' ist ein Array (kein Objekt!): Gibt den Index von 'needle' zurück.</li>
+                      </ul>
+                    <p>In beiden Fällen gilt:</p>
+                    <ul>
+                      <li>Notfound: Es kommt -1 zurück.</li>
+                      <li>1. Position hat den Wert 0!!</li>
+                    </ul>
+                    <p><span style="color: red; font-weight: bold;">Use this instead of 'str.Search()'!!</span>; hat
+                      Muehe mit Sonderzeichen!</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>isNaN(feld)</td>
+                  <td><p>'is not a number': Gibt Wahr zurück, wenn 'feld' nicht numerisch.</p></td>
+                </tr>
+                <tr>
+                  <td>object.hasOwnProperty(needle)</td><td>Prueft, ob 'needle' als Property in 'object' vorhanden:
+                  True, wenn vorhanden</td>
+                </tr>
+                <tr>
                   <td>typeof(variable)</td>
                   <td><p>Ermitteln Art der Variable - returns:</p>
                     <table>
