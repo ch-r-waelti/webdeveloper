@@ -86,6 +86,7 @@
         <ul>
           <li><a href="#mySqlInsertPHP">Insert</a></li>
           <li><a href="#mySqlPasswortSchutzPHP">Passwortschutz</a></li>
+          <li><a href="#mySqlDateNullValuePHP">Null-Value for dates</a></li>
         </ul>
         </li>
       </ul>
@@ -751,6 +752,30 @@ while ($i != 3) {
                   <li><p>Zerstören Session</p>
                       <p><code>session_destroy();</code></p>
                   </li>
+                  <li>Interessante Variablen
+                    <table>
+                      <tr><td>session_cache_expire</td><td>Zeigt, wie lange eine Session gueltig ist (Default in Minuten: 180)
+                        Sie kann auch veraendert werden.</td>
+                      </tr>
+                      <tr><td>session_save_path</td><td>Pfad auf dem Server, wo die $_SESSION-Daten stecken.</td></tr>
+                      <tr><td></td><td></td>
+
+                      </tr>
+                      <tr><td>session_id</td><td>ID genau der Session (ist nicht gesetzt, wenn keine Session).</td></tr>
+                      <tr><td>session_cache_limiter</td><td><p>Hab ich nicht ganz begriffen - hierd der Originaltext</p>
+                        <p>specifies the cache control method used for session pages. It may be one of the following
+                          values:</p>
+                        <ul>
+                          <li>nocache (Default)</li>
+                          <li>private</li>
+                          <li>private_no_expire</li>
+                          <li>public</li>
+                        </ul>
+                        <p>See also the session_cache_limiter() documentation for information about what these values
+                          mean.</p></td>
+                      </tr>
+                    </table>
+                  </li>
               </ul>
           </div>
       </div>
@@ -833,6 +858,8 @@ while ($i != 3) {
               <tr><td>substr($heystack, $start, [$length]);</td><td><p>Gibt einen Teil des Quellstrings 'Heystack'
                 zurück ... sollte selbstsprechend sein.</p></td></tr>
               <tr><td>var_dump($variable);</td><td><p>&quot;Dumpt&quot; eine Variable/Objekt.</p></td></tr>
+            <tr><td>var_export($variable);</td><td><p>&quot;Dumpt&quot; eine Variable/Objekt, etwas schoener als
+                <code>'var_dump()</code>.</p></td></tr>
           </table>
       </div>
       <!-- H2 --------------------------------------------------------------- -->
@@ -1235,29 +1262,34 @@ else {
                   </code></p>
               <h4>execute()</h4>
               <p><code>
-                  $conn-&gt;execute(array(<span style="color: red">&apos;:vorname&apos;</span>
-                  =&gt; &apos;Max&apos;, <span style="color: red">&apos;:nachname&apos;</span>
-                  =&gt; &apos;Mustermann&apos;));
+                $conn-&gt;execute(array(<span style="color: red">&apos;:vorname&apos;</span>
+                =&gt; &apos;Max&apos;, <span style="color: red">&apos;:nachname&apos;</span>
+                =&gt; &apos;Mustermann&apos;));
               </code></p>
               <h4>Alternativ: bindParam()</h4>
               <p><code>
-                  $conn-&gt;bindParam(<span style="color: red">&apos;:vorname&apos;</span>,
-                  &apos;Max&apos;, PDO::PARAM_STR, 12,
-                  <span style="color: red">&apos;:nachname&apos;</span>, &apos;Mustermann&apos;
-                  , PDO::PARAM_STR, 12);<br>
-                  $conn-&gt;execute();
+                $conn-&gt;bindParam(<span style="color: red">&apos;:vorname&apos;</span>,
+                &apos;Max&apos;, PDO::PARAM_STR, 12,
+                <span style="color: red">&apos;:nachname&apos;</span>, &apos;Mustermann&apos;
+                , PDO::PARAM_STR, 12);<br>
+                $conn-&gt;execute();
               </code></p>
-              <h4>indiziert statt assoziativ</h4>
-              <p>Es gäbe auch noch die Variante, dass man indiziert arbeitet. Also statt der
-                  assoziativen Begriffe <code><span style="color: red">&apos;:vorname&apos;</span></code>
-                  und <code><span style="color: red">&apos;:nachname&apos;</span></code> Fragezeichen
-                  verwendet und diese indiziert in der Reihenfolge anspricht:</p>
-              <p><code>$conn = DB::get()-&gt;prepare(&quot;SELECT * FROM user WHERE name =
-                  <span style="color: red">?</span> AND lastname =
-                  <span style="color: red">?</span>&quot;);<br>
-                  $conn-&gt;execute(<span style="color: red">array(&apos;Max&apos;,
-                      &apos;Mustermann&apos;)</span>);</code></p>
-              <p><strong>Die assoziative Variante ist vorzuziehen!</strong></p>
+                <h5>indiziert statt assoziativ</h5>
+                <p>Es gäbe auch noch die Variante, dass man indiziert arbeitet. Also statt der
+                    assoziativen Begriffe <code><span style="color: red">&apos;:vorname&apos;</span></code>
+                    und <code><span style="color: red">&apos;:nachname&apos;</span></code> Fragezeichen
+                    verwendet und diese indiziert in der Reihenfolge anspricht:</p>
+                <p><code>$conn = DB::get()-&gt;prepare(&quot;SELECT * FROM user WHERE name =
+                    <span style="color: red">?</span> AND lastname =
+                    <span style="color: red">?</span>&quot;);<br>
+                    $conn-&gt;execute(<span style="color: red">array(&apos;Max&apos;,
+                        &apos;Mustermann&apos;)</span>);</code></p>
+                <p><strong>Die assoziative Variante ist vorzuziehen!</strong></p>
+                <h5>Testhilfe: debugDumpParams()</h5>
+                <p>Das mit diesen methoden modifizierte Sql-Statement kann nicht (wirklich) abgegriffen werden. Aber zu
+                  Testzwecken kann es mit <code>debugDumpParams()</code> analog z.B. var_dump ausgegeben werden (ohne,
+                  dass es etwas zurückgeben würde!).</p>
+                <p><code>$conn-&gt;debugDumpParams()</code></p>
           </div>
       </div>
       <!-- H2 --------------------------------------------------------------- -->
@@ -1317,6 +1349,17 @@ else {
             <p><img src="pics/berechtigungMySql_Passwort.jpg" height="287" width="736"/></p>
             <h4>Set Password</h4>
             <p><code>UPDATE mysql.user SET Password=PASSWORD('customerpassword') WHERE User='customer';</code></p>
+          </div>
+          <h3 id="mySqlDateNullValuePHP">Null-Value for dates <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h3>
+          <div>
+            <p>Auch ein Stolperstein, der mich Stunden kostete und deshalb hier seinen Niederschlag findet. Der Trick
+              mit MySql auch Datum als Null-Werte schreiben und abfragen zu koennen:</p>
+            <p>Setzt man ein MySql datetime-Feld auf NULL resultiert daraus '0000-00-00 00:00:00'. Damit kann man aber
+              nicht auf NULL abfragen. Auch nicht mit <code>is_null()</code>.</p>
+            <p><code>date('Y-m-d H:i:s', null)</code> gibt hingegen '1970-01-01 00:00:00', was immerhin reproduzierbar
+              ist.</p>
+            <p style="color: red;">Deshalb mein Tipp: Datumsfelder in MySql (formatgerecht) mit
+              <code style="color: black ;">date('Y-m-d H:i:s', null)</code> initalisieren.</p>
           </div>
       </div>
 
