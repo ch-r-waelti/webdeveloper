@@ -27,6 +27,7 @@
         <li><a href="#einleitungPHP">PHP Einleitung</a></li>
         <li><a href="#einfachesBeispielPHP">Einfaches Beispiel</a></li>
         <li><a href="#externesFilePHP">Externer PHP-Code</a></li>
+        <li><a href="#testHilfenPHP">Tipps zum Testen/Entwickeln</a></li>
         <li><a href="#operatorenPHP">Operatoren</a></li>
         <li><a href="#sprachKonstruktePHP">Sprachkonstrukte PHP</a></li>
         <li><a href="#variablenPHP">Variablen</a>
@@ -158,6 +159,40 @@
             nach unten interpretiert und nicht kompiliert! - Der Vollständigkeit halber: Funktionen im gleichen
             File müssen nicht unbedingt vor dem ersten Aufruf definiert werden. Wie man damit umgeht, ist wohl
             eine persönliche Stilfrage).</p>
+      </div>
+      <h2 id="testHilfenPHP">Tipps zum Testen/Entwickeln <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
+      <div>
+        <p>Entwickeln und Testen kann zur pain in the ass werden - ich rede aus Erfahrung. Das beginnt beim Finden
+          des relevanten php.ini und hoert auf bei den komplexen Client/Server-Funktionen, welches (aktueller
+          Wissensstand) nicht vernünftig 'debugged' werden kann. Deshalb hier die wichtigsten Hinweise:</p>
+        <h3 >php.ini: display_errors</h3>
+        <div>
+          <p>Statt lange Zeit damit zu verschwenden, das richtige php.ini-File zu finden (ich habe immernoch keine
+            sichere Auskunft, wo bei MAMP das richtige liegt), koennen Parameter auch manuell mit der Funktion
+            <code>ini_set(parametername)</code> gesetzt werden. Der wichtigste: &apos;display_errors&apos; - er gibt
+            in der Browserkonsole PHP-Fehler aus.</p>
+          <p>Wichtigste Parameter (im Zweifelsfall &apos;googeln&apos; oder im php.ini gucken):</p>
+          <table><tr><td>display_errors</td><td>Anzeigen PHP-Fehler in Browser (Konsole). Werte: &apos;ON&apos;,
+              &apos;Off&apos;</td></tr>
+            <tr><td>error_reporting</td><td>Welche Fehler anzeigen? Empfehlung: &apos;E_ALL&apos;</td></tr>
+            <tr><td>SMTP</td><td>Mail-Server</td></tr>
+            <tr><td>smtp_port</td><td>Port Mail-Server: Da gibt es verschiedene, je nach Verschlüsselung. In MAMP ist,
+              glaube ich, nur 25 supported (keine Verschlüsselung). Muss zu SMTP passen!</td></tr>
+            <tr><td>sendmail_from<td>Mailadresse des Absenders.</td></tr>
+          </table>
+        </div>
+        <h3>Ausgabemöglichkeiten</h3>
+        <div>
+          <p>Ebenfalls kompliziert. Mit <code>echo</code> ist die prinzipielle Ausgabe ins Resultatfile, welches dann
+            an den Client gesandt wird. Normalerweise wird HTML-Code ausgegeben. Aber es kann ggf. als auch fuer anderes
+            missbraucht werden.</p>
+          <p> Weitere Möglichkeiten:</p>
+          <p><code>var_dump</code> und <code>var_export</code>: Damit koennen Inhalte von Variablen ausgegeben werden
+            (normalerweise in der Entwicklerkonsole des Browsers (&apos;google&apos; für entsprechenden Browser;
+            Stichworte: &apos;Developper Tools&apos;, &apos;Entwicklertools&apos; ... oder so ...)</p>
+          <p>Ein Spezialfall bei PDO (siehe auch weiter unten - hier nur der Vollständigkeit erwähnt): <code>
+            debugDumpParams()</code>.</p>
+        </div>
       </div>
       <h2 id="operatorenPHP">Operatoren <a href="#Inhalt">(zum Inhaltsverzeichnis)</a></h2>
       <div>
@@ -736,6 +771,7 @@ while ($i != 3) {
                   von 4 KB nur bedingt relevant.</p>
               <p>Die Session muss gestartet werden und kann auch zwischenzeitlich gestoppt bzw. zurückgesetzt
                   werden. Die Id kann ermittelt oder gesetzt werden - was aber im Grunde genommen nicht nötig ist.</p>
+              <p style="color: red;">Bevor auf $_SESSION zugegriffen werden kann, muss die Session gestartet werden!</p>
               <ul>
                   <li><p>Re-/Starten Session </p>
                       <p><code>session_start();</code></p>
@@ -857,6 +893,10 @@ while ($i != 3) {
               <tr><td>strtotime($date);</td><td><p>Versucht ein 'plausibles' Datum zu einem Unix-Timestamp umzuwandeln.</p></td></tr>
               <tr><td>substr($heystack, $start, [$length]);</td><td><p>Gibt einen Teil des Quellstrings 'Heystack'
                 zurück ... sollte selbstsprechend sein.</p></td></tr>
+              <tr><td>unset($variable);</td><td><p>&apos;Loeschen&apos; einer Variable - sie kann dann mit <code>
+                isset()</code> entsprechend abgefragt werden</p>
+                <p>Tipp: Verwenden um Array-Elemente zu &apos;entfernen&apos;.</p>
+              </td></tr>
               <tr><td>var_dump($variable);</td><td><p>&quot;Dumpt&quot; eine Variable/Objekt.</p></td></tr>
             <tr><td>var_export($variable);</td><td><p>&quot;Dumpt&quot; eine Variable/Objekt, etwas schoener als
                 <code>'var_dump()</code>.</p></td></tr>
